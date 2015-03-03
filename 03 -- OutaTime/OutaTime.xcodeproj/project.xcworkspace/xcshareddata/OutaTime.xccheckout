@@ -12,17 +12,13 @@
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
 		<string>https://www.github.com/joerocca/TIYAssignments.git</string>
-		<key>D1A3273CDC7322DA7B6775606D3F82C42F3D3D3C</key>
-		<string>https://github.com/TheIronYard--Orlando/iOS--2015--SPRING.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Homework/03 -- OutaTime/OutaTime.xcodeproj</string>
+	<string>03 -- OutaTime/OutaTime.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
-		<string>../../../..</string>
-		<key>D1A3273CDC7322DA7B6775606D3F82C42F3D3D3C</key>
-		<string>../../../../../iOS--2015--SPRING</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://www.github.com/joerocca/TIYAssignments.git</string>
@@ -32,14 +28,6 @@
 	<string>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D1A3273CDC7322DA7B6775606D3F82C42F3D3D3C</string>
-			<key>IDESourceControlWCCName</key>
-			<string>iOS--2015--SPRING</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

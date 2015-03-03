@@ -61,7 +61,7 @@
     //
     // 4. Once created, the formatString you see below needs to be set as the date formatter's dateFormat
     //
-    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMddyyyy"
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:@"MMMM ddyyyy"
                                                              options:0
                                                               locale:[NSLocale currentLocale]];
     
@@ -148,7 +148,7 @@
     //
     //    NOTE: !NO below is just a placeholder.
     //
-    if (!speedTimer)
+    if (!speedTimer) //if speed is not instanciated
     {
         //
         // 15. Below is an example of a timer being instantiated with a particular interval and firing a particular
@@ -216,7 +216,7 @@
         // 21. Then we need to update the lastTimeDepartedLabel with the value of the presentTimeLabel.
         //
         
-        self.lastTimeDepartedLabel.text = self.presentTimeLabel.text;
+        self.lastTimeDepartedLabel.text = self.presentTimeLabel.text; //.text sets the value in the label, not the label itself.
 
         //
         // 22. The presentTimeLabel needs to take the value of the destinationTimeLabel here.
@@ -224,14 +224,14 @@
         
         self.presentTimeLabel.text = self.destinationTimeLabel.text;
         
-        self. destinationTimeLabel.text = @"--- -- ----";
+        self. destinationTimeLabel.text = @"--- -- ----"; //added by me 
         
         //
         // 23. Lastly, we need to reset the current speed label to 0 here.
         //
         
         currentSpeed = 0;
-        self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed];
+        self.speedLabel.text = [NSString stringWithFormat:@"%ld MPH", (long)currentSpeed]; //reset current speed so that it resets to zero once the speedLabel reaches 88
         
     }
 }

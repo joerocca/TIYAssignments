@@ -1,8 +1,8 @@
 //
 //  main.m
-//  Mission Briefing
+//  Age Calculator
 //
-//  Created by Joben Gohlke on 1/16/15.
+//  Created by Joe Rocca on 3/2/15.
 //  Copyright (c) 2015 The Iron Yard. All rights reserved.
 //
 

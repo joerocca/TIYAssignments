@@ -1,19 +1,19 @@
 //
-//  Mission_BriefingTests.m
-//  Mission BriefingTests
+//  Age_CalculatorTests.m
+//  Age CalculatorTests
 //
-//  Created by Joben Gohlke on 1/16/15.
+//  Created by Joe Rocca on 3/2/15.
 //  Copyright (c) 2015 The Iron Yard. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface Mission_BriefingTests : XCTestCase
+@interface Age_CalculatorTests : XCTestCase
 
 @end
 
-@implementation Mission_BriefingTests
+@implementation Age_CalculatorTests
 
 - (void)setUp {
     [super setUp];
