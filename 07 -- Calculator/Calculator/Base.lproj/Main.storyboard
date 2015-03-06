@@ -236,7 +236,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNi-nx-dSj">
-                                <rect key="frame" x="0.0" y="20" width="592" height="120"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="120"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Digital-7" family="Digital-7" pointSize="90"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -278,7 +279,7 @@
                             <constraint firstItem="hJd-Xp-4jq" firstAttribute="leading" secondItem="CzH-JH-IMA" secondAttribute="trailing" id="MaB-xG-uRM"/>
                             <constraint firstItem="cEF-qf-g9j" firstAttribute="centerX" secondItem="xSM-xa-7qV" secondAttribute="centerX" id="Mf1-yR-RQQ"/>
                             <constraint firstItem="eom-eW-hvT" firstAttribute="centerY" secondItem="RHZ-lj-TWs" secondAttribute="centerY" id="MzQ-jt-BYi"/>
-                            <constraint firstAttribute="trailing" secondItem="GNi-nx-dSj" secondAttribute="trailing" constant="8" id="OPN-Tu-5Gw"/>
+                            <constraint firstAttribute="trailing" secondItem="GNi-nx-dSj" secondAttribute="trailing" id="OPN-Tu-5Gw"/>
                             <constraint firstItem="1MT-8V-zgz" firstAttribute="centerY" secondItem="9A6-gE-Sc2" secondAttribute="centerY" id="P0r-1U-LDH"/>
                             <constraint firstItem="GNi-nx-dSj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Q55-rv-La5"/>
                             <constraint firstItem="OdL-hX-dvl" firstAttribute="top" secondItem="GNi-nx-dSj" secondAttribute="bottom" id="QR6-8m-rsE"/>
