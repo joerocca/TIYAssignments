@@ -132,7 +132,8 @@
     }
     else if (todayComponents.month == birthdayComponents.month)
     {
-        if (todayComponents.day < birthdayComponents.day) {
+        if (todayComponents.day < birthdayComponents.day)
+        {
             age = age -1;
         }
     }
