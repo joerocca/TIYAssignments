@@ -29,6 +29,7 @@
 - (IBAction)allClearTapped:(UIButton *)sender;
 - (IBAction)decimalPoint:(UIButton *)sender;
 - (IBAction)percentButton:(UIButton *)sender;
+- (IBAction)signChangerTapped:(UIButton *)sender;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *acButton;
@@ -147,7 +148,9 @@
         float DivideFunc = brain.operand1 / brain.operand2;
         self.displayLabel.text = [NSString stringWithFormat:@"%f", DivideFunc];
         }
-    }
+        
+        
+}
     
 //    if (!brain.operand1String == OperatorTypeNone)
 //    {
@@ -156,7 +159,7 @@
 //    }
     
     
-   
+   brain = nil;
 
 }
 
@@ -220,6 +223,28 @@
         self.displayLabel.text = brain.operand2String;
     }
     
+
+}
+
+- (IBAction)signChangerTapped:(UIButton *)sender
+{
+    brain.operand1 = [brain.operand1String floatValue];
+    brain.operand2 = [brain.operand2String floatValue];
+    
+    if (brain.operatorType == OperatorTypeNone)
+    {
+        float percent = brain.operand1 * -1;
+        brain.operand1String = [NSMutableString stringWithFormat:@"%.0f", percent];
+        self.displayLabel.text = brain.operand1String;
+    }
+    
+    if (brain.operatorType != OperatorTypeNone)
+    {
+        float percent2 = brain.operand2 * -1;
+        brain.operand2String = [NSMutableString stringWithFormat:@"%.0f", percent2];
+        self.displayLabel.text = brain.operand2String;
+    
+    }
 
 }
 
