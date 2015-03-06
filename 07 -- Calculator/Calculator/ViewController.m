@@ -27,6 +27,7 @@
 - (IBAction)divisionTapped:(UIButton *)sender;
 - (IBAction)equalTapped:(UIButton *)sender;
 - (IBAction)allClearTapped:(UIButton *)sender;
+- (IBAction)decimalPoint:(UIButton *)sender;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *acButton;
@@ -122,23 +123,29 @@
     if (brain.operatorType == OperatorTypeAddition)
     {
     float addFunc = brain.operand1 + brain.operand2;
-    self.displayLabel.text = [NSString stringWithFormat:@"%.0f",addFunc];
+    self.displayLabel.text = [NSString stringWithFormat:@"%.1f",addFunc];
     }
     else if (brain.operatorType == OperatorTypeSubtraction)
     {
         float subFunc = brain.operand1 - brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%.0f", subFunc];
+        self.displayLabel.text = [NSString stringWithFormat:@"%.1f", subFunc];
     }
     else if (brain.operatorType == OperatorTypeMultiplication)
     {
         float multiplyFunc = brain.operand1 * brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%.0f", multiplyFunc];
+        self.displayLabel.text = [NSString stringWithFormat:@"%.1f", multiplyFunc];
     }
     else if (brain.operatorType == OperatorTypeDivision)
     {
+        if(brain.operand2 == 0)
+        {
+            self.displayLabel.text = @"Error";
+        }
+        else
+        {
         float DivideFunc = brain.operand1 / brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%.0f", DivideFunc];
-       
+        self.displayLabel.text = [NSString stringWithFormat:@"%.1f", DivideFunc];
+        }
     }
     
 //    if (!brain.operand1String == OperatorTypeNone)
@@ -161,6 +168,25 @@
 
 
 }
+
+- (IBAction)decimalPoint:(UIButton *)sender
+{
+    if (!brain) {
+        brain = [[CalculatorBrain alloc] init];
+        brain.operand1String = [@"0." mutableCopy];         //mutable copy makes the string mutable
+        self.displayLabel.text = brain.operand1String;          //If brain is NOT already intiated initiate it. Set the operand1String to 0. with a mutableCopy and display that the operand1String on the displayLabel.
+    }
+    else if ([brain.operand2String isEqualToString:@""])
+    {                                                       //if operand2string is equal to nothing, set operand2string to .0 using                    mutable copy and display that to the displayLabel.
+        brain.operand2String = [@"0." mutableCopy];
+        self.displayLabel.text = brain.operand2String;
+    }
+    
+
+
+
+}
+
 
 @end
 
