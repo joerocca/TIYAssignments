@@ -36,6 +36,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *decimalOutlet;
 
 //-(void)someMethod;
+
+
  
 @end
 
@@ -192,18 +194,20 @@
 //    }
     brain = nil;
     
-   if(brain == nil)
-   {
     
-       brain.operand1 = [self.displayLabel.text floatValue];
-       
-       
-       if (brain.operatorType == OperatorTypeAddition)
-       {
-           float add = brain.operand1 + brain.operand2;
-           self.displayLabel.text = [NSString stringWithFormat:@"%g",add];
-       }
-   }
+    
+//   {
+//    
+//       brain.operand2 = [self.displayLabel.text floatValue];
+//       
+//       
+//       if (brain.operatorType == OperatorTypeAddition)
+//       {
+//           float add = brain.operand2 + brain.operand2;
+//           
+//           self.displayLabel.text = [NSString stringWithFormat:@"%g",add];
+//       }
+//   }
 
 }
 
@@ -291,6 +295,8 @@
     }
 
 }
+
+
 
 @end
 
