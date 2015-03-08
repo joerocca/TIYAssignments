@@ -33,6 +33,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIButton *acButton;
+@property (weak, nonatomic) IBOutlet UIButton *decimalOutlet;
 
 //-(void)someMethod;
  
@@ -119,23 +120,47 @@
 }
 -(IBAction)equalTapped:(UIButton *)sender
 {
+    
     brain.operand1 = [brain.operand1String floatValue];
     brain.operand2 = [brain.operand2String floatValue];
     
     if (brain.operatorType == OperatorTypeAddition)
     {
     float addFunc = brain.operand1 + brain.operand2;
-    self.displayLabel.text = [NSString stringWithFormat:@"%f",addFunc];
+        
+//        if (addFunc == (int)addFunc)
+//            {
+//             self.displayLabel.text = [NSString stringWithFormat:@"%.0f",addFunc];
+//        }
+//        else
+//        {
+            self.displayLabel.text = [NSString stringWithFormat:@"%g",addFunc];
+        
+   
     }
     else if (brain.operatorType == OperatorTypeSubtraction)
     {
         float subFunc = brain.operand1 - brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%f", subFunc];
+//        if (subFunc == (int)subFunc)
+//        {
+//            self.displayLabel.text = [NSString stringWithFormat:@"%.0f", subFunc];
+//        }
+//        else
+//        {
+            self.displayLabel.text = [NSString stringWithFormat:@"%g", subFunc];
+        
     }
     else if (brain.operatorType == OperatorTypeMultiplication)
     {
         float multiplyFunc = brain.operand1 * brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%f", multiplyFunc];
+//        if (multiplyFunc == (int)multiplyFunc)
+//        {
+//            self.displayLabel.text = [NSString stringWithFormat:@"%.0f", multiplyFunc];
+//        }
+//        else
+//        {
+            self.displayLabel.text = [NSString stringWithFormat:@"%g", multiplyFunc];
+        
     }
     else if (brain.operatorType == OperatorTypeDivision)
     {
@@ -143,23 +168,42 @@
         {
             self.displayLabel.text = @"Error";
         }
-        else
-        {
-        float DivideFunc = brain.operand1 / brain.operand2;
-        self.displayLabel.text = [NSString stringWithFormat:@"%f", DivideFunc];
-        }
+        
+         float DivideFunc = brain.operand1 / brain.operand2;
+        
+//         if (DivideFunc == (int)DivideFunc)
+//        {
+//            
+//            self.displayLabel.text = [NSString stringWithFormat:@"%.0f", DivideFunc];
+//        }
+//        else
+//        {
+            self.displayLabel.text = [NSString stringWithFormat:@"%g",DivideFunc];
         
         
-}
+        
+    }
+    
     
 //    if (!brain.operand1String == OperatorTypeNone)
 //    {
 //     self.view.backgroundColor =[UIColor greenColor];
 //        
 //    }
+    brain = nil;
     
+   if(brain == nil)
+   {
     
-   brain = nil;
+       brain.operand1 = [self.displayLabel.text floatValue];
+       
+       
+       if (brain.operatorType == OperatorTypeAddition)
+       {
+           float add = brain.operand1 + brain.operand2;
+           self.displayLabel.text = [NSString stringWithFormat:@"%g",add];
+       }
+   }
 
 }
 
@@ -168,7 +212,7 @@
     self.displayLabel.text = @"0";
     brain = nil;
     
-   [(UIButton*)sender setTitle:@"AC" forState:UIControlStateNormal]; //why (UIButton*)sender ?
+   [sender setTitle:@"AC" forState:UIControlStateNormal]; //. =
 
 
 }
@@ -233,15 +277,15 @@
     
     if (brain.operatorType == OperatorTypeNone)
     {
-        float percent = brain.operand1 * -1;
-        brain.operand1String = [NSMutableString stringWithFormat:@"%.0f", percent];
+        float signChanger = brain.operand1 * -1;
+        brain.operand1String = [NSMutableString stringWithFormat:@"%.0f", signChanger];
         self.displayLabel.text = brain.operand1String;
     }
     
     if (brain.operatorType != OperatorTypeNone)
     {
-        float percent2 = brain.operand2 * -1;
-        brain.operand2String = [NSMutableString stringWithFormat:@"%.0f", percent2];
+        float signChanger2 = brain.operand2 * -1;
+        brain.operand2String = [NSMutableString stringWithFormat:@"%.0f", signChanger2];
         self.displayLabel.text = brain.operand2String;
     
     }

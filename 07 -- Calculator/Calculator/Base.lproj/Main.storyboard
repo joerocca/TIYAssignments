@@ -379,6 +379,7 @@
                     </view>
                     <connections>
                         <outlet property="acButton" destination="CzH-JH-IMA" id="Q02-rc-VZO"/>
+                        <outlet property="decimalOutlet" destination="vrn-ck-vvj" id="3tc-Hu-Etj"/>
                         <outlet property="displayLabel" destination="GNi-nx-dSj" id="fqx-8t-qmc"/>
                     </connections>
                 </viewController>

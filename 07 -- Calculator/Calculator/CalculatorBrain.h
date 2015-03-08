@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 typedef enum
 {
     OperatorTypeNone,
@@ -28,6 +29,9 @@ typedef enum
 @property (assign) float operand2;
 @property (assign) OperatorType operatorType;
 @property (assign) BOOL userIsTypingANumber;
+
+
+
 
 
 @end
