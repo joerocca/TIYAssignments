@@ -225,25 +225,37 @@
 {
     if (!brain) {
         brain = [[CalculatorBrain alloc] init];
+        if(![brain.operand1String containsString:@"."])
+        {
         brain.operand1String = [@"0." mutableCopy];         //mutable copy makes the string mutable
-        self.displayLabel.text = brain.operand1String;          //If brain is NOT already intiated initiate it. Set the operand1String to 0. with a mutableCopy and display that the operand1String on the displayLabel.
+        self.displayLabel.text = brain.operand1String;
+        }//If brain is NOT already intiated initiate it. Set the operand1String to 0. with a mutableCopy and display that the operand1String on the displayLabel.
     }
     else if (brain.operatorType == OperatorTypeNone && brain.operand1String)
     {                                                       //if operand2string is equal to nothing, set operand2string to .0 using                    mutable copy and display that to the displayLabel.
+        if(![brain.operand1String containsString:@"."])
+        {
         [brain.operand1String appendString:@"."];
         self.displayLabel.text = brain.operand1String;
+        }
     }
     
     else if ([brain.operand2String isEqualToString:@""])
     {
+        if(![brain.operand2String containsString:@"."])
+        {
         brain.operand2String = [@"0." mutableCopy];
         self.displayLabel.text = brain.operand2String;
+        }
     
     }
     else if (brain.operatorType != OperatorTypeNone && brain.operand2String)
     {
+        if(![brain.operand2String containsString:@"."])
+        {
         [brain.operand2String appendString:@"."];
         self.displayLabel.text = brain.operand2String;
+        }
      
     }
         
