@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *agentNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *agentPasswordTextField;
@@ -117,5 +117,35 @@
         self.view.backgroundColor = accessDeniedBackgroundColor; 
     }
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+     __block BOOL rc = NO;
+    
+    if (![textField.text isEqualToString:@""])
+    {
+        if (textField == self.agentNameTextField)
+        {
+            NSError *error = nil;  //error = pointer
+            NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress | NSTextCheckingTypeDate error:&error];               //detects data like phone numbers or tracking numbers
+            
+            [detector enumerateMatchesInString:textField.text
+                                       options:kNilOptions   //kNilOptions=no options
+                                         range:NSMakeRange(0, [textField.text  length])  //telling length to check
+                                    usingBlock:
+             ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
+             {
+                 rc = YES;
+             }];
+        }
+    }
+    if (rc)
+    {
+        [textField resignFirstResponder];
+    }
+    return rc;
+}
+
+
 
 @end
