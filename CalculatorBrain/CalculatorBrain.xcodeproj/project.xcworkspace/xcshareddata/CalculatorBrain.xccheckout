@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>21C42D37-AD89-46CF-BEFD-3B298632CCDF</string>
+	<string>7E564C19-FBB6-4081-8609-8949367E2451</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Form Validator</string>
+	<string>CalculatorBrain</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
 		<string>https://www.github.com/joerocca/TIYAssignments.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>08 -- Form Validator/Form Validator.xcodeproj</string>
+	<string>CalculatorBrain/CalculatorBrain.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
