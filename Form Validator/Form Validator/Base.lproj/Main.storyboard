@@ -21,6 +21,9 @@
                                 <rect key="frame" x="60" y="117" width="480" height="30"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="JMU-mo-25B"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBj-Nl-xB7">
                                 <rect key="frame" x="60" y="156" width="97" height="30"/>
@@ -29,6 +32,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="M7k-2H-QpR"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xC-4S-Eky">
                                 <rect key="frame" x="165" y="156" width="62" height="30"/>
@@ -37,21 +43,33 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="6Aw-Df-LCe"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jxy-5D-aEQ">
                                 <rect key="frame" x="60" y="195" width="129" height="30"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="ehi-UA-b1d"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XFI-h1-aul">
                                 <rect key="frame" x="60" y="78" width="480" height="30"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="QEc-Ym-m0w"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B2U-Kn-Y6a">
                                 <rect key="frame" x="235" y="156" width="86" height="30"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kh9-bI-dsS" id="tae-19-XzD"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -112,7 +130,6 @@
                     <navigationItem key="navigationItem" id="iMj-GY-AWe"/>
                     <connections>
                         <outlet property="addressTextField" destination="R1K-Oo-bT9" id="OI9-N0-z89"/>
-                        <outlet property="cityTextField" destination="UBj-Nl-xB7" id="bea-Qf-3tt"/>
                         <outlet property="nameTextField" destination="XFI-h1-aul" id="Dqg-xr-UKz"/>
                         <outlet property="phoneNumberTextField" destination="jxy-5D-aEQ" id="R2h-nv-bDV"/>
                         <outlet property="stateTextField" destination="6xC-4S-Eky" id="4F0-re-roB"/>
