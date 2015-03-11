@@ -86,6 +86,7 @@
         rc = self.operand2String;
         
     }
+    
     else if (!self.operatorType == OperatorTypeNone)
     {
         if (![self.operand2String containsString:@"."])

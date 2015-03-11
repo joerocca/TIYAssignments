@@ -129,11 +129,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="iMj-GY-AWe"/>
                     <connections>
-                        <outlet property="addressTextField" destination="R1K-Oo-bT9" id="OI9-N0-z89"/>
-                        <outlet property="nameTextField" destination="XFI-h1-aul" id="Dqg-xr-UKz"/>
-                        <outlet property="phoneNumberTextField" destination="jxy-5D-aEQ" id="R2h-nv-bDV"/>
-                        <outlet property="stateTextField" destination="6xC-4S-Eky" id="4F0-re-roB"/>
-                        <outlet property="zipCodeTextField" destination="B2U-Kn-Y6a" id="wZB-Ma-i0B"/>
+                        <outlet property="addressTextField" destination="R1K-Oo-bT9" id="8Om-Dh-f4a"/>
+                        <outlet property="cityTextField" destination="UBj-Nl-xB7" id="6tb-IF-vJg"/>
+                        <outlet property="nameTextField" destination="XFI-h1-aul" id="7I6-T4-ez3"/>
+                        <outlet property="phoneNumberTextField" destination="jxy-5D-aEQ" id="aKS-Lf-g0Z"/>
+                        <outlet property="stateTextField" destination="6xC-4S-Eky" id="RpD-dI-Iep"/>
+                        <outlet property="zipCodeTextField" destination="B2U-Kn-Y6a" id="j6X-PD-YJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

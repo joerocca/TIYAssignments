@@ -110,7 +110,7 @@
     
     
     
-    float returnValue;
+    float returnValue;        //returning case to float method with returnValue
     switch (self.operatorType)
     {
         case OperatorTypeAddition:

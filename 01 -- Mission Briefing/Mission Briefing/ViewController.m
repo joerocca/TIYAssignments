@@ -139,6 +139,7 @@
              }];
         }
     }
+    
     if (rc)
     {
         [textField resignFirstResponder];
