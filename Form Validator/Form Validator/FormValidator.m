@@ -11,65 +11,32 @@
 @implementation FormValidator
 
 
+
 - (BOOL)validateName:(NSString *)name
 {
-    BOOL rc = NO;
-    
-    if(![name isEqualToString:@""] & [name containsString:@" "])
+    BOOL rc = true;
+    if ([[name componentsSeparatedByString:@" "] count] != 2)
     {
-        rc = YES;
+        rc = false;
     }
     
     return rc;
-    
+}
+
+- (BOOL)validateAddress:(NSString *)address
+{
+    return [self validateWithDetectorType:NSTextCheckingTypeAddress onString:address];
 }
 
 - (BOOL)validateState:(NSString *)state
 {
     BOOL rc = NO;
-    
-    if(![state length] == 2)
+    if ([state length] == 2)
     {
         rc = YES;
     }
-    
     return rc;
 }
-
-
-- (BOOL)validateCity:(NSString *)city
-{
-    BOOL rc = NO;
-    
-    if (![city isEqualToString:@""])
-    {
-        rc = YES;
-    }
-    
-    return rc;
-}
-
-- (BOOL)validatePhoneNumber:(NSString *)phoneNumber
-{
-    __block BOOL rc = NO;
-    
-    NSError *error = nil;
-    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:&error];
-    
-    [detector enumerateMatchesInString:phoneNumber // or you can use this -> self.agentNameTextField.text
-                               options:kNilOptions
-                                 range:NSMakeRange(0, [phoneNumber length])
-                            usingBlock:
-     ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
-     {
-         rc = YES;
-     }];
-    
-    return rc;
-}
-
-
-
 
 - (BOOL)validateZipCode:(NSString *)zipCode
 {
@@ -84,30 +51,26 @@
     return rc;
 }
 
-- (BOOL)validateAddress:(NSString *)address
+- (BOOL)validatePhoneNumber:(NSString *)phoneNumber
+{
+    return [self validateWithDetectorType:NSTextCheckingTypePhoneNumber onString:phoneNumber];
+}
+
+- (BOOL)validateWithDetectorType:(NSTextCheckingType)detectorType onString:(NSString *)string
 {
     __block BOOL rc = NO;
-    
     NSError *error = nil;
-    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:&error];
+    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:detectorType error:&error];
     
-    [detector enumerateMatchesInString:address // or you can use this -> self.agentNameTextField.text
+    [detector enumerateMatchesInString:string
                                options:kNilOptions
-                                 range:NSMakeRange(0, [address length])
+                                 range:NSMakeRange(0, [string length])
                             usingBlock:
      ^(NSTextCheckingResult *result, NSMatchingFlags flags, BOOL *stop)
      {
          rc = YES;
      }];
-    
-    
-    
     return rc;
-    
 }
 
-
-
-
-
-    @end
+@end
