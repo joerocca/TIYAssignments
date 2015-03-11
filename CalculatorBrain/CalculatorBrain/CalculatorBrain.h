@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CalculatorBrain : NSObject
-
-
-
 
 typedef enum
 {
@@ -19,12 +15,12 @@ typedef enum
     OperatorTypeAddition,
     OperatorTypeSubtraction,
     OperatorTypeMultiplication,
-    OperatorTypeDivision,
-    OperatorTypePercent,
-    OperatorTypeSignChanger
+    OperatorTypeDivision
+    
 }OperatorType;
 
 
+@interface CalculatorBrain : NSObject
 
 
 @property (strong, nonatomic) NSMutableString *operand1String;
@@ -37,16 +33,12 @@ typedef enum
 
 
 - (NSString *) addOperand:(NSString *)operand;
+- (NSString *) addDecimalPoint;
 
 
-
-
--(float) useOperator;
-
-
-
-
-
+- (float) useOperator;
+- (float) changePositiveNegative;
+- (float) findPercent;
 
 
 @end
