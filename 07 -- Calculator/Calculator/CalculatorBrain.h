@@ -16,6 +16,7 @@ typedef enum
     OperatorTypeSubtraction,
     OperatorTypeMultiplication,
     OperatorTypeDivision
+  
 }OperatorType;
 
 
@@ -30,6 +31,14 @@ typedef enum
 @property (assign) OperatorType operatorType;
 @property (assign) BOOL userIsTypingANumber;
 
+
+- (NSString *) addOperand:(NSString *)operand;
+- (NSString *) addDecimalPoint;
+
+
+- (float) useOperator;
+- (float) changePositiveNegative;
+- (float) findPercent;
 
 
 @end
