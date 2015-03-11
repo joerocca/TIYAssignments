@@ -38,6 +38,16 @@
     return rc;
 }
 
+- (BOOL)validateCity:(NSString *)city
+{
+    bool rc = NO;
+    if (![city isEqualToString:@""])
+    {
+        rc = YES;
+    }
+    return rc;
+}
+
 - (BOOL)validateZipCode:(NSString *)zipCode
 {
     BOOL rc = NO;
