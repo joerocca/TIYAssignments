@@ -51,11 +51,27 @@
   
     // Configure the cell...
     
-    cell.textLabel.text = [EnergyItem.allEnergyTypes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[EnergyItem allEnergyTypes] objectAtIndex:indexPath.row];
     
     
+
     return cell;
 }
+
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedType = [EnergyItem allEnergyTypes][indexPath.row];
+    
+    [self.delegate energyTypeWasChosen:selectedType];
+
+//    [[EnergyItem allEnergyTypes] == indexPath.row == 0]
+    
+}
+
+
 
 
 /*

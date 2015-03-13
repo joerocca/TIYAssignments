@@ -22,6 +22,6 @@
 
 - (float) energyCalculations;
 
-- (NSString)
+//- (NSString)
 
 @end

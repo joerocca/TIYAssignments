@@ -37,25 +37,25 @@
 
 
 
-- (float) energyCalculations
-{
-    float returnValue;
-    switch (energyItem.types)
-    {
-        case EnergyTypeVolts & EnergyTypeAmps:
-            self.operand1 = [self.operand1String floatValue];
-            self.operand2 = [self.operand2String floatValue];
-            returnValue =
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-  return
-    
-}
+//- (float) energyCalculations
+//{
+//    float returnValue;
+//    switch (energyItem.types)
+//    {
+//        case EnergyTypeVolts & EnergyTypeAmps:
+//            self.operand1 = [self.operand1String floatValue];
+//            self.operand2 = [self.operand2String floatValue];
+//            returnValue =
+//            break;
+//            
+//        default:
+//            break;
+//    }
+//    
+//    
+//  return
+//    
+//}
 
 
 

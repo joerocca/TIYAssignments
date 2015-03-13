@@ -13,7 +13,9 @@
 @interface VoltageTableViewController () <UITextFieldDelegate, UIPopoverPresentationControllerDelegate>
 {
     EnergyItem *energyItem;
+    NSMutableArray *energyIdentifierTypes;
 }
+
 
 - (IBAction)voltsTextField:(UITextField *)sender;
 - (IBAction)ampsTextField:(UITextField *)sender;
@@ -30,7 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"High Voltage";
-    
+    energyIdentifierTypes = [[NSMutableArray alloc] init];
+
 
 }
 
@@ -50,18 +53,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 4;
+    return [energyIdentifierTypes count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[energyIdentifierTypes objectAtIndex:indexPath.row] forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
-*/
+
 
  
  
@@ -116,11 +119,45 @@
         
         destVC.preferredContentSize = CGSizeMake(100.0f, contentHeight);
         
+        
+        destVC.delegate = self;
     }
     
     
     
 }
+
+
+
+
+-(void)energyTypeWasChosen:(NSString *)chosentype
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    NSDictionary *energyDictionary = @{@"Volts":@"VoltsCell" ,@"Watts":@"WattsCell" ,@"Amps": @"AmpsCell",@"Ohms":@"OhmsCell" };
+    
+    NSString *anIdentifier = [energyDictionary objectForKey:chosentype];
+
+    [energyIdentifierTypes addObject:anIdentifier];
+    NSUInteger index = [energyIdentifierTypes indexOfObject:anIdentifier];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationAutomatic];
+
+     
+     
+//     insertRowsAtIndexPaths:energyIdentifierTypes  withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    
+    
+}
+
+
+
+
+
+
+
 
 #pragma mark - PopoverPresentationController delegate
 

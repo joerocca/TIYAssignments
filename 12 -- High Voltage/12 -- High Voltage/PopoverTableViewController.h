@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VoltageTableViewController.h"
 
 @interface PopoverTableViewController : UITableViewController
+
+
+
+@property (strong, nonatomic) id <VoltageTableViewControllerDelegate> delegate;
+
+
+
+
 
 @end
