@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8AE2E891AB28EFC00BE17F7 /* EnergyCalculations.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AE2E881AB28EFC00BE17F7 /* EnergyCalculations.m */; };
 		D8B278661AB20D1A00245232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B278651AB20D1A00245232 /* main.m */; };
 		D8B278691AB20D1A00245232 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B278681AB20D1A00245232 /* AppDelegate.m */; };
 		D8B2786F1AB20D1A00245232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8B2786D1AB20D1A00245232 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8AE2E871AB28EFC00BE17F7 /* EnergyCalculations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnergyCalculations.h; sourceTree = "<group>"; };
+		D8AE2E881AB28EFC00BE17F7 /* EnergyCalculations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnergyCalculations.m; sourceTree = "<group>"; };
 		D8B278601AB20D1A00245232 /* 12 -- High Voltage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "12 -- High Voltage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B278641AB20D1A00245232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B278651AB20D1A00245232 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				D8B278631AB20D1A00245232 /* Supporting Files */,
 				D8B2788F1AB2262A00245232 /* EnergyItem.h */,
 				D8B278901AB2262A00245232 /* EnergyItem.m */,
+				D8AE2E871AB28EFC00BE17F7 /* EnergyCalculations.h */,
+				D8AE2E881AB28EFC00BE17F7 /* EnergyCalculations.m */,
 			);
 			path = "12 -- High Voltage";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B2788B1AB20D6E00245232 /* VoltageTableViewController.m in Sources */,
+				D8AE2E891AB28EFC00BE17F7 /* EnergyCalculations.m in Sources */,
 				D8B2788E1AB2207C00245232 /* PopoverTableViewController.m in Sources */,
 				D8B278691AB20D1A00245232 /* AppDelegate.m in Sources */,
 				D8B278911AB2262A00245232 /* EnergyItem.m in Sources */,
@@ -426,6 +432,7 @@
 				D8B278851AB20D1B00245232 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8B278861AB20D1B00245232 /* Build configuration list for PBXNativeTarget "12 -- High VoltageTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				D8B278881AB20D1B00245232 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

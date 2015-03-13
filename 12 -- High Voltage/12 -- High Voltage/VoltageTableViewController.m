@@ -11,7 +11,14 @@
 #import "EnergyItem.h"
 
 @interface VoltageTableViewController () <UITextFieldDelegate, UIPopoverPresentationControllerDelegate>
+{
+    EnergyItem *energyItem;
+}
 
+- (IBAction)voltsTextField:(UITextField *)sender;
+- (IBAction)ampsTextField:(UITextField *)sender;
+- (IBAction)ohmsTextField:(UITextField *)sender;
+- (IBAction)wattsTextField:(UITextField *)sender;
 
 
 
@@ -43,7 +50,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 0;
+    return 4;
 }
 
 /*
@@ -56,6 +63,8 @@
 }
 */
 
+ 
+ 
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -122,6 +131,66 @@
     return UIModalPresentationNone;
 }
 
+
+
+
+
+#pragma mark - UITextField delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    BOOL rc = NO;
+    
+    if (![textField.text isEqualToString:@""] || [textField.text isEqualToString:@""])
+    {
+        [textField resignFirstResponder];
+        
+        
+
+        rc = YES;
+    }
+    
+    
+    return rc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark -- Action Handlers
+
+
+
+
+
+
+- (IBAction)voltsTextField:(UITextField *)sender
+{
+    energyItem.types = EnergyTypeVolts;
+}
+
+- (IBAction)ampsTextField:(UITextField *)sender
+{
+    energyItem.types = EnergyTypeAmps;
+}
+
+- (IBAction)ohmsTextField:(UITextField *)sender
+{
+    energyItem.types = EnergyTypeOhms;
+}
+
+- (IBAction)wattsTextField:(UITextField *)sender
+{
+    energyItem.types = EnergyTypeWatts;
+}
 
 
 

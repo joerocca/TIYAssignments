@@ -48,6 +48,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EnergyTypeCell" forIndexPath:indexPath];
     
+  
     // Configure the cell...
     
     cell.textLabel.text = [EnergyItem.allEnergyTypes objectAtIndex:indexPath.row];
