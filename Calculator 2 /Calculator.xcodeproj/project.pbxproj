@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D84D333B1AB0DD2D00C2C813 /* libCalculatorBrain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D84D333A1AB0DD2D00C2C813 /* libCalculatorBrain.a */; };
 		D8AFC1DE1AB0939F00F87F2F /* CalculatorBrain+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = D8AFC1DD1AB0939F00F87F2F /* CalculatorBrain+Extras.m */; };
+		D8B4FD501AB1CB6E004715FB /* libCalculatorBrain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4FD4F1AB1CB6E004715FB /* libCalculatorBrain.a */; };
 		D8C517A01AA8D71800DBE894 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C5179F1AA8D71800DBE894 /* main.m */; };
 		D8C517A31AA8D71800DBE894 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C517A21AA8D71800DBE894 /* AppDelegate.m */; };
 		D8C517A61AA8D71800DBE894 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C517A51AA8D71800DBE894 /* ViewController.m */; };
@@ -30,10 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D84D333A1AB0DD2D00C2C813 /* libCalculatorBrain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCalculatorBrain.a; sourceTree = "<group>"; };
 		D84D333C1AB0DD5700C2C813 /* CalculatorBrain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
 		D8AFC1DC1AB0939F00F87F2F /* CalculatorBrain+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CalculatorBrain+Extras.h"; sourceTree = "<group>"; };
 		D8AFC1DD1AB0939F00F87F2F /* CalculatorBrain+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CalculatorBrain+Extras.m"; sourceTree = "<group>"; };
+		D8B4FD4F1AB1CB6E004715FB /* libCalculatorBrain.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCalculatorBrain.a; sourceTree = "<group>"; };
 		D8C5179A1AA8D71800DBE894 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C5179E1AA8D71800DBE894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8C5179F1AA8D71800DBE894 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D84D333B1AB0DD2D00C2C813 /* libCalculatorBrain.a in Frameworks */,
+				D8B4FD501AB1CB6E004715FB /* libCalculatorBrain.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 				D8C517A41AA8D71800DBE894 /* ViewController.h */,
 				D8C517A51AA8D71800DBE894 /* ViewController.m */,
 				D84D333C1AB0DD5700C2C813 /* CalculatorBrain.h */,
-				D84D333A1AB0DD2D00C2C813 /* libCalculatorBrain.a */,
+				D8B4FD4F1AB1CB6E004715FB /* libCalculatorBrain.a */,
 				D8AFC1DC1AB0939F00F87F2F /* CalculatorBrain+Extras.h */,
 				D8AFC1DD1AB0939F00F87F2F /* CalculatorBrain+Extras.m */,
 				D8C517A71AA8D71800DBE894 /* Main.storyboard */,
