@@ -10,10 +10,13 @@
 #import "PopoverTableViewController.h"
 #import "EnergyItem.h"
 
+
 @interface VoltageTableViewController () <UITextFieldDelegate, UIPopoverPresentationControllerDelegate>
 {
+    PopoverTableViewController *popover;
     EnergyItem *energyItem;
     NSMutableArray *energyIdentifierTypes;
+    NSMutableArray *energyTypes2;
 }
 
 
@@ -21,6 +24,7 @@
 - (IBAction)ampsTextField:(UITextField *)sender;
 - (IBAction)ohmsTextField:(UITextField *)sender;
 - (IBAction)wattsTextField:(UITextField *)sender;
+
 
 
 
@@ -33,8 +37,10 @@
     [super viewDidLoad];
     self.title = @"High Voltage";
     energyIdentifierTypes = [[NSMutableArray alloc] init];
+    
+    energyTypes2 = [[NSMutableArray alloc] initWithObjects:@"Volts",@"Watts",@"Amps",@"Ohms", nil];
 
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,14 +119,18 @@
         PopoverTableViewController *destVC = (PopoverTableViewController *)[segue destinationViewController];
         
         destVC.popoverPresentationController.delegate = self;
-        NSArray *energyTypes = [EnergyItem allEnergyTypes];
+        NSMutableArray *energyTypes = [EnergyItem allEnergyTypes];
         
         float contentHeight = 44.0f * [energyTypes count];
         
         destVC.preferredContentSize = CGSizeMake(100.0f, contentHeight);
         
+        popover.energyTypes3 = energyTypes2;
+        
+        NSLog(@"%@",popover.energyTypes3);
         
         destVC.delegate = self;
+        
     }
     
     
@@ -130,7 +140,7 @@
 
 
 
--(void)energyTypeWasChosen:(NSString *)chosentype
+-(void)energyTypeWasChosen:(NSString *)chosentype 
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -140,17 +150,23 @@
 
     [energyIdentifierTypes addObject:anIdentifier];
     NSUInteger index = [energyIdentifierTypes indexOfObject:anIdentifier];
+//    NSUInteger index2 = [EnergyItem.allEnergyTypes indexOfObject:chosentype];
+    NSUInteger index3 = [[EnergyItem allEnergyTypes] indexOfObject:chosentype];
+    
+//    NSLog(@"%ld", (long)index2);
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationLeft];
 
-     
-     
-//     insertRowsAtIndexPaths:energyIdentifierTypes  withRowAnimation:UITableViewRowAnimationAutomatic];
     
+//    [[EnergyItem allEnergyTypes] removeObjectAtIndex:index2];
     
+    [[EnergyItem allEnergyTypes] removeObjectAtIndex:index3];
+
     
 }
+
+
 
 
 
@@ -228,6 +244,7 @@
 {
     energyItem.types = EnergyTypeWatts;
 }
+
 
 
 

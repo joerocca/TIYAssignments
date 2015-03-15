@@ -16,7 +16,7 @@
 @property (strong, nonatomic) id <VoltageTableViewControllerDelegate> delegate;
 
 
-
+@property (strong, nonatomic) NSMutableArray *energyTypes3;
 
 
 @end

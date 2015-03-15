@@ -12,6 +12,7 @@
 
 -(void)energyTypeWasChosen:(NSString *)chosentype; //what the delgate recieves?
 
+
 @end
 
 @interface VoltageTableViewController : UITableViewController <VoltageTableViewControllerDelegate>

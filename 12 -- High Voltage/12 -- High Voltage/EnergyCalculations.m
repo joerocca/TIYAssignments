@@ -25,7 +25,7 @@
         _operand1 = 0.0f;
         _operand2 = 0.0f;
         energyItem.types = EnergyTypeNone;
-       
+        
     }
     
     return self;
@@ -42,10 +42,10 @@
 //    float returnValue;
 //    switch (energyItem.types)
 //    {
-//        case EnergyTypeVolts & EnergyTypeAmps:
+//        case EnergyTypeNone:
 //            self.operand1 = [self.operand1String floatValue];
 //            self.operand2 = [self.operand2String floatValue];
-//            returnValue =
+//            returnValue = ;
 //            break;
 //            
 //        default:
@@ -53,11 +53,10 @@
 //    }
 //    
 //    
-//  return
+//    return returnValue;
 //    
 //}
-
-
+//
 
 
 

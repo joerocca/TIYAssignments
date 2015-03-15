@@ -8,16 +8,20 @@
 
 #import "PopoverTableViewController.h"
 #import "EnergyItem.h"
+#import "VoltageTableViewController.h"
 
 @interface PopoverTableViewController ()
 
 @end
 
 @implementation PopoverTableViewController
+{
+    VoltageTableViewController *voltageVC;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.energyTypes3 = [[NSMutableArray alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -41,7 +45,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 4;
+    return [[EnergyItem allEnergyTypes] count];
 }
 
 
@@ -53,7 +57,7 @@
     
     cell.textLabel.text = [[EnergyItem allEnergyTypes] objectAtIndex:indexPath.row];
     
-    
+//    cell.textLabel.text = [self.energyTypes3 objectAtIndex:indexPath.row];
 
     return cell;
 }
@@ -61,13 +65,15 @@
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath 
 {
     NSString *selectedType = [EnergyItem allEnergyTypes][indexPath.row];
+//    NSString *selectedType = self.energyTypes3 [indexPath.row];
+
     
     [self.delegate energyTypeWasChosen:selectedType];
+    
 
-//    [[EnergyItem allEnergyTypes] == indexPath.row == 0]
     
 }
 

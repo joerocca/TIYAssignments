@@ -30,6 +30,10 @@ typedef enum
 
 
 
-+(NSArray *)allEnergyTypes;
++(NSMutableArray *)allEnergyTypes;
+
+
+
+
 
 @end

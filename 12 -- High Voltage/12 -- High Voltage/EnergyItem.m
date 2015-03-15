@@ -11,11 +11,16 @@
 @implementation EnergyItem
 
 
-
-+(NSArray *)allEnergyTypes
++(NSMutableArray *)allEnergyTypes
 {
-    return @[@"Volts", @"Watts", @"Amps", @"Ohms"];
+
+        
+    return [[NSMutableArray alloc] initWithObjects:@"Volts",@"Watts",@"Amps",@"Ohms", nil];
+
+    
 }
+
+
 
 
 - (instancetype)init
@@ -25,6 +30,13 @@
     {
 
         _types = EnergyTypeNone;
+        
+        
+        
+        
+        
+       
+        
     }
 
 return self;

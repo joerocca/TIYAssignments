@@ -20,8 +20,9 @@
 @property (assign) float operand1;
 @property (assign) float operand2;
 
-- (float) energyCalculations;
+//- (float) energyCalculations;
 
-//- (NSString)
+
+
 
 @end
