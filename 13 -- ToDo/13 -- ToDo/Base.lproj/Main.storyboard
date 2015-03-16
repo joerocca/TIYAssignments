@@ -26,7 +26,7 @@
                                                 <constraint firstAttribute="height" constant="30" id="fRU-yi-D29"/>
                                                 <constraint firstAttribute="height" constant="30" id="twm-xc-Kmh"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <variation key="default">
                                                 <mask key="constraints">
