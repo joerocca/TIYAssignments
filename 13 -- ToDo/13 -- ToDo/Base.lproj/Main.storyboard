@@ -8,74 +8,96 @@
         <scene sceneID="JIJ-rI-g6o">
             <objects>
                 <tableViewController id="YWN-0Q-yDy" customClass="ToDoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vag-Sb-dBG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vag-Sb-dBG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" id="XQL-PR-r3s">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" id="XQL-PR-r3s" customClass="ToDoCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQL-PR-r3s" id="Mxe-Sz-9Sz">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add text here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Bv-xi-nlq">
-                                            <rect key="frame" x="71" y="7" width="506" height="30"/>
+                                            <rect key="frame" x="63" y="15" width="513" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="538" id="BI0-3t-78X"/>
                                                 <constraint firstAttribute="height" constant="30" id="I9v-ZF-cKH"/>
+                                                <constraint firstAttribute="height" constant="30" id="YKk-NT-vUR"/>
+                                                <constraint firstAttribute="width" constant="513" id="Ycv-7v-gWe"/>
+                                                <constraint firstAttribute="height" constant="30" id="dls-Pf-4z2"/>
                                                 <constraint firstAttribute="height" constant="30" id="fRU-yi-D29"/>
                                                 <constraint firstAttribute="height" constant="30" id="twm-xc-Kmh"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="BI0-3t-78X"/>
                                                     <exclude reference="I9v-ZF-cKH"/>
+                                                    <exclude reference="YKk-NT-vUR"/>
                                                     <exclude reference="fRU-yi-D29"/>
+                                                    <exclude reference="twm-xc-Kmh"/>
                                                 </mask>
                                             </variation>
                                         </textField>
-                                        <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Va-Rr-WVu">
-                                            <rect key="frame" x="8" y="6" width="51" height="31"/>
-                                        </switch>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYC-JO-iVw">
+                                            <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                            <state key="normal" image="Unchecked">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="selected" image="Checked"/>
+                                            <connections>
+                                                <action selector="checkmarkButton:" destination="YWN-0Q-yDy" eventType="touchUpInside" id="P34-0w-WPW"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="3Bv-xi-nlq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="7" id="2HC-qu-gzC"/>
+                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="leading" secondItem="pYC-JO-iVw" secondAttribute="trailing" constant="8" id="3MS-IM-jKE"/>
+                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="leading" secondItem="pYC-JO-iVw" secondAttribute="trailing" constant="8" id="B53-mM-ec7"/>
+                                        <constraint firstItem="pYC-JO-iVw" firstAttribute="leading" secondItem="Mxe-Sz-9Sz" secondAttribute="leading" constant="15" id="Bij-9w-oeB"/>
+                                        <constraint firstItem="pYC-JO-iVw" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="10" id="EBS-iU-HAT"/>
+                                        <constraint firstAttribute="trailing" secondItem="3Bv-xi-nlq" secondAttribute="trailing" constant="23" id="Esl-LH-uEh"/>
                                         <constraint firstItem="3Bv-xi-nlq" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="12" id="FwC-2k-oze"/>
-                                        <constraint firstItem="2Va-Rr-WVu" firstAttribute="leading" secondItem="Mxe-Sz-9Sz" secondAttribute="leading" constant="8" id="J2H-HZ-iBJ"/>
+                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="leading" secondItem="pYC-JO-iVw" secondAttribute="trailing" constant="8" id="HO4-u1-8rJ"/>
                                         <constraint firstAttribute="trailing" secondItem="3Bv-xi-nlq" secondAttribute="trailing" constant="30" id="Mt4-8P-qwt"/>
                                         <constraint firstAttribute="trailing" secondItem="3Bv-xi-nlq" secondAttribute="trailing" constant="70" id="ZC5-7t-sDF"/>
                                         <constraint firstAttribute="trailing" secondItem="3Bv-xi-nlq" secondAttribute="trailing" constant="23" id="d4N-he-oXG"/>
+                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="7" id="fIo-QP-c6Y"/>
                                         <constraint firstItem="3Bv-xi-nlq" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="7" id="hw9-QL-T75"/>
                                         <constraint firstItem="3Bv-xi-nlq" firstAttribute="leading" secondItem="Mxe-Sz-9Sz" secondAttribute="leading" constant="54" id="laH-7J-ILv"/>
-                                        <constraint firstItem="2Va-Rr-WVu" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="6" id="ust-gY-A1K"/>
-                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="leading" secondItem="2Va-Rr-WVu" secondAttribute="trailing" constant="14" id="yXS-Y4-rIS"/>
+                                        <constraint firstItem="3Bv-xi-nlq" firstAttribute="top" secondItem="Mxe-Sz-9Sz" secondAttribute="top" constant="15" id="sa4-sw-LIx"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="2HC-qu-gzC"/>
+                                            <exclude reference="3MS-IM-jKE"/>
+                                            <exclude reference="B53-mM-ec7"/>
+                                            <exclude reference="Esl-LH-uEh"/>
                                             <exclude reference="FwC-2k-oze"/>
                                             <exclude reference="Mt4-8P-qwt"/>
                                             <exclude reference="ZC5-7t-sDF"/>
+                                            <exclude reference="d4N-he-oXG"/>
+                                            <exclude reference="fIo-QP-c6Y"/>
+                                            <exclude reference="hw9-QL-T75"/>
                                             <exclude reference="laH-7J-ILv"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="checkBoxButton" destination="pYC-JO-iVw" id="YrM-8u-fxH"/>
+                                    <outlet property="descriptionTextField" destination="3Bv-xi-nlq" id="Dq8-S2-zWK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="YWN-0Q-yDy" id="GNs-Uc-ft3"/>
                             <outlet property="delegate" destination="YWN-0Q-yDy" id="Vay-eV-XvW"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="05h-4H-Mt2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="iCK-7N-hYC">
-                            <color key="tintColor" red="1" green="0.055564177690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="clearButton:" destination="YWN-0Q-yDy" id="AsY-ah-lBY"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yxN-zj-eKj">
                             <connections>
                                 <action selector="addCellButton:" destination="YWN-0Q-yDy" id="zZx-1J-HSP"/>
@@ -109,4 +131,8 @@
             <point key="canvasLocation" x="321" y="382"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Checked" width="40" height="40"/>
+        <image name="Unchecked" width="40" height="40"/>
+    </resources>
 </document>

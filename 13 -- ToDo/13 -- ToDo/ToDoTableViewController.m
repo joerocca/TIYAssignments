@@ -8,14 +8,19 @@
 
 #import "ToDoTableViewController.h"
 #import "ToDoItem.h"
+#import "ToDoCell.h"
 
 @interface ToDoTableViewController () <UITextFieldDelegate>
 {
+    ToDoCell *toDoCell;
     NSMutableArray *taskList;
+    UIRefreshControl *refreshControl;
 }
 
 - (IBAction)addCellButton:(UIBarButtonItem *)sender;
-- (IBAction)clearButton:(UIBarButtonItem *)sender;
+- (IBAction)clearButton:(UIRefreshControl *)sender;
+- (IBAction)checkmarkButton:(UIButton *)sender;
+
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cellAddButtonOutlet;
@@ -30,14 +35,18 @@
     
     self.title = @"To Do List";
     taskList = [[NSMutableArray alloc] init];
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(clearButton:) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
     
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+//    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCellButton:)];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,48 +74,45 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
+    ToDoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoCell" forIndexPath:indexPath];
     
      ToDoItem *item = taskList[indexPath.row];
     
     
     
-    UITextField *cellTextField = (UITextField  *)[cell viewWithTag:1];
-//    UISwitch *cellSwitch = (UISwitch  *)[cell viewWithTag:2];
     
+
+        cell.descriptionTextField.delegate = self;
    
-        cellTextField.text = @"";
+   
+    
     
     
     
   
     
+    cell.descriptionTextField.text = @"";
     
-    cellTextField.delegate = self;
     
     
     if (item)
     {
         if(item.taskName)
         {
-            [cellTextField setText:item.taskName];
+            [cell.descriptionTextField setText:item.taskName];
         }
         else
         {
-            [cellTextField becomeFirstResponder]; //brings up keyboard
+            [cell.descriptionTextField becomeFirstResponder]; //brings up keyboard
         }
         
+        [cell.checkBoxButton setSelected:item.done];
     }
     
     
     
-//    if (!cellSwitch.isOn == NO)
-//    {
-//
-//        cell.backgroundColor = [UIColor greenColor];
-//
-//    }
     
+
  
     return cell;
 }
@@ -123,21 +129,36 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
+    ToDoItem *item = taskList[indexPath.row];
+    
+    return  item.done;
+    
 }
 
 
 
+
+
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
-        [taskList removeObjectAtIndex:indexPath.row];
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
         
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+        {
+        
+        
+            [taskList removeObjectAtIndex:indexPath.row];
+        
+        
+        
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    
+    
+    
+   
 }
 
 
@@ -199,17 +220,47 @@
 {
     ToDoItem *anItem = [[ToDoItem alloc] init];
     [taskList addObject:anItem];
-    [self.tableView reloadData];
+    
+    NSUInteger index2 = [taskList indexOfObject:anItem];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index2 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    
+    
+//    [self.tableView reloadData];
 
 }
 
-- (IBAction)clearButton:(UIBarButtonItem *)sender
+- (IBAction)clearButton:(UIRefreshControl *)sender
 {
-    [taskList removeAllObjects];
-    [self.tableView reloadData];
+    NSMutableArray *indexPathsToRemove = [[NSMutableArray alloc] init];
+    NSMutableArray *itemsToRemove = [[NSMutableArray alloc] init];
     
+    for (ToDoItem *anItem in taskList)
+    {
+        if (anItem.done)
+        {
+            [itemsToRemove addObject:anItem];
+            [indexPathsToRemove addObject:[NSIndexPath indexPathForRow:[taskList indexOfObject:anItem] inSection:0]];
+        }
+    }
     
+    [taskList removeObjectsInArray:itemsToRemove];
+    [self.tableView deleteRowsAtIndexPaths:indexPathsToRemove withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [sender endRefreshing];
 }
 
+- (IBAction)checkmarkButton:(UIButton *)sender
+{
+    UIView *contentView = [sender superview];
+    UITableViewCell *cell = (UITableViewCell *)[contentView superview];
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    ToDoItem *anItem = taskList[path.row];
+    anItem.done = !anItem.done;
+    [sender setSelected:anItem.done];
+//    [sender setSelected:cell.backgroundColor = [UIColor colorWithRed:0.33 green:0.99 blue:0.99 alpha:0.20]];
+}
 
 @end

@@ -10,4 +10,20 @@
 
 @implementation ToDoItem
 
+
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self)
+    {
+        _done = NO;
+    }
+    
+    return self;
+}
+
+
+
+
 @end

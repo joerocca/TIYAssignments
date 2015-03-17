@@ -15,7 +15,7 @@
 
 
 @property (strong, nonatomic) NSString *taskName;
-
+@property (assign) BOOL done;
 
 
 
