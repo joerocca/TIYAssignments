@@ -22,6 +22,8 @@
 
 - (void)viewDidLoad {
     
+    self.title = @"GitHub Friends";
+    
     [super viewDidLoad];
     
     friends = [[NSMutableArray alloc] init];
@@ -55,7 +57,8 @@
     FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FriendCell" forIndexPath:indexPath]; //because we are using a custom cell class we call it specifically
     
     
-   NSDictionary *friendInfo =  friends[indexPath.row];
+   NSDictionary *friendInfo = friends[indexPath.row];
+    
     
     cell.textLabel.text = [friendInfo objectForKey:@"name"];   // or cell.textLabel.text = friendInfo[@"name"];
     NSURL *avatarURL = [NSURL URLWithString:[friendInfo objectForKey:@"avatar_url"]];

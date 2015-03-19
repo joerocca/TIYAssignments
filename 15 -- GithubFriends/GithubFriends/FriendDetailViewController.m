@@ -9,12 +9,13 @@
 #import "FriendDetailViewController.h"
 #import "RepoCell.h"
 
-@interface FriendDetailViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface FriendDetailViewController () <UITableViewDelegate, UITableViewDataSource, NSURLSessionDataDelegate>
 {
     NSArray *repos;
     UILabel *location;
     UILabel *email;
     UITableView *repositories;
+    NSMutableData *receivedData;
 }
 
 @end
@@ -24,9 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    repos = [[NSArray alloc] init];
+    self.title = self.friendInfo [@"login"];
     
-    [repositories registerClass:[RepoCell class] forCellReuseIdentifier:@"RepoCell"];
+
+
     
     self.view.backgroundColor = [UIColor darkGrayColor];
     
@@ -36,20 +38,29 @@
     NSString *urlString = [NSString stringWithFormat:@"https://api.github.com/users/%@/repos",userLogin];
     
     NSURL *url = [NSURL URLWithString:urlString];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//    
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//    
+//    repos = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+//    
+//    NSLog(@"%@",repos);
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     
-    repos = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url];
     
-    NSLog(@"%@",repos);
+    [dataTask resume];
     
     
     
     location = [[UILabel alloc] initWithFrame:CGRectMake(10, 74, 300, 40)];
     location.textAlignment = NSTextAlignmentCenter;
-    location.backgroundColor = [UIColor whiteColor];
+    location.backgroundColor = [UIColor darkGrayColor];
+    location.textColor = [UIColor whiteColor];
     
     [self.view addSubview:location];
     
@@ -58,7 +69,8 @@
     CGFloat emailY = location.frame.origin.y + location.frame.size.height + 10;
     email = [[UILabel alloc] initWithFrame:CGRectMake(10, emailY, 300, 40)];
     email.textAlignment = NSTextAlignmentCenter;
-    email.backgroundColor = [UIColor whiteColor];
+    email.backgroundColor = [UIColor darkGrayColor];
+    email.textColor = [UIColor whiteColor];
 
     [self.view addSubview:email];
     
@@ -69,6 +81,9 @@
     repositories.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:repositories];
+    
+   
+    [repositories registerClass:[RepoCell class] forCellReuseIdentifier:@"RepoCell"]; //has to be below init or it wont contain anything
 
     
     
@@ -76,7 +91,8 @@
     email.text = [self.friendInfo objectForKey:@"email"];
     
     
-    
+     repositories.delegate = self;
+    repositories.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,19 +121,64 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     RepoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RepoCell" forIndexPath:indexPath]; //because we are using a custom cell class we call it specifically
     
     
     
     
-    NSDictionary *repo =  repos[indexPath.row];
     
-    cell.textLabel.text = [repo objectForKey:@"name"];
+    cell.textLabel.text = repos[indexPath.row][@"name"];
+   
+    
+    if (repos[indexPath.row][@"description"] != [NSNull null])
+    {
+        cell.detailTextLabel.text = repos[indexPath.row][@"description"];
+    }
     
     
     
     return cell;
 }
+
+
+#pragma mark -- NSURLSessionData delegate
+
+- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
+{
+    completionHandler(NSURLSessionResponseAllow);
+}
+
+- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
+{
+    if(!receivedData)
+    {
+        receivedData =[[NSMutableData alloc] initWithData:data];
+    }
+    else
+    {
+        [receivedData appendData:data];
+    }
+    
+    
+}
+
+- (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+{
+    if(!error)
+    {
+        NSLog(@"Download Successful");
+        repos = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
+        [repositories reloadData];
+       
+    }
+    
+}
+
+
+
+
+
 
 
 
