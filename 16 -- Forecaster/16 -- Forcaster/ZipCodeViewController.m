@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *zipCodeTextField;
 
+@property (weak, nonatomic) IBOutlet UILabel *zipCodeInvalidLabel;
+
 - (IBAction)findCityButton:(UIButton *)sender;
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
@@ -51,6 +53,10 @@
 
 - (IBAction)findCityButton:(UIButton *)sender
 {
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    
+    if ([self.zipCodeTextField.text length] == 5 && [self.zipCodeTextField.text rangeOfCharacterFromSet:set].location != NSNotFound)
+    {
     NSString *zipCode = self.zipCodeTextField.text;
     NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:%@&sensor=false",zipCode];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -64,7 +70,11 @@
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url]; //starts in paused state; have to tell it to resume.
     
     [dataTask resume];
-    
+    }
+    else
+    {
+        self.zipCodeInvalidLabel.text = @"Invalid Entry.";
+    }
 }
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender
@@ -81,12 +91,18 @@
     
     if (![textField.text isEqualToString:@""] || [textField.text isEqualToString:@""])
     {
-        [textField resignFirstResponder];
+        NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+        
+        if ([textField.text length] == 5 && [textField.text rangeOfCharacterFromSet:set].location != NSNotFound)
+        {
+            
+            [textField resignFirstResponder];
+            rc = YES;
+        }
         
        
         
-        
-        rc = YES;
+       
     }
     
     

@@ -58,7 +58,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-hq-BJu">
-                                <rect key="frame" x="255" y="185" width="90" height="41"/>
+                                <rect key="frame" x="255" y="195" width="90" height="41"/>
                                 <state key="normal" image="FindCityButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -66,12 +66,19 @@
                                     <action selector="findCityButton:" destination="0ze-7Y-cXq" eventType="touchUpInside" id="PHD-Ep-7ra"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-38-5sN">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.055564177690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.86904893235363789" green="0.88149286005985972" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="SDW-hq-BJu" firstAttribute="top" secondItem="3Ob-56-n35" secondAttribute="bottom" constant="20" id="0rR-m2-QLq"/>
+                            <constraint firstItem="SDW-hq-BJu" firstAttribute="top" secondItem="3Ob-56-n35" secondAttribute="bottom" constant="30" id="0rR-m2-QLq"/>
+                            <constraint firstItem="XYT-38-5sN" firstAttribute="centerX" secondItem="3Ob-56-n35" secondAttribute="centerX" id="7fC-sn-gVr"/>
                             <constraint firstAttribute="centerX" secondItem="3Ob-56-n35" secondAttribute="centerX" id="9yE-eT-p84"/>
                             <constraint firstItem="SDW-hq-BJu" firstAttribute="centerX" secondItem="3Ob-56-n35" secondAttribute="centerX" id="ZC2-cx-R81"/>
+                            <constraint firstItem="XYT-38-5sN" firstAttribute="top" secondItem="3Ob-56-n35" secondAttribute="bottom" constant="1" id="nwb-gs-Ixh"/>
                             <constraint firstAttribute="centerY" secondItem="3Ob-56-n35" secondAttribute="centerY" constant="150" id="waA-He-QRS"/>
                         </constraints>
                     </view>
@@ -84,6 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="zipCodeInvalidLabel" destination="XYT-38-5sN" id="JbO-SK-5mJ"/>
                         <outlet property="zipCodeTextField" destination="3Ob-56-n35" id="L9H-4T-wwa"/>
                     </connections>
                 </viewController>
