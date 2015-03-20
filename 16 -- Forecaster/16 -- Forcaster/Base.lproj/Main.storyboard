@@ -13,11 +13,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.86904893240000003" green="0.88149286010000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WeatherCell" id="q28-KD-2Hi">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="WeatherCell" id="q28-KD-2Hi" customClass="WeatherCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q28-KD-2Hi" id="XP2-oI-Txs">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77°F" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aL-D6-7oz">
+                                            <rect key="frame" x="396" y="0.0" width="153.5" height="113"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="77"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szA-Yd-lHn">
+                                            <rect key="frame" x="24" y="61" width="123.5" height="25.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="22"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tampa, FL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvg-zo-bwZ">
+                                            <rect key="frame" x="2" y="8" width="168" height="20.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="168" id="42t-qA-iN2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9aL-D6-7oz" firstAttribute="leading" secondItem="XP2-oI-Txs" secondAttribute="leading" constant="396" id="HPv-H4-zYI"/>
+                                        <constraint firstItem="szA-Yd-lHn" firstAttribute="centerX" secondItem="Jvg-zo-bwZ" secondAttribute="centerX" id="KsQ-vw-o5c"/>
+                                        <constraint firstItem="Jvg-zo-bwZ" firstAttribute="top" secondItem="XP2-oI-Txs" secondAttribute="top" constant="8" id="Qdm-Mj-5DU"/>
+                                        <constraint firstItem="Jvg-zo-bwZ" firstAttribute="leading" secondItem="XP2-oI-Txs" secondAttribute="leading" constant="2" id="Uo9-Rv-sZX"/>
+                                        <constraint firstItem="9aL-D6-7oz" firstAttribute="top" secondItem="XP2-oI-Txs" secondAttribute="top" id="bLp-eK-CH6"/>
+                                        <constraint firstAttribute="bottom" secondItem="9aL-D6-7oz" secondAttribute="bottom" constant="-13" id="q3Z-bC-7zA"/>
+                                        <constraint firstItem="szA-Yd-lHn" firstAttribute="top" secondItem="Jvg-zo-bwZ" secondAttribute="bottom" constant="32.5" id="zQF-Ex-tyF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityCellLabel" destination="Jvg-zo-bwZ" id="12r-FK-Diq"/>
+                                    <outlet property="currentConditionsLabel" destination="szA-Yd-lHn" id="VcV-c7-7ta"/>
+                                    <outlet property="degreesCellLabel" destination="9aL-D6-7oz" id="8u3-EN-SDK"/>
+                                    <segue destination="0rA-Nx-g3l" kind="show" id="3hs-Hg-l9O"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eak-hR-e0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="346"/>
+            <point key="canvasLocation" x="1137.5" y="346"/>
         </scene>
         <!--Zip Code View Controller-->
         <scene sceneID="VM7-aa-vru">
@@ -58,7 +96,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-hq-BJu">
-                                <rect key="frame" x="255" y="195" width="90" height="41"/>
+                                <rect key="frame" x="253" y="195" width="94" height="48"/>
                                 <state key="normal" image="FindCityButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -97,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UpN-uI-BpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2715" y="346"/>
+            <point key="canvasLocation" x="2681" y="820"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8NT-Qf-ihO">
@@ -122,6 +160,24 @@
             </objects>
             <point key="canvasLocation" x="325" y="346"/>
         </scene>
+        <!--Detail Forecast View Controller-->
+        <scene sceneID="f5u-m9-9Oz">
+            <objects>
+                <viewController id="0rA-Nx-g3l" customClass="DetailForecastViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNS-F1-47X"/>
+                        <viewControllerLayoutGuide type="bottom" id="gkY-Ql-aG9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JP2-MK-YLx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KCX-gO-tJW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905" y="56"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="z8v-rU-1Uw">
             <objects>
@@ -142,10 +198,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vbu-QJ-MMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="346"/>
+            <point key="canvasLocation" x="1865" y="804"/>
         </scene>
     </scenes>
     <resources>
-        <image name="FindCityButton" width="90" height="41"/>
+        <image name="FindCityButton" width="94" height="48"/>
     </resources>
 </document>

@@ -9,12 +9,16 @@
 #import "ForecastTableViewController.h"
 #import "ZipCodeViewController.h"
 #import "WeatherCell.h"
+#import "WeatherItem.h"
 
 @interface ForecastTableViewController ()
 {
     NSMutableArray *location;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentConditionsLabel;
 
 
 @end
@@ -23,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Current Weather";
     
     location = [[NSMutableArray alloc] init];
 //    self.view.backgroundColor = [UIColor purpleColor];
@@ -59,13 +64,36 @@
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherCell" forIndexPath:indexPath];
     
     
-    NSDictionary *locationInfo = location[indexPath.row];
-    NSArray *results = [locationInfo objectForKey:@"results"];
-    NSDictionary *locationInfo2 = results[0];
+//    WeatherItem *weatherItem = [[WeatherItem alloc] init];
+    
+    WeatherItem *weatherItem = location[indexPath.row];
+//    NSArray *results = [locationInfo objectForKey:@"results"];
+//    NSDictionary *locationInfo2 = results[0];
 //    NSArray *address = [locationInfo2 objectForKey:@"address_components"];
 //    NSDictionary *cityName = address[1];
-    cell.textLabel.text = [locationInfo2 objectForKey:@"formatted_address"];
+//    NSDictionary *stateName = address[3];
+//    NSString *longName = [cityName objectForKey:@"long_name"];
+//    NSString *shortName = [stateName objectForKey:@"short_name"];
+//    NSString *cityName = weatherItem.cityName;
+//    NSString *stateName = weatherItem.stateName;
     
+    cell.cityCellLabel.text =[NSString stringWithFormat:@"%@, %@",weatherItem.cityName,weatherItem.stateName];
+    cell.degreesCellLabel.text = weatherItem.temperature;
+    
+    NSLog(@"%@",weatherItem.temperature);
+    
+//    [NSString stringWithFormat:@"%@, %@",weatherItem.cityName,weatherItem.stateName];
+    
+//     cell.textLabel.text = [locationInfo2 objectForKey:@"formatted_address"];
+    
+//    WeatherItem *weatherItem = [[WeatherItem alloc] init];
+//    NSDictionary *latLong = [locationInfo2 objectForKey:@"location"];
+//    NSString *lat = [latLong objectForKey:@"lat"];
+//    NSString *longitude = [latLong objectForKey:@"longitude"];
+//    weatherItem.latitude = lat;
+//    weatherItem.longitude = longitude;
+//    
+
     
     
     return cell;
@@ -117,6 +145,7 @@
         UINavigationController *navC = [segue destinationViewController];
         ZipCodeViewController *zipcodeVC = [navC viewControllers][0];
         zipcodeVC.location = location;
+        
     }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D87B21011ABB4CE60076E317 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */; };
 		D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21031ABB5C1C0076E317 /* WeatherCell.m */; };
+		D89588921ABC609B00C445EA /* WeatherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89588911ABC609B00C445EA /* WeatherItem.m */; };
+		D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89588941ABC6BED00C445EA /* DetailForecastViewController.m */; };
 		D8EB79971ABB45540058A474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB79961ABB45540058A474 /* main.m */; };
 		D8EB799A1ABB45540058A474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB79991ABB45540058A474 /* AppDelegate.m */; };
 		D8EB79A01ABB45540058A474 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8EB799E1ABB45540058A474 /* Main.storyboard */; };
@@ -33,6 +35,10 @@
 		D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeViewController.m; sourceTree = "<group>"; };
 		D87B21021ABB5C1C0076E317 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
 		D87B21031ABB5C1C0076E317 /* WeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCell.m; sourceTree = "<group>"; };
+		D89588901ABC609B00C445EA /* WeatherItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherItem.h; sourceTree = "<group>"; };
+		D89588911ABC609B00C445EA /* WeatherItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherItem.m; sourceTree = "<group>"; };
+		D89588931ABC6BED00C445EA /* DetailForecastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailForecastViewController.h; sourceTree = "<group>"; };
+		D89588941ABC6BED00C445EA /* DetailForecastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailForecastViewController.m; sourceTree = "<group>"; };
 		D8EB79911ABB45540058A474 /* 16 -- Forecaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "16 -- Forecaster.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8EB79951ABB45540058A474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8EB79961ABB45540058A474 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +99,10 @@
 				D8EB79BB1ABB45BA0058A474 /* ForecastTableViewController.m */,
 				D87B20FF1ABB4CE60076E317 /* ZipCodeViewController.h */,
 				D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */,
+				D89588931ABC6BED00C445EA /* DetailForecastViewController.h */,
+				D89588941ABC6BED00C445EA /* DetailForecastViewController.m */,
+				D89588901ABC609B00C445EA /* WeatherItem.h */,
+				D89588911ABC609B00C445EA /* WeatherItem.m */,
 				D87B21021ABB5C1C0076E317 /* WeatherCell.h */,
 				D87B21031ABB5C1C0076E317 /* WeatherCell.m */,
 				D8EB799E1ABB45540058A474 /* Main.storyboard */,
@@ -232,6 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8EB799A1ABB45540058A474 /* AppDelegate.m in Sources */,
+				D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */,
+				D89588921ABC609B00C445EA /* WeatherItem.m in Sources */,
 				D8EB79BC1ABB45BA0058A474 /* ForecastTableViewController.m in Sources */,
 				D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */,
 				D8EB79971ABB45540058A474 /* main.m in Sources */,
