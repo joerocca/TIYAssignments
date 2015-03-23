@@ -9,7 +9,7 @@
 #import "ForecastTableViewController.h"
 #import "ZipCodeViewController.h"
 #import "WeatherCell.h"
-
+#import "DetailForecastViewController.h"
 #import "NetworkManager.h"
 
 @interface ForecastTableViewController ()
@@ -64,12 +64,13 @@
     
 
     
-    City *weatherItem = location[indexPath.row];
+    City *cityItem = location[indexPath.row];
+  
     
     
-    cell.cityCellLabel.text = weatherItem.name;
-    cell.degreesCellLabel.text = [weatherItem.currentWeather currentTemperature];
-    
+    cell.cityCellLabel.text = cityItem.name;
+    cell.degreesCellLabel.text = [cityItem.currentWeather currentTemperature];
+  
 
 
     
@@ -128,6 +129,23 @@
         
     }
 }
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    City *selectedCity = location[indexPath.row];
+    DetailForecastViewController *DetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailForecastView"];
+    DetailVC.aCity = selectedCity;
+    
+    [self.navigationController pushViewController:DetailVC animated:YES];
+}
+
+
+
+
+
+
 
 - (void)cityWasFound:(City *)aCity
 {

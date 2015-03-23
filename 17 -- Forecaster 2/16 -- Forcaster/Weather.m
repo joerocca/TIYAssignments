@@ -23,6 +23,8 @@
     self.apparentTemperature = [[currentWeather objectForKey:@"apparentTemperature"]doubleValue];
     self.summary = [currentWeather objectForKey:@"summary"];
     self.icon = [currentWeather objectForKey:@"icon"];
+    self.humidity = [[currentWeather objectForKey:@"humidity"] floatValue] * 100;
+    
     }
     return rc;
 }
@@ -42,10 +44,10 @@
 //{
 //    
 //}
-//- (NSString *)humidityPercentage
-//{
-//    
-//}
+- (NSString *)humidityPercentage
+{
+    return [NSString stringWithFormat:@"%g%%",self.humidity];
+}
 //- (NSString *)chanceOfRain
 //{
 //    

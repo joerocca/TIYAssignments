@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 @interface DetailForecastViewController : UIViewController
+
+
+@property (nonatomic, strong) City *aCity;
 
 @end

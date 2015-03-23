@@ -14,16 +14,29 @@
 
 @interface DetailForecastViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *iconDescription;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *apparentTempLabel;
+
 @end
 
 @implementation DetailForecastViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     
- 
     
+    self.cityLabel.text = self.aCity.name;
+    
+    self.iconDescription.text = self.aCity.currentWeather.summary;
+    
+    self.iconView.image = [UIImage imageNamed:self.aCity.currentWeather.icon];
+    
+    self.humidityLabel.text = [self.aCity.currentWeather humidityPercentage];
+    
+    self.apparentTempLabel.text = [self.aCity.currentWeather feelsLikeTemperature];
     
     // Do any additional setup after loading the view.
 }
