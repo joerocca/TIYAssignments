@@ -68,7 +68,7 @@
   
     
     
-    cell.cityCellLabel.text = cityItem.name;
+    cell.cityCellLabel.text =[NSString stringWithFormat:@"%@, %@",cityItem.name,cityItem.state];
     cell.degreesCellLabel.text = [cityItem.currentWeather currentTemperature];
   
 

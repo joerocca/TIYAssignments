@@ -15,10 +15,13 @@
 @interface DetailForecastViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailTemp;
 @property (weak, nonatomic) IBOutlet UILabel *iconDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *iconView;
 @property (weak, nonatomic) IBOutlet UILabel *humidityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *apparentTempLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rainChanceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
 
 @end
 
@@ -27,8 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.detailTemp.text = [self.aCity.currentWeather currentTemperature];
     
-    self.cityLabel.text = self.aCity.name;
+    self.cityLabel.text =[NSString stringWithFormat:@"%@, %@",self.aCity.name,self.aCity.state];
     
     self.iconDescription.text = self.aCity.currentWeather.summary;
     
@@ -37,6 +41,10 @@
     self.humidityLabel.text = [self.aCity.currentWeather humidityPercentage];
     
     self.apparentTempLabel.text = [self.aCity.currentWeather feelsLikeTemperature];
+    
+    self.rainChanceLabel.text = [self.aCity.currentWeather chanceOfRain];
+    
+    self.windSpeedLabel.text = [self.aCity.currentWeather windSpeedMPH];
     
     // Do any additional setup after loading the view.
 }
