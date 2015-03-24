@@ -11,7 +11,7 @@
 
 @import MapKit;
 
-@interface City : NSObject <MKAnnotation>
+@interface City : NSObject <MKAnnotation, NSCoding>
 
 @property (strong, nonatomic) Weather *currentWeather;
 @property (strong, nonatomic) NSArray *forecastedWeather;
