@@ -9,6 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "City.h"
 
+
+@interface City ()
+
+@property (nonatomic) CLLocationCoordinate2D coordinate;
+
+@end
+
+
 @implementation City
 
 - (instancetype)initWithZipCode:(NSString *)zip;
@@ -46,13 +54,43 @@
     NSDictionary *latLong = [geometry objectForKey:@"location"];
     NSString *lat = [latLong objectForKey:@"lat"];
     NSString *longitude = [latLong objectForKey:@"lng"];
-    self.latitude = [lat doubleValue];
-    self.longitude = [longitude doubleValue];
+        self.latitude = [lat doubleValue];
+        self.longitude = [longitude doubleValue];
         
+        self.coordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude);
         
     }
     return rc;
 }
+
+- (NSString *)title
+{
+    return self.name;
+}
+
+- (NSString *)subtitle
+{
+    return [self.currentWeather currentTemperature];
+}
+
+- (CLLocationCoordinate2D)coordinate
+{
+    return _coordinate;
+}
+
+- (MKMapItem *)mapItem
+{
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.coordinate addressDictionary:nil];
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+    mapItem.name = self.name;
+    
+    return mapItem;
+}
+
+
+
+
+
 
 
 
