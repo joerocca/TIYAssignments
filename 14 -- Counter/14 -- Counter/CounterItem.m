@@ -40,5 +40,10 @@
     
 }
 
+-(void) labelReset
+{
+    self.counterValue = 0;
+}
+
 
 @end

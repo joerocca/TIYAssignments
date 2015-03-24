@@ -7,8 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "City.h"
 
 
-@interface ForecastTableViewController : UITableViewController
+@protocol ForecastTableViewControllerDelegate
+
+- (void)cityWasFound:(City *)aCity;
+
+- (void)weatherWasFoundForCity:(City *)aCity;
+
+
+@end
+
+
+
+
+@interface ForecastTableViewController : UITableViewController<ForecastTableViewControllerDelegate>
+
 
 @end

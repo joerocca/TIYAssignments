@@ -426,6 +426,7 @@
 				D85EFF4A1AB89D55002083ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D85EFF4B1AB89D55002083ED /* Build configuration list for PBXNativeTarget "14 -- CounterTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +435,7 @@
 				D85EFF4D1AB89D55002083ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

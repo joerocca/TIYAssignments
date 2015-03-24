@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D80981FD1AC0821B00C21D26 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D80981FC1AC0821B00C21D26 /* NetworkManager.m */; };
+		D80982011AC084A700C21D26 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D80982001AC084A700C21D26 /* City.m */; };
+		D80982031AC084D700C21D26 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D80982021AC084D700C21D26 /* Weather.m */; };
 		D87B21011ABB4CE60076E317 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */; };
 		D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21031ABB5C1C0076E317 /* WeatherCell.m */; };
-		D89588921ABC609B00C445EA /* WeatherItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D89588911ABC609B00C445EA /* WeatherItem.m */; };
 		D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89588941ABC6BED00C445EA /* DetailForecastViewController.m */; };
 		D8EB79971ABB45540058A474 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB79961ABB45540058A474 /* main.m */; };
 		D8EB799A1ABB45540058A474 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EB79991ABB45540058A474 /* AppDelegate.m */; };
@@ -31,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D80981FB1AC0821B00C21D26 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		D80981FC1AC0821B00C21D26 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		D80981FE1AC0822B00C21D26 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		D80981FF1AC0822B00C21D26 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
+		D80982001AC084A700C21D26 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		D80982021AC084D700C21D26 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
 		D87B20FF1ABB4CE60076E317 /* ZipCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipCodeViewController.h; sourceTree = "<group>"; };
 		D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeViewController.m; sourceTree = "<group>"; };
 		D87B21021ABB5C1C0076E317 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
@@ -101,10 +109,14 @@
 				D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */,
 				D89588931ABC6BED00C445EA /* DetailForecastViewController.h */,
 				D89588941ABC6BED00C445EA /* DetailForecastViewController.m */,
-				D89588901ABC609B00C445EA /* WeatherItem.h */,
-				D89588911ABC609B00C445EA /* WeatherItem.m */,
 				D87B21021ABB5C1C0076E317 /* WeatherCell.h */,
 				D87B21031ABB5C1C0076E317 /* WeatherCell.m */,
+				D80981FB1AC0821B00C21D26 /* NetworkManager.h */,
+				D80981FC1AC0821B00C21D26 /* NetworkManager.m */,
+				D80981FE1AC0822B00C21D26 /* City.h */,
+				D80982001AC084A700C21D26 /* City.m */,
+				D80981FF1AC0822B00C21D26 /* Weather.h */,
+				D80982021AC084D700C21D26 /* Weather.m */,
 				D8EB799E1ABB45540058A474 /* Main.storyboard */,
 				D8EB79A11ABB45540058A474 /* Images.xcassets */,
 				D8EB79A31ABB45540058A474 /* LaunchScreen.xib */,
@@ -117,6 +129,8 @@
 		D8EB79941ABB45540058A474 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D89588901ABC609B00C445EA /* WeatherItem.h */,
+				D89588911ABC609B00C445EA /* WeatherItem.m */,
 				D8EB79951ABB45540058A474 /* Info.plist */,
 				D8EB79961ABB45540058A474 /* main.m */,
 			);
@@ -241,13 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80981FD1AC0821B00C21D26 /* NetworkManager.m in Sources */,
 				D8EB799A1ABB45540058A474 /* AppDelegate.m in Sources */,
 				D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */,
-				D89588921ABC609B00C445EA /* WeatherItem.m in Sources */,
+				D80982031AC084D700C21D26 /* Weather.m in Sources */,
 				D8EB79BC1ABB45BA0058A474 /* ForecastTableViewController.m in Sources */,
 				D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */,
 				D8EB79971ABB45540058A474 /* main.m in Sources */,
 				D87B21011ABB4CE60076E317 /* ZipCodeViewController.m in Sources */,
+				D80982011AC084A700C21D26 /* City.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

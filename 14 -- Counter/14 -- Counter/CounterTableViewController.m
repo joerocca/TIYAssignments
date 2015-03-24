@@ -13,6 +13,8 @@
 @interface CounterTableViewController ()<UITextFieldDelegate>
 {
     NSMutableArray *countList;
+    CounterCell *counterCell;
+    CounterItem *counterItem;
 }
 
 - (IBAction)addCounterCellButton:(UIBarButtonItem *)sender;
@@ -78,11 +80,11 @@
         {
             [cell.descriptionTextField setText:item.counterName];
         }
-        else
-        {
-            [cell.descriptionTextField becomeFirstResponder]; //brings up keyboard
-        }
-        
+//        else
+//        {
+//            [cell.descriptionTextField becomeFirstResponder]; //brings up keyboard
+//        }
+//        
        
     }
     
@@ -171,7 +173,18 @@
 }
 
 
+-(void)UIButton:(UIButton *)sender
+{
+    UIView *contentView = [sender superview];
+    CounterCell *cell = (CounterCell *)[contentView superview];
+    NSIndexPath *path = [self.tableView indexPathForCell:cell];
+    CounterItem *aCounter = countList[path.row];
+    
+    [aCounter labelReset];
+    cell.counterLabel.text = [NSString stringWithFormat:@"%2ld",(long)aCounter.counterValue];
 
+
+}
 
 
 
@@ -190,12 +203,12 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index2 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    
-    
+
     
 }
 
-- (IBAction)deleteCounterCellButton:(UIBarButtonItem *)sender
+
+- (IBAction)deleteCounterCellButton:(UIBarButtonItem *)delete
 {
     
 
@@ -204,7 +217,9 @@
     
     [countList removeAllObjects];
     [self.tableView reloadData];
-
+    
+   
+    
     
 
 }

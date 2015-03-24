@@ -7,6 +7,7 @@
 //
 
 #import "NetworkManager.h"
+#import "ForecastTableViewController.h"
 
 typedef enum {
     DataFetchTypeCoordinates,

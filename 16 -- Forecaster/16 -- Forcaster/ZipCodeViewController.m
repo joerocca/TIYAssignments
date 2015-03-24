@@ -9,6 +9,8 @@
 #import "ZipCodeViewController.h"
 #import "WeatherItem.h"
 #import "WeatherCell.h"
+#import "City.h"
+#import "NetworkManager.h"
 
 @interface ZipCodeViewController () <NSURLSessionDataDelegate, UITextFieldDelegate>
 {
@@ -59,21 +61,11 @@
     
     if ([self.zipCodeTextField.text length] == 5 && [self.zipCodeTextField.text rangeOfCharacterFromSet:set].location != NSNotFound)
     {
-    NSString *zipCode = self.zipCodeTextField.text;
-    NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:%@&sensor=false",zipCode];
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-//    NSLog(@"%@",urlString);
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
-    
-    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url]; //starts in paused state; have to tell it to resume.
-    
-    [dataTask resume];
         
+        [self.zipCodeTextField resignFirstResponder];
+        City *aCity = [[City alloc] initWithZipCode:self.zipCodeTextField.text];
         
+        [[NetworkManager sharedNetworkManager] findCoordinatesForCity:aCity];
     }
     else
     {
@@ -117,70 +109,74 @@
 
 
 
-#pragma mark -- NSURLSession delegate
-
-
-
-- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
-{
-    completionHandler(NSURLSessionResponseAllow);
-}
-
-- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
-{
-    if(!receivedData)
-    {
-        receivedData = [[NSMutableData alloc] initWithData:data];
-    }
-    
-    else
-    {
-        [receivedData appendData:data];
-    }
-}
-
-- (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error //if didnt complete, this will point to error
-{
-    if (!error)
-    {
-        NSLog(@"Download Successful.");
-        NSDictionary *locationInfo = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
-//        [self.location addObject:locationInfo];
-       
-        
-        
-        WeatherItem *weatherItem = [[WeatherItem alloc] init];
-        
-        
-        
-        NSArray *results = [locationInfo objectForKey:@"results"];
-        NSDictionary *locationInfo2 = results[0];
-        NSArray *address = [locationInfo2 objectForKey:@"address_components"];
-        NSDictionary *cityName = address[1];
-        NSDictionary *stateName = address[3];
-        weatherItem.cityName = [cityName objectForKey:@"long_name"];
-        weatherItem.stateName = [stateName objectForKey:@"short_name"];
-        
-       
-        
-        NSDictionary *geometry = [locationInfo2 objectForKey:@"geometry"];
-        NSDictionary *latLong = [geometry objectForKey:@"location"];
-        NSString *lat = [latLong objectForKey:@"lat"];
-        NSString *longitude = [latLong objectForKey:@"lng"];
-        weatherItem.latitude = lat;
-        weatherItem.longitude = longitude;
-        
-        [self.location addObject:weatherItem];
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-        NSLog(@"%@",weatherItem.latitude);
-        NSLog(@"%@",weatherItem.longitude);
-        
-        [weatherItem weatherForecast];
-    }
-//    NSLog(@"%@",self.location);
-}
+//#pragma mark -- NSURLSession delegate
+//
+//
+//
+//- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler
+//{
+//    completionHandler(NSURLSessionResponseAllow);
+//}
+//
+//- (void) URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
+//{
+//    if(!receivedData)
+//    {
+//        receivedData = [[NSMutableData alloc] initWithData:data];
+//    }
+//    
+//    else
+//    {
+//        [receivedData appendData:data];
+//    }
+//}
+//
+//- (void) URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error //if didnt complete, this will point to error
+//{
+//    if (!error)
+//    {
+//        NSLog(@"Download Successful.");
+//        NSDictionary *locationInfo = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
+////        [self.location addObject:locationInfo];
+//       
+//        
+//        
+//        WeatherItem *weatherItem = [[WeatherItem alloc] init];
+//        
+//        
+//        
+//        NSArray *results = [locationInfo objectForKey:@"results"];
+//        NSDictionary *locationInfo2 = results[0];
+//        NSArray *address = [locationInfo2 objectForKey:@"address_components"];
+//        NSDictionary *cityName = address[1];
+//        NSDictionary *stateName = address[3];
+//        weatherItem.cityName = [cityName objectForKey:@"long_name"];
+//        weatherItem.stateName = [stateName objectForKey:@"short_name"];
+//        
+//       
+//        
+//        NSDictionary *geometry = [locationInfo2 objectForKey:@"geometry"];
+//        NSDictionary *latLong = [geometry objectForKey:@"location"];
+//        NSString *lat = [latLong objectForKey:@"lat"];
+//        NSString *longitude = [latLong objectForKey:@"lng"];
+//        weatherItem.latitude = lat;
+//        weatherItem.longitude = longitude;
+//        
+//       
+//        
+//        [self.location addObject:weatherItem];
+//        
+//         [weatherItem weatherForecast];
+//        
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//        
+//        NSLog(@"%@",weatherItem.latitude);
+//        NSLog(@"%@",weatherItem.longitude);
+//        
+//        
+//    }
+////    NSLog(@"%@",self.location);
+//}
 
 
 

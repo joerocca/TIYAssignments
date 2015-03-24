@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ForecastTableViewController.h"
 
 @interface WeatherItem : NSObject <NSURLSessionDataDelegate>
+
+
 
 @property (strong, nonatomic) NSString *cityName;
 @property (strong, nonatomic) NSString *stateName;

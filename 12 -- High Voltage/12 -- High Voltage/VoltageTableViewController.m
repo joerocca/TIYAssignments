@@ -11,12 +11,13 @@
 #import "EnergyItem.h"
 
 
+
 @interface VoltageTableViewController () <UITextFieldDelegate, UIPopoverPresentationControllerDelegate>
 {
     PopoverTableViewController *popover;
     EnergyItem *energyItem;
     NSMutableArray *energyIdentifierTypes;
-    NSMutableArray *energyTypes2;
+   
 }
 
 
@@ -26,6 +27,7 @@
 - (IBAction)wattsTextField:(UITextField *)sender;
 
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *h;
 
 
 
@@ -38,7 +40,7 @@
     self.title = @"High Voltage";
     energyIdentifierTypes = [[NSMutableArray alloc] init];
     
-    energyTypes2 = [[NSMutableArray alloc] initWithObjects:@"Volts",@"Watts",@"Amps",@"Ohms", nil];
+    
 
     
 }
@@ -61,6 +63,10 @@
     // Return the number of rows in the section.
     return [energyIdentifierTypes count];
 }
+
+
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,25 +123,32 @@
     if ([segue.identifier isEqualToString:@"ShowPopoverSegue"])
     {
         PopoverTableViewController *destVC = (PopoverTableViewController *)[segue destinationViewController];
-        
-        destVC.popoverPresentationController.delegate = self;
+        destVC.delegate = self;
+        destVC.popoverPresentationController.delegate = self;   //allows us to recieve info from popovervc
         NSMutableArray *energyTypes = [EnergyItem allEnergyTypes];
         
-        float contentHeight = 44.0f * [energyTypes count];
+        float contentHeight = 44.0f * [energyTypes count];  //gives us the height fo the modal
         
-        destVC.preferredContentSize = CGSizeMake(100.0f, contentHeight);
+        destVC.preferredContentSize = CGSizeMake(100.0f, contentHeight); //sets the height and width of the modal
         
-        popover.energyTypes3 = energyTypes2;
         
-        NSLog(@"%@",popover.energyTypes3);
         
-        destVC.delegate = self;
         
     }
     
     
     
 }
+
+#pragma mark - PopoverPresentationController delegate
+
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
+{
+    
+    return UIModalPresentationNone;
+}
+
 
 
 
@@ -150,18 +163,17 @@
 
     [energyIdentifierTypes addObject:anIdentifier];
     NSUInteger index = [energyIdentifierTypes indexOfObject:anIdentifier];
-//    NSUInteger index2 = [EnergyItem.allEnergyTypes indexOfObject:chosentype];
-    NSUInteger index3 = [[EnergyItem allEnergyTypes] indexOfObject:chosentype];
+    NSUInteger index2 = [EnergyItem.allEnergyTypes indexOfObject:chosentype];
     
-//    NSLog(@"%ld", (long)index2);
+    NSLog(@"%ld", (long)index2);
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath]  withRowAnimation:UITableViewRowAnimationLeft];
 
     
-//    [[EnergyItem allEnergyTypes] removeObjectAtIndex:index2];
+
     
-    [[EnergyItem allEnergyTypes] removeObjectAtIndex:index3];
+    [[EnergyItem allEnergyTypes] removeObjectAtIndex:index2];
 
     
 }
@@ -175,14 +187,6 @@
 
 
 
-#pragma mark - PopoverPresentationController delegate
-
-
-- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller
-{
-    
-    return UIModalPresentationNone;
-}
 
 
 

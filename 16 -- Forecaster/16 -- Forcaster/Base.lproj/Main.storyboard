@@ -19,19 +19,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="77°F" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aL-D6-7oz">
-                                            <rect key="frame" x="396" y="0.0" width="153.5" height="113"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="77"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="324" y="15.5" width="120" height="69"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="60"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Cloudy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szA-Yd-lHn">
-                                            <rect key="frame" x="24" y="61" width="123.5" height="25.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mostly Cloudy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szA-Yd-lHn">
+                                            <rect key="frame" x="24" y="67" width="123.5" height="25.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="22"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tampa, FL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jvg-zo-bwZ">
-                                            <rect key="frame" x="2" y="8" width="168" height="20.5"/>
+                                            <rect key="frame" x="2" y="14" width="168" height="20.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="168" id="42t-qA-iN2"/>
                                             </constraints>
@@ -43,12 +43,23 @@
                                     <constraints>
                                         <constraint firstItem="9aL-D6-7oz" firstAttribute="leading" secondItem="XP2-oI-Txs" secondAttribute="leading" constant="396" id="HPv-H4-zYI"/>
                                         <constraint firstItem="szA-Yd-lHn" firstAttribute="centerX" secondItem="Jvg-zo-bwZ" secondAttribute="centerX" id="KsQ-vw-o5c"/>
-                                        <constraint firstItem="Jvg-zo-bwZ" firstAttribute="top" secondItem="XP2-oI-Txs" secondAttribute="top" constant="8" id="Qdm-Mj-5DU"/>
+                                        <constraint firstItem="Jvg-zo-bwZ" firstAttribute="top" secondItem="XP2-oI-Txs" secondAttribute="top" constant="14" id="Qdm-Mj-5DU"/>
                                         <constraint firstItem="Jvg-zo-bwZ" firstAttribute="leading" secondItem="XP2-oI-Txs" secondAttribute="leading" constant="2" id="Uo9-Rv-sZX"/>
                                         <constraint firstItem="9aL-D6-7oz" firstAttribute="top" secondItem="XP2-oI-Txs" secondAttribute="top" id="bLp-eK-CH6"/>
-                                        <constraint firstAttribute="bottom" secondItem="9aL-D6-7oz" secondAttribute="bottom" constant="-13" id="q3Z-bC-7zA"/>
+                                        <constraint firstAttribute="trailing" secondItem="9aL-D6-7oz" secondAttribute="trailing" constant="17.5" id="lnJ-CW-dqr"/>
+                                        <constraint firstAttribute="centerX" secondItem="9aL-D6-7oz" secondAttribute="centerX" constant="-100" id="n00-GY-ag8"/>
+                                        <constraint firstAttribute="centerY" secondItem="9aL-D6-7oz" secondAttribute="centerY" id="nnE-l2-UTe"/>
+                                        <constraint firstAttribute="bottom" secondItem="9aL-D6-7oz" secondAttribute="bottom" id="q3Z-bC-7zA"/>
                                         <constraint firstItem="szA-Yd-lHn" firstAttribute="top" secondItem="Jvg-zo-bwZ" secondAttribute="bottom" constant="32.5" id="zQF-Ex-tyF"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="HPv-H4-zYI"/>
+                                            <exclude reference="bLp-eK-CH6"/>
+                                            <exclude reference="lnJ-CW-dqr"/>
+                                            <exclude reference="q3Z-bC-7zA"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cityCellLabel" destination="Jvg-zo-bwZ" id="12r-FK-Diq"/>
@@ -104,7 +115,7 @@
                                     <action selector="findCityButton:" destination="0ze-7Y-cXq" eventType="touchUpInside" id="PHD-Ep-7ra"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-38-5sN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYT-38-5sN">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.055564177690000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

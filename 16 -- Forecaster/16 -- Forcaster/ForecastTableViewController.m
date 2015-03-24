@@ -10,26 +10,29 @@
 #import "ZipCodeViewController.h"
 #import "WeatherCell.h"
 #import "WeatherItem.h"
+#import "NetworkManager.h"
 
 @interface ForecastTableViewController ()
 {
     NSMutableArray *location;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-@property (weak, nonatomic) IBOutlet UILabel *currentConditionsLabel;
+
 
 
 @end
 
 @implementation ForecastTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Current Weather";
     
     location = [[NSMutableArray alloc] init];
+    
+    [NetworkManager sharedNetworkManager].delegate = self;
+    
 //    self.view.backgroundColor = [UIColor purpleColor];
     
   
@@ -44,6 +47,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -64,9 +68,10 @@
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherCell" forIndexPath:indexPath];
     
     
+    
 //    WeatherItem *weatherItem = [[WeatherItem alloc] init];
     
-    WeatherItem *weatherItem = location[indexPath.row];
+    
 //    NSArray *results = [locationInfo objectForKey:@"results"];
 //    NSDictionary *locationInfo2 = results[0];
 //    NSArray *address = [locationInfo2 objectForKey:@"address_components"];
@@ -77,10 +82,13 @@
 //    NSString *cityName = weatherItem.cityName;
 //    NSString *stateName = weatherItem.stateName;
     
-    cell.cityCellLabel.text =[NSString stringWithFormat:@"%@, %@",weatherItem.cityName,weatherItem.stateName];
-    cell.degreesCellLabel.text = weatherItem.temperature;
+    City *weatherItem = location[indexPath.row];
     
-    NSLog(@"%@",weatherItem.temperature);
+    
+    cell.cityCellLabel.text = weatherItem.name;
+    cell.degreesCellLabel.text = [weatherItem.currentWeather currentTemperature];
+    
+//    NSLog(@"%@",weatherItem.temperature);
     
 //    [NSString stringWithFormat:@"%@, %@",weatherItem.cityName,weatherItem.stateName];
     
@@ -146,9 +154,33 @@
         ZipCodeViewController *zipcodeVC = [navC viewControllers][0];
         zipcodeVC.location = location;
         
+       
+        
     }
 }
 
+- (void)cityWasFound:(City *)aCity
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [location addObject:aCity];
+    aCity.currentWeather = [[Weather alloc] init];
+    
+    [[NetworkManager sharedNetworkManager] fetchCurrentWeatherForCity:aCity];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[location indexOfObject:aCity] inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+}
 
+- (void)weatherWasFoundForCity:(City *)aCity
+{
+    NSIndexPath *cityPath = [NSIndexPath indexPathForRow:[location indexOfObject:aCity] inSection:0];
+    WeatherCell *cell = (WeatherCell *)[self.tableView cellForRowAtIndexPath:cityPath];
+    
+    cell.degreesCellLabel.text = [aCity.currentWeather currentTemperature];
+    cell.currentConditionsLabel.text = aCity.currentWeather.summary;
+    
+    
+}
 
 @end

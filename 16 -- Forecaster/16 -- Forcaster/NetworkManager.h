@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CitiesTableViewController.h"
+#import "ForecastTableViewController.h"
 #import "City.h"
 
 @interface NetworkManager : NSObject
 
-@property (strong, nonatomic) id<CitiesTableViewControllerDelegate> delegate;
+@property (strong, nonatomic) id<ForecastTableViewControllerDelegate> delegate;
 
 // Class method to access the singleton object
 + (NetworkManager *)sharedNetworkManager;

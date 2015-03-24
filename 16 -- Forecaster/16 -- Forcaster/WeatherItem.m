@@ -17,10 +17,24 @@
     NSMutableData *receivedData;
 }
 
+//-(void)createAnInstanceOfForecastTableViewController
+//{
+//    ForecastTableViewController *ForecastTableView = [[ForecastTableViewController alloc] init];
+//    ForecastTableView.delegate = self;
+//    
+//}
+
+
+
+
+
+
 
 
 -(void)weatherForecast
 {
+ 
+    
     NSString *latitude = self.latitude; //unnessecary
     NSString *longitude = self.longitude;
     NSString *urlString = [NSString stringWithFormat:@"https://api.forecast.io/forecast/f3d7c26c780a5dad68ee1742b896b272/%@,%@",latitude,longitude];
@@ -69,11 +83,14 @@
         NSDictionary *weatherInfo = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
         NSDictionary *currentWeather = [weatherInfo objectForKey:@"currently"];
         self.temperature = [currentWeather objectForKey:@"temperature"];
+        self.apparentTemp = [currentWeather objectForKey:@"apparentTemperature"];
         self.forecastSummary = [currentWeather objectForKey:@"summary"];
         
 
+        NSLog(@"Temp: %@",self.temperature);
+        NSLog(@"Apparent Temp: %@", self.apparentTemp);
+        NSLog(@"Summary: %@",self.forecastSummary);
         
-        NSLog(@"%@",self.forecastSummary);
         
 //        NSLog(@"%@",weatherInfo);
 //        [self.location addObject:locationInfo];

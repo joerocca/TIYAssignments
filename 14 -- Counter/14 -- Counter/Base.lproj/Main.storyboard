@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CounterCell" id="Oeh-ry-GiA" customClass="CounterCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CounterCell" id="Oeh-ry-GiA" customClass="CounterCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Oeh-ry-GiA" id="s2O-TS-eec">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -28,17 +28,17 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rd2-N7-fE9">
-                                            <rect key="frame" x="244" y="43" width="112" height="47.5"/>
+                                            <rect key="frame" x="255" y="43" width="90" height="47.5"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="112" id="0Yh-n6-Cqu"/>
+                                                <constraint firstAttribute="width" constant="90" id="0Yh-n6-Cqu"/>
                                                 <constraint firstAttribute="height" constant="44.5" id="4Jh-sU-zoh"/>
                                                 <constraint firstAttribute="width" constant="112" id="DKR-An-hhn"/>
                                                 <constraint firstAttribute="width" constant="84" id="Ip7-Kr-Qnj"/>
                                                 <constraint firstAttribute="height" constant="48" id="XI7-gP-I09"/>
                                                 <constraint firstAttribute="height" constant="47.5" id="r72-qs-qAy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="45"/>
+                                            <color key="textColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="0.64000000000000001" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">

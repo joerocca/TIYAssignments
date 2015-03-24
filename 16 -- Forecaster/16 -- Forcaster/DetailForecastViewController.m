@@ -7,6 +7,10 @@
 //
 
 #import "DetailForecastViewController.h"
+#import "ZipCodeViewController.h"
+#import "ForecastTableViewController.h"
+#import "WeatherCell.h"
+#import "WeatherItem.h"
 
 @interface DetailForecastViewController ()
 
@@ -16,6 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+ 
+    
+    
     // Do any additional setup after loading the view.
 }
 

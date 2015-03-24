@@ -17,6 +17,6 @@
 
 -(void) calcCountUp;
 -(void) calcCountDown;
-
+-(void) labelReset;
 
 @end

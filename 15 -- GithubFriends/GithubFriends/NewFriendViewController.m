@@ -116,6 +116,8 @@
         NSDictionary *userInfo = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
         [self.friends addObject:userInfo];
         [self cancel];
+        
+        NSLog(@"%@",self.friends);
     }
 }
 
