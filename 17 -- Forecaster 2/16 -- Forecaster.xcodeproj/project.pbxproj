@@ -78,6 +78,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D85AB2F81AC109B200B7DF02 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8EB79BA1ABB45BA0058A474 /* ForecastTableViewController.h */,
+				D8EB79BB1ABB45BA0058A474 /* ForecastTableViewController.m */,
+				D87B20FF1ABB4CE60076E317 /* ZipCodeViewController.h */,
+				D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */,
+				D89588931ABC6BED00C445EA /* DetailForecastViewController.h */,
+				D89588941ABC6BED00C445EA /* DetailForecastViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D85AB2F91AC109E900B7DF02 /* Model Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D80981FB1AC0821B00C21D26 /* NetworkManager.h */,
+				D80981FC1AC0821B00C21D26 /* NetworkManager.m */,
+				D80981FE1AC0822B00C21D26 /* City.h */,
+				D80982001AC084A700C21D26 /* City.m */,
+				D80981FF1AC0822B00C21D26 /* Weather.h */,
+				D80982021AC084D700C21D26 /* Weather.m */,
+			);
+			name = "Model Classes";
+			sourceTree = "<group>";
+		};
+		D85AB2FA1AC10A4800B7DF02 /* Cell Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D87B21021ABB5C1C0076E317 /* WeatherCell.h */,
+				D87B21031ABB5C1C0076E317 /* WeatherCell.m */,
+			);
+			name = "Cell Classes";
+			sourceTree = "<group>";
+		};
 		D8EB79881ABB45540058A474 = {
 			isa = PBXGroup;
 			children = (
@@ -101,21 +136,10 @@
 			children = (
 				D8EB79981ABB45540058A474 /* AppDelegate.h */,
 				D8EB79991ABB45540058A474 /* AppDelegate.m */,
-				D8EB79BA1ABB45BA0058A474 /* ForecastTableViewController.h */,
-				D8EB79BB1ABB45BA0058A474 /* ForecastTableViewController.m */,
-				D87B20FF1ABB4CE60076E317 /* ZipCodeViewController.h */,
-				D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */,
-				D89588931ABC6BED00C445EA /* DetailForecastViewController.h */,
-				D89588941ABC6BED00C445EA /* DetailForecastViewController.m */,
-				D87B21021ABB5C1C0076E317 /* WeatherCell.h */,
-				D87B21031ABB5C1C0076E317 /* WeatherCell.m */,
-				D80981FB1AC0821B00C21D26 /* NetworkManager.h */,
-				D80981FC1AC0821B00C21D26 /* NetworkManager.m */,
-				D80981FE1AC0822B00C21D26 /* City.h */,
-				D80982001AC084A700C21D26 /* City.m */,
-				D80981FF1AC0822B00C21D26 /* Weather.h */,
-				D80982021AC084D700C21D26 /* Weather.m */,
 				D8EB799E1ABB45540058A474 /* Main.storyboard */,
+				D85AB2F81AC109B200B7DF02 /* View Controllers */,
+				D85AB2F91AC109E900B7DF02 /* Model Classes */,
+				D85AB2FA1AC10A4800B7DF02 /* Cell Classes */,
 				D8EB79A11ABB45540058A474 /* Images.xcassets */,
 				D8EB79A31ABB45540058A474 /* LaunchScreen.xib */,
 				D8EB79941ABB45540058A474 /* Supporting Files */,

@@ -56,12 +56,15 @@
 
 - (IBAction)findCityButton:(UIButton *)sender
 {
+    
+    [self.zipCodeTextField resignFirstResponder];
+    
     NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
     
     if ([self.zipCodeTextField.text length] == 5 && [self.zipCodeTextField.text rangeOfCharacterFromSet:set].location != NSNotFound)
     {
         
-        [self.zipCodeTextField resignFirstResponder];
+        
         City *aCity = [[City alloc] initWithZipCode:self.zipCodeTextField.text];
         
         [[NetworkManager sharedNetworkManager] findCoordinatesForCity:aCity];

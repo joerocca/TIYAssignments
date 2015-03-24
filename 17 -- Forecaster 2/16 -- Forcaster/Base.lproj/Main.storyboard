@@ -104,7 +104,7 @@
                                     <constraint firstAttribute="width" constant="110" id="lQY-Ce-tTO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="light"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDW-hq-BJu">
                                 <rect key="frame" x="253" y="195" width="94" height="48"/>
@@ -257,7 +257,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.87058823529411766" green="0.88235294117647056" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.38823529411764707" green="0.41960784313725491" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FDl-cs-Enx" firstAttribute="top" secondItem="xJ8-cJ-pAv" secondAttribute="bottom" constant="24" id="11j-Qi-PJx"/>
                             <constraint firstItem="mNt-bo-egc" firstAttribute="top" secondItem="1V6-U4-4ln" secondAttribute="bottom" constant="5" id="1AE-u0-K5j"/>
