@@ -32,16 +32,18 @@
     return self;
 }
 
-- (instancetype)initWithName:(NSString *)name latitude:(double)lat longitude:(double)lng andZipCode:(NSString *)zip;
+- (instancetype)initWithName:(NSString *)name state:(NSString *)state latitude:(double)lat longitude:(double)lng andZipCode:(NSString *)zip;
 {
     if (self)
     {
         self = [super init];
         
         _name = name;
+        _state = state;
         _latitude = lat;
         _longitude = lng;
         _zipCode = zip;
+        _coordinate = CLLocationCoordinate2DMake(lat, lng);
         
     }
     
@@ -106,6 +108,7 @@
 #pragma mark -- NSCoding
 
 #define kNameKey @"name"
+#define kStateKey @"state"
 #define kLatitudeKey @"latitude"
 #define kLongitudekey @"longitude"
 #define kZipCodeKey @"zipCode"
@@ -114,6 +117,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.name forKey:kNameKey];
+    [aCoder encodeObject:self.state forKey:kStateKey];
     [aCoder encodeDouble:self.latitude forKey:kLatitudeKey];
     [aCoder encodeDouble:self.longitude forKey:kLongitudekey];
     [aCoder encodeObject:self.zipCode forKey:kZipCodeKey];
@@ -122,11 +126,12 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     NSString *cityName = [aDecoder decodeObjectForKey:kNameKey];
+    NSString *stateName = [aDecoder decodeObjectForKey:kStateKey];
     double latitude = [aDecoder decodeDoubleForKey:kLatitudeKey];
     double longitude = [aDecoder decodeDoubleForKey:kLongitudekey];
     NSString *zipCode = [aDecoder decodeObjectForKey:kZipCodeKey];
     
-    return [self initWithName:cityName latitude:latitude longitude:longitude andZipCode:zipCode];
+    return [self initWithName:cityName state:stateName latitude:latitude longitude:longitude andZipCode:zipCode];
     
 
 }

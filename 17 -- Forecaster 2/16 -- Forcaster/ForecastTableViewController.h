@@ -24,5 +24,6 @@
 
 @interface ForecastTableViewController : UITableViewController<ForecastTableViewControllerDelegate>
 
+- (void)saveCityData;
 
 @end

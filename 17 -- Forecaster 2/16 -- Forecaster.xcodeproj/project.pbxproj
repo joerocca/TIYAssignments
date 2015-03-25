@@ -10,8 +10,6 @@
 		D80981FD1AC0821B00C21D26 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D80981FC1AC0821B00C21D26 /* NetworkManager.m */; };
 		D80982011AC084A700C21D26 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = D80982001AC084A700C21D26 /* City.m */; };
 		D80982031AC084D700C21D26 /* Weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D80982021AC084D700C21D26 /* Weather.m */; };
-		D824C42A1AC1BD97004E9242 /* CityDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = D824C4291AC1BD97004E9242 /* CityDoc.m */; };
-		D824C42D1AC1C391004E9242 /* CityDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D824C42C1AC1C391004E9242 /* CityDatabase.m */; };
 		D87B21011ABB4CE60076E317 /* ZipCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */; };
 		D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87B21031ABB5C1C0076E317 /* WeatherCell.m */; };
 		D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D89588941ABC6BED00C445EA /* DetailForecastViewController.m */; };
@@ -41,10 +39,6 @@
 		D80981FF1AC0822B00C21D26 /* Weather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Weather.h; sourceTree = "<group>"; };
 		D80982001AC084A700C21D26 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
 		D80982021AC084D700C21D26 /* Weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weather.m; sourceTree = "<group>"; };
-		D824C4281AC1BD97004E9242 /* CityDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDoc.h; sourceTree = "<group>"; };
-		D824C4291AC1BD97004E9242 /* CityDoc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDoc.m; sourceTree = "<group>"; };
-		D824C42B1AC1C391004E9242 /* CityDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDatabase.h; sourceTree = "<group>"; };
-		D824C42C1AC1C391004E9242 /* CityDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDatabase.m; sourceTree = "<group>"; };
 		D87B20FF1ABB4CE60076E317 /* ZipCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipCodeViewController.h; sourceTree = "<group>"; };
 		D87B21001ABB4CE60076E317 /* ZipCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipCodeViewController.m; sourceTree = "<group>"; };
 		D87B21021ABB5C1C0076E317 /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
@@ -106,10 +100,6 @@
 				D80982001AC084A700C21D26 /* City.m */,
 				D80981FF1AC0822B00C21D26 /* Weather.h */,
 				D80982021AC084D700C21D26 /* Weather.m */,
-				D824C4281AC1BD97004E9242 /* CityDoc.h */,
-				D824C4291AC1BD97004E9242 /* CityDoc.m */,
-				D824C42B1AC1C391004E9242 /* CityDatabase.h */,
-				D824C42C1AC1C391004E9242 /* CityDatabase.m */,
 			);
 			name = "Model Classes";
 			sourceTree = "<group>";
@@ -288,14 +278,12 @@
 				D80981FD1AC0821B00C21D26 /* NetworkManager.m in Sources */,
 				D8EB799A1ABB45540058A474 /* AppDelegate.m in Sources */,
 				D89588951ABC6BED00C445EA /* DetailForecastViewController.m in Sources */,
-				D824C42D1AC1C391004E9242 /* CityDatabase.m in Sources */,
 				D80982031AC084D700C21D26 /* Weather.m in Sources */,
 				D8EB79BC1ABB45BA0058A474 /* ForecastTableViewController.m in Sources */,
 				D87B21041ABB5C1C0076E317 /* WeatherCell.m in Sources */,
 				D8EB79971ABB45540058A474 /* main.m in Sources */,
 				D87B21011ABB4CE60076E317 /* ZipCodeViewController.m in Sources */,
 				D80982011AC084A700C21D26 /* City.m in Sources */,
-				D824C42A1AC1BD97004E9242 /* CityDoc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

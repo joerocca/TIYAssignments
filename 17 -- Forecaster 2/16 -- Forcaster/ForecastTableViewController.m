@@ -12,6 +12,8 @@
 #import "DetailForecastViewController.h"
 #import "NetworkManager.h"
 
+#define kCitiesKey @"cities"
+
 @interface ForecastTableViewController ()
 {
     NSMutableArray *location;
@@ -27,13 +29,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadCityData];
+    
+    if ([location count]>0)
+    {
+        for (City *aCity in location)
+        {
+            aCity.currentWeather = [[Weather alloc] init];
+        }
+        [[NetworkManager sharedNetworkManager] fetchCurrentWeatherForCities:location];
+    }
+    
     self.title = @"Current Weather";
-    
-    location = [[NSMutableArray alloc] init];
-    
     [NetworkManager sharedNetworkManager].delegate = self;
-    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+}
+
+-(void)loadCityData
+{
+    NSData *cityData = [[NSUserDefaults standardUserDefaults] objectForKey:kCitiesKey];
+    if (cityData)
+    {
+        location = [NSKeyedUnarchiver unarchiveObjectWithData:cityData];
+    }
+    else
+    {
+        location = [[NSMutableArray alloc] init];
+    }
+}
+
+- (void)saveCityData
+{
+    NSData *cityData = [NSKeyedArchiver archivedDataWithRootObject:location];
+    [[NSUserDefaults standardUserDefaults] setObject:cityData forKey:kCitiesKey];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,13 +109,13 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
+
 
 /*
 // Override to support editing the table view.
