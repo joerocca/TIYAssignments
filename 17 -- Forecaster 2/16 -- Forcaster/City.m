@@ -19,7 +19,7 @@
 
 @implementation City
 
-- (instancetype)initWithZipCode:(NSString *)zip;
+- (instancetype)initWithZipCode:(NSString *)zip
 {
     if (self)
     {
@@ -32,7 +32,7 @@
     return self;
 }
 
-- (instancetype)initWithName:(NSString *)name state:(NSString *)state latitude:(double)lat longitude:(double)lng andZipCode:(NSString *)zip;
+- (instancetype)initWithName:(NSString *)name state:(NSString *)state latitude:(double)lat longitude:(double)lng andZipCode:(NSString *)zip
 {
     if (self)
     {

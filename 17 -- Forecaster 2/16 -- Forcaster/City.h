@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSString *zipCode;
 
 - (instancetype)initWithZipCode:(NSString *)zip;
+- (instancetype)initWithName:(NSString *)name state:(NSString *)state latitude:(double)lat longitude:(double)lng andZipCode:(NSString *)zip;
 - (BOOL)parseCoordinateInfo:(NSDictionary *)mapsDictionary;
 - (CLLocationCoordinate2D)coordinate;
 

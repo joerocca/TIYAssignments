@@ -25,5 +25,6 @@
 
 - (void)fetchCurrentWeatherForCities:(NSArray *)cities;
 
+- (void)cityFoundUsingCurrentLocation:(City *)aCity;
 
 @end

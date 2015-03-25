@@ -92,6 +92,10 @@ static NSString *forecastIoBaseURL = @"https://api.forecast.io/forecast/b9f65ac7
     }
 }
 
+- (void)cityFoundUsingCurrentLocation:(City *)aCity
+{
+    [self.delegate cityWasFound:aCity];
+}
 #pragma mark - NSURLSession delegate
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler

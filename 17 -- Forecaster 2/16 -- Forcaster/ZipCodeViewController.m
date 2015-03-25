@@ -11,9 +11,15 @@
 #import "City.h"
 #import "NetworkManager.h"
 
-@interface ZipCodeViewController () <NSURLSessionDataDelegate, UITextFieldDelegate>
+@import CoreLocation;
+@import MapKit;
+@import AddressBook;
+
+@interface ZipCodeViewController () <UITextFieldDelegate, CLLocationManagerDelegate>
 {
-    NSMutableData *receivedData;
+    CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+
    
 }
 
@@ -21,7 +27,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *zipCodeInvalidLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *currentLocationButton;
+
 - (IBAction)findCityButton:(UIButton *)sender;
+
+- (IBAction)findCityWithCurrentLocation:(UIButton *)sender;
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 
@@ -36,6 +46,8 @@
     self.title = @"Add City";
     
     self.zipCodeTextField.delegate = self;
+ 
+    geocoder = [[CLGeocoder alloc] init];
     
 }
 
@@ -53,6 +65,91 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -- Location Services
+
+- (void)configureLocationManager
+{
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusRestricted)
+    {
+        if (!locationManager)
+        {
+            locationManager = [[CLLocationManager alloc] init];
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            
+            if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+            {
+                [locationManager requestWhenInUseAuthorization];
+            }
+            else
+            {
+                [self enableLocationManager:YES];
+            }
+        }
+        
+    }
+    else
+    {
+        [self.currentLocationButton setEnabled:NO];
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status != kCLAuthorizationStatusAuthorizedWhenInUse)
+    {
+        [self.currentLocationButton setEnabled:NO];
+    }
+    else
+    {
+        [self enableLocationManager:YES];
+    }
+}
+
+- (void)enableLocationManager:(BOOL)enable
+{
+    if (locationManager)
+    {
+        if (enable) {
+            [locationManager stopUpdatingLocation];
+            [locationManager startUpdatingLocation];
+        }
+        else
+        {
+            [locationManager stopUpdatingLocation];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    if (error != kCLErrorLocationUnknown)
+    {
+        [self enableLocationManager:NO];
+        [self.currentLocationButton setEnabled:NO];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *location = [locations lastObject];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if ((placemarks != nil) && (placemarks.count > 0))
+        {
+            [self enableLocationManager:NO];
+            NSString *cityName = [placemarks[0] locality];
+            NSString *state = [[placemarks[0] addressDictionary] objectForKey:(NSString *)kABPersonAddressStateKey];
+            NSString *zipCode = [[placemarks[0] addressDictionary] objectForKey:(NSString *)kABPersonAddressZIPKey];
+            double lat = location.coordinate.latitude;
+            double lng = location.coordinate.longitude;
+            City *aCity = [[City alloc] initWithName:cityName state:state latitude:lat longitude:lng andZipCode:zipCode];
+            [[NetworkManager sharedNetworkManager] cityFoundUsingCurrentLocation:aCity];
+        }
+    }];
+}
+
+#pragma mark -- Action Handlers
 
 - (IBAction)findCityButton:(UIButton *)sender
 {
@@ -73,6 +170,13 @@
     {
         self.zipCodeInvalidLabel.text = @"Invalid Entry.";
     }
+}
+
+
+- (IBAction)findCityWithCurrentLocation:(UIButton *)sender
+{
+    [self configureLocationManager];
+    
 }
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender
