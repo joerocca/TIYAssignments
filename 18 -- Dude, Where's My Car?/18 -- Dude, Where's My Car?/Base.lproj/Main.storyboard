@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N9R-eg-VJU">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBB-P8-N5b">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lBB-P8-N5b" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="1t9-Rx-KH6"/>
+                            <constraint firstItem="lBB-P8-N5b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="OPx-aS-KYD"/>
+                            <constraint firstAttribute="trailing" secondItem="lBB-P8-N5b" secondAttribute="trailing" id="Ovy-wO-tlO"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lBB-P8-N5b" secondAttribute="bottom" id="gc8-K1-67U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vk9-CH-bH1">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Delete Pin" id="Ige-An-8aw">
+                            <connections>
+                                <action selector="removeCurrentLocationPinButton:" destination="vXZ-lx-hvc" id="1jl-ci-oIb"/>
+                            </connections>
+                        </barButtonItem>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Pin Description" textAlignment="center" minimumFontSize="17" id="sve-81-ZWn">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Add Pin" id="2tO-SH-F6z">
+                            <connections>
+                                <action selector="pinCurrentLocationButton:" destination="vXZ-lx-hvc" id="UcO-82-FiV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barTextField" destination="sve-81-ZWn" id="QTS-xj-Oee"/>
+                        <outlet property="mapView" destination="lBB-P8-N5b" id="wAR-Qe-FQS"/>
+                        <outlet property="pinCurrentLocation" destination="2tO-SH-F6z" id="0fh-Z3-Eve"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1191" y="306"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PQo-hA-3H4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N9R-eg-VJU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NFE-qb-okn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="axe-C2-bhQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DcN-Jw-0mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="359"/>
+        </scene>
+    </scenes>
+</document>
