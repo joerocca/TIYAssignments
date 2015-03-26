@@ -55,7 +55,7 @@
     }
     else
     {
-        location = [[NSMutableArray alloc] init];
+        location = [[NSMutableArray alloc] init]; 
     }
 }
 
