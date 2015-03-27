@@ -18,9 +18,8 @@
 
 
 @property (strong, nonatomic) NSString *name;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 
-
-- (CLLocationCoordinate2D)coordinate;
 
 
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D ) coordinate userPinDescription:(NSString *)name;

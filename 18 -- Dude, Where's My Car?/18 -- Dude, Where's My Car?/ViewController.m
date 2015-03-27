@@ -11,16 +11,14 @@
 
 @import CoreLocation;
 @import MapKit;
-@import AddressBook;
 
 
 #define MAP_DISPLAY_SCALE 1.0 * 1609.344
 #define kPinKey @"pin"
 
-@interface ViewController () <CLLocationManagerDelegate,UITextFieldDelegate>
+@interface ViewController () <CLLocationManagerDelegate, UITextFieldDelegate>
 {
     CLLocationManager *locationManager;
-    
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -88,7 +86,6 @@
 {
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance([self.aLocation coordinate], MAP_DISPLAY_SCALE, MAP_DISPLAY_SCALE); //setter
     [self.mapView setRegion:viewRegion]; //getter
-//    [self.mapView addAnnotation:self.aLocation]; //has MKAnnotation protocol
     
 }
 
@@ -131,7 +128,7 @@
         {
             locationManager = [[CLLocationManager alloc] init];
             locationManager.delegate = self;
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
             
             if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
             {
@@ -207,6 +204,7 @@
  
 - (IBAction)pinCurrentLocationButton:(UIBarButtonItem *)sender
 {
+    
     if (![self.barTextField.text isEqualToString:@""])
     {
         
@@ -223,8 +221,6 @@
     [self.mapView removeAnnotation:self.aLocation];
     self.aLocation = nil;
     
-    
-    [self configureLocationManager];
 }
 
 
@@ -237,7 +233,7 @@
     
     if (![textField.text isEqualToString:@""] || [textField.text isEqualToString:@""])
     {
-        self.aLocation.name = [NSString stringWithFormat:@"%@", self.barTextField.text];
+        self.aLocation.name = self.barTextField.text;
         [textField resignFirstResponder];
         rc = YES;
         

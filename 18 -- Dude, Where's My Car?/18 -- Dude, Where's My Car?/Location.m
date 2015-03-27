@@ -13,7 +13,6 @@
 
 @interface Location ()
 
-@property (nonatomic) CLLocationCoordinate2D coordinate;
 
 @end
 
@@ -44,19 +43,6 @@
 }
 
 
-- (CLLocationCoordinate2D)coordinate
-{
-    return _coordinate;
-}
-
-- (MKMapItem *)mapItem
-{
-    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.coordinate addressDictionary:nil];
-    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-    mapItem.name = self.name;
-    
-    return mapItem;
-}
 
 #pragma mark -- NSCoding
 
