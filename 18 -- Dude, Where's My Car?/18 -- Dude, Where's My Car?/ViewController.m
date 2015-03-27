@@ -38,6 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.prompt = @"Enter a description to add a pin to your current location";
+    
     [self loadData];
     self.barTextField.delegate = self;
     
@@ -205,11 +207,15 @@
  
 - (IBAction)pinCurrentLocationButton:(UIBarButtonItem *)sender
 {
+    if (![self.barTextField.text isEqualToString:@""])
+    {
+        
     [self configurePin];
     self.aLocation.name = [NSString stringWithFormat:@"%@", self.barTextField.text];
     [self.barTextField resignFirstResponder];
     self.barTextField.text = @"";
-    
+        
+    }
 }
 
 - (IBAction)removeCurrentLocationPinButton:(UIBarButtonItem *)sender
