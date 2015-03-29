@@ -7,11 +7,27 @@
 //
 
 #import "DetailToDoTableViewController.h"
+#import "DatePickerViewController.h"
+#import "ToDoItem.h"
 
-@interface DetailToDoTableViewController ()<UITextFieldDelegate>
+@interface DetailToDoTableViewController ()<UITextFieldDelegate,CLLocationManagerDelegate>
+{
+    NSDateFormatter *dateFormatter;
+    CLLocationManager *locationManager;
+    MKLocalSearch *localSearch;
+    CLGeocoder *geocoder;
+//    MKLocalSearchResponse *results;
+    
+    LocationTableViewController *locationVC;
+    
+
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *taskTextField;
-@property (weak, nonatomic) IBOutlet UITextField *enterLocationTextField;
+//@property (weak, nonatomic) IBOutlet UITextField *enterLocationTextField;
+@property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *checkMarkButton;
+
 
 
 
@@ -20,20 +36,98 @@
 
 @implementation DetailToDoTableViewController
 
+//
+//- (id)initWithDate:(NSDate*)date
+//{
+//    
+//    if (self) {
+//        self = [super init];
+//      
+//        
+//        _dueDateProp = date;
+//        
+//        
+//        [self viewDidLoad];
+//    
+//        
+//    }
+//    return self;
+//}
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    date2 = [[NSString alloc] init];
+    
+    self.taskTextField.text = self.aTask.taskName;
+    self.checkMarkButton.selected = self.aTask.done;
+    
+    dateFormatter =[[NSDateFormatter alloc] init];
+    
+    NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MMddyyyy" options:0 locale:[NSLocale currentLocale]];
+    
+    [dateFormatter setDateFormat: dateFormat];
+    
+//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.toDoItem.dueDate];
+//    NSLog(@"%@",self.toDoItem.dueDate);
+    
+    
+//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.dueDateProp];
+//    NSLog(@"%@", [dateFormatter stringFromDate:self.dueDateProp]);
+   
+    
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+//     self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+
+
+
+
+
+
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+//     self.dueDateLabel.text = [dateFormatter stringFromDate:self.toDoItem.dueDate];
+  
+ 
+//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.dueDateProp];
+//    NSLog(@"%@",[dateFormatter stringFromDate:self.dueDateProp]);
+//    [self viewDidLoad];
+    
+//    self.dueDateLabel.text = [dateFormatter stringFromDate:dueDateInstanceVar];
+    // making up an IBOutlet called someLabel
+    // making up a model method (description) that returns a string representing your model
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+-(void)dueDateWasChosen:(NSDate *)dueDate
+{
+   
+//    self.dueDateLabel.text = [dateFormatter stringFromDate:dueDate];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
 
 #pragma mark - Table view data source
 
@@ -72,17 +166,33 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"ShowDatePickerSegue"])
+    {
+        DatePickerViewController *datePickerVC = (DatePickerViewController *)[segue destinationViewController];
+        
+        
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField == self.enterLocationTextField)
+    {
+//         [self configureLocationManager];
+    }
+   
+    
+   
+}
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -95,6 +205,8 @@
         
         if (textField == self.enterLocationTextField && ![textField.text isEqualToString:@""])
         {
+            [self configureLocationManager];
+            
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LocationNavController"];
            // UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -103,6 +215,8 @@
             
             
             [self presentViewController:vc animated:YES completion:nil];
+            
+            
         }
         
         
@@ -126,12 +240,141 @@
 }
 
 
+- (void)configureLocationManager
+{
+    if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusDenied && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusRestricted)
+    {
+        if (!locationManager)
+        {
+            locationManager = [[CLLocationManager alloc] init];
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+            
+            if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)
+            {
+                [locationManager requestWhenInUseAuthorization];
+            }
+            else
+            {
+                [self enableLocationManager:YES];
+            }
+        }
+        
+    }
+    else
+    {
+
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status != kCLAuthorizationStatusAuthorizedWhenInUse)
+    {
+
+    }
+    else
+    {
+        [self enableLocationManager:YES];
+    }
+}
+
+- (void)enableLocationManager:(BOOL)enable
+{
+    if (locationManager)
+    {
+        if (enable) {
+            [locationManager stopUpdatingLocation];
+            [locationManager startUpdatingLocation];
+        }
+        else
+        {
+            [locationManager stopUpdatingLocation];
+        }
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    if (error != kCLErrorLocationUnknown)
+    {
+        [self enableLocationManager:NO];
+    }
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    [self enableLocationManager:NO];
+    
+    CLLocation *location = [locations lastObject];
+    
+    MKCoordinateRegion userLocation = MKCoordinateRegionMakeWithDistance(location.coordinate, 1500.00, 1500.00);
+    
+    [self performSearch:userLocation];
+    
+    
+    //            NSLog(@"%f",location.coordinate.latitude);
+    //            NSLog(@"%f",location.coordinate.longitude);
+    
+    
+}
 
 
 
+-(void)performSearch:(MKCoordinateRegion)aRegion
+  {
+      
+      
+      MKLocalSearchRequest *request = [[MKLocalSearchRequest alloc] init];
+      request.naturalLanguageQuery = self.enterLocationTextField.text;
+      request.region = aRegion;
+      
+      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+      localSearch = [[MKLocalSearch alloc] initWithRequest:request];
+      
+      [localSearch startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error){
+          
+          [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+          
+          if (error != nil) {
+              [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Map Error",nil)
+                                          message:[error localizedDescription]
+                                         delegate:nil
+                                cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+              return;
+          }
+          
+          if ([response.mapItems count] == 0) {
+              [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Results",nil)
+                                          message:nil
+                                         delegate:nil
+                                cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+              return;
+          }
+          
+          
+        
 
+          
+          
+          
+          
+          
+          
+          self.results = response;
+          
+        
+          
+          
+          
+          [locationVC.tableView reloadData];
+          
+          NSLog(@"%@",self.results);
+      }];
 
-
+      
+  }
 
 
 

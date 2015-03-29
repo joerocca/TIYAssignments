@@ -7,20 +7,41 @@
 //
 
 #import "DatePickerViewController.h"
+#import "DetailToDoTableViewController.h"
+#import "ToDoItem.h"
 
 @interface DatePickerViewController ()
 
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 - (IBAction)doneButton:(UIBarButtonItem *)sender;
 
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
 @implementation DatePickerViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+}
+
+
+
+
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+//    [self.delegate dueDateWasChosen:self.datePicker.date];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +64,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)doneButton:(UIBarButtonItem *)sender {
+- (IBAction)doneButton:(UIBarButtonItem *)sender
+{
+    
+    self.toDoItem = [[ToDoItem alloc] initWithDate:self.datePicker.date];
+    
+//    [self.delegate dueDateWasChosen:self.datePicker.date];
+    
+//    self.dueDateProp = self.datePicker.date;
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 @end

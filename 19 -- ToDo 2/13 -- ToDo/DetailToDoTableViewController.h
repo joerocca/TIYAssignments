@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToDoItem.h"
+#import "LocationTableViewController.h"
+
+@import MapKit;
+
 
 @interface DetailToDoTableViewController : UITableViewController
+
+@property (nonatomic, strong) ToDoItem *aTask;
+//- (id)initWithDate:(NSDate*)date;
+
+@property (weak, nonatomic) IBOutlet UITextField *enterLocationTextField;
+
+@property (weak,nonatomic) MKLocalSearchResponse *results;
+
+-(void)performSearch:(MKCoordinateRegion)aRegion;
 
 @end

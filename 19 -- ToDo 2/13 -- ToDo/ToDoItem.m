@@ -18,6 +18,20 @@
     if (self)
     {
         _done = NO;
+       
+        
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithDate:(NSDate*)date
+{
+    self = [super init];
+    if (self)
+    {
+        _dueDate = date;
+        
     }
     
     return self;

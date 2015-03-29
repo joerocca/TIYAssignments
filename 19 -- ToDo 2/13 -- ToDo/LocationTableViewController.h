@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailToDoTableViewController.h"
 
 @interface LocationTableViewController : UITableViewController
+
+
+//@property (nonatomic, strong) DetailToDoTableViewController *DetailVC;
 
 @end

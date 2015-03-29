@@ -7,6 +7,9 @@
 //
 
 #import "LocationTableViewController.h"
+#import "DetailToDoTableViewController.h"
+
+@import MapKit;
 
 @interface LocationTableViewController ()
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
@@ -14,10 +17,19 @@
 @end
 
 @implementation LocationTableViewController
+{
+    NSMutableArray *locationData;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+
+    
+    
+
+ 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -47,6 +59,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
+    
+
+    
+   
+    
     
     // Configure the cell...
     

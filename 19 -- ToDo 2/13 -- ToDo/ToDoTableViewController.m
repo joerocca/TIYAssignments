@@ -189,12 +189,17 @@
     
     if ([segue.identifier isEqualToString:@"DetailSegue"])
     {
-//        DetailToDoTableViewController *timePickerVC = (DetailToDoTableViewController *)[segue destinationViewController];
-//        //
-        // 10. This view controller needs to be set as the time picker view controller's delegate object.
-        //
-    
+        DetailToDoTableViewController *DetailVC = (DetailToDoTableViewController *)[segue destinationViewController];
+        ToDoCell *senderCell = (ToDoCell *)sender;
+        NSIndexPath *path = [self.tableView indexPathForCell:senderCell];
+        ToDoItem *anItem = taskList[path.row];
+        anItem.taskName = senderCell.descriptionTextField.text;
+        anItem.done = senderCell.checkBoxButton.selected;
+        DetailVC.aTask = anItem;
         
+        NSLog(@"%@",anItem);
+    
+//        NSLog(@"%@",sender);
     }
 
     // Get the new view controller using [segue destinationViewController].

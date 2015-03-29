@@ -11,10 +11,11 @@
 @interface ToDoItem : NSObject
 
 
-
-
+- (instancetype)initWithDate:(NSDate*)date;
+- (instancetype)init;
 
 @property (strong, nonatomic) NSString *taskName;
+@property (nonatomic) NSDate *dueDate;
 @property (assign) BOOL done;
 
 

@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailToDoTableViewController.h"
+#import "ToDoItem.h"
 
 @interface DatePickerViewController : UIViewController
+
+
+@property (nonatomic, strong) ToDoItem *toDoItem;
+
+
 
 @end
