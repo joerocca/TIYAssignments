@@ -11,7 +11,7 @@
 #import "LocationTableViewController.h"
 #import "ToDoItem.h"
 
-@interface DetailToDoTableViewController ()<UITextFieldDelegate,CLLocationManagerDelegate>
+@interface DetailToDoTableViewController ()<UITextFieldDelegate, CLLocationManagerDelegate>
 {
     NSDateFormatter *dateFormatter;
     CLLocationManager *locationManager;
@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkMarkButton;
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streetNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 
 
 
@@ -49,6 +50,7 @@
     self.taskTextField.text = self.aTask.taskName;
     self.checkMarkButton.selected = self.aTask.done;
     
+    self.notesTextView.text = self.aTask.notes;
     
     
     dateFormatter =[[NSDateFormatter alloc] init];
@@ -97,13 +99,25 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    self.aTask.notes = self.notesTextView.text;
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
-
+-(void)dueDateWasChosen:(NSDate *)dueDate
+{
+    self.dueDateLabel.text = [dateFormatter stringFromDate:dueDate];
+    self.aTask.dueDate = [dateFormatter stringFromDate:dueDate];
+}
 
 
 
@@ -157,7 +171,10 @@
     if ([segue.identifier isEqualToString:@"ShowDatePickerSegue"])
     {
 
+        UINavigationController *datePickerNavC = [segue destinationViewController];
+        DatePickerViewController *datePickerVC = [datePickerNavC viewControllers][0];
         
+        datePickerVC.delegate = self;
         
     }
    
@@ -187,38 +204,21 @@
         if (textField == self.enterLocationTextField && ![textField.text isEqualToString:@""])
         {
             [self configureLocationManager];
-            
-//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LocationNavController"];
-//           // UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
-//            
-//            [vc setModalPresentationStyle:UIModalPresentationFullScreen];
-//            
-//            
-//            [self presentViewController:vc animated:YES completion:nil];
-            
+        
             
         }
-        
-        
-        
-        //        NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
-        //
-        //        if ([textField.text length] == 5 && [textField.text rangeOfCharacterFromSet:set].location != NSNotFound)
-        //        {
+    
         
         [textField resignFirstResponder];
         rc = YES;
-        
-        
-        
-        
+    
         
     }
     
     
     return rc;
 }
+
 
 
 - (void)configureLocationManager

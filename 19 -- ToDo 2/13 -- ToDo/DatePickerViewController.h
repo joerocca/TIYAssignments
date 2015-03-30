@@ -13,8 +13,8 @@
 @interface DatePickerViewController : UIViewController
 
 
-@property (nonatomic, strong) ToDoItem *toDoItem;
+@property (nonatomic, strong) ToDoItem *aTask;
 
-
+@property (strong, nonatomic) id <DetailToDoViewControllerDelegate> delegate;
 
 @end

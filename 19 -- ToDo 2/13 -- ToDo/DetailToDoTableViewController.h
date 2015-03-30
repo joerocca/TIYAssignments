@@ -13,7 +13,18 @@
 @import MapKit;
 
 
-@interface DetailToDoTableViewController : UITableViewController
+
+@protocol DetailToDoViewControllerDelegate
+
+-(void)dueDateWasChosen:(NSDate *)dueDate;
+
+@end
+
+
+
+
+@interface DetailToDoTableViewController : UITableViewController <DetailToDoViewControllerDelegate>
+
 
 @property (nonatomic, strong) ToDoItem *aTask;
 

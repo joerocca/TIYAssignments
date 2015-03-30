@@ -129,16 +129,16 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TwN-mt-Jy0" id="8PA-Pl-0va">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLm-rh-dG0">
-                                                    <rect key="frame" x="100" y="20" width="460" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add text here..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLm-rh-dG0">
+                                                    <rect key="frame" x="60" y="20" width="500" height="30"/>
+                                                    <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="uVs-Ax-MDu" id="sRQ-nP-gVB"/>
                                                     </connections>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zo-MX-sa5">
-                                                    <rect key="frame" x="35" y="15" width="39" height="39"/>
+                                                    <rect key="frame" x="13" y="15" width="39" height="39"/>
                                                     <state key="normal" image="Unchecked">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -150,11 +150,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="VLm-rh-dG0" secondAttribute="bottom" constant="19.5" id="JiX-si-M11"/>
-                                                <constraint firstItem="VLm-rh-dG0" firstAttribute="leading" secondItem="2zo-MX-sa5" secondAttribute="trailing" constant="26" id="KvE-L1-2Ey"/>
+                                                <constraint firstItem="VLm-rh-dG0" firstAttribute="leading" secondItem="2zo-MX-sa5" secondAttribute="trailing" constant="8" id="KvE-L1-2Ey"/>
                                                 <constraint firstItem="VLm-rh-dG0" firstAttribute="top" secondItem="8PA-Pl-0va" secondAttribute="top" constant="20" id="ODh-XF-Z0j"/>
-                                                <constraint firstItem="VLm-rh-dG0" firstAttribute="leading" secondItem="8PA-Pl-0va" secondAttribute="leading" constant="100" id="cMz-oE-iDS"/>
+                                                <constraint firstItem="VLm-rh-dG0" firstAttribute="leading" secondItem="8PA-Pl-0va" secondAttribute="leading" constant="60" id="cMz-oE-iDS"/>
                                                 <constraint firstAttribute="trailing" secondItem="VLm-rh-dG0" secondAttribute="trailing" constant="40" id="in9-Ph-swO"/>
-                                                <constraint firstItem="2zo-MX-sa5" firstAttribute="centerY" secondItem="VLm-rh-dG0" secondAttribute="centerY" constant="-0.5" id="rqF-Jc-3Jd"/>
+                                                <constraint firstItem="2zo-MX-sa5" firstAttribute="centerY" secondItem="VLm-rh-dG0" secondAttribute="centerY" id="rqF-Jc-3Jd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -164,7 +164,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQO-9e-6im">
-                                                    <rect key="frame" x="349" y="20" width="122" height="30"/>
+                                                    <rect key="frame" x="348" y="20" width="124" height="30"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                                     <state key="normal" title="Tap to select date">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -172,16 +173,16 @@
                                                         <segue destination="m3b-7R-pEu" kind="presentation" identifier="ShowDatePickerSegue" id="1i9-lz-Gwp"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf6-2g-B0z">
-                                                    <rect key="frame" x="141" y="28" width="69" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf6-2g-B0z">
+                                                    <rect key="frame" x="189.5" y="27" width="68.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="qQO-9e-6im" secondAttribute="bottom" constant="20" id="6sa-Hq-Vci"/>
-                                                <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="lf6-2g-B0z" secondAttribute="trailing" constant="140" id="7Rv-KT-NcB"/>
+                                                <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="lf6-2g-B0z" secondAttribute="trailing" constant="90" id="7Rv-KT-NcB"/>
                                                 <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="IcN-0m-L6h" secondAttribute="leading" constant="425" id="9OK-zi-sRX"/>
                                                 <constraint firstAttribute="trailing" secondItem="qQO-9e-6im" secondAttribute="trailing" constant="34" id="9c1-uC-puM"/>
                                                 <constraint firstItem="lf6-2g-B0z" firstAttribute="centerY" secondItem="qQO-9e-6im" secondAttribute="centerY" constant="2" id="DWF-Ci-uL8"/>
@@ -204,7 +205,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VVZ-vI-OqO" id="c9Z-BE-mlV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-Jw-tzG">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Search Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEd-Jw-tzG">
                                                     <rect key="frame" x="40" y="10" width="520" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -213,14 +214,14 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv7-95-PwQ">
-                                                    <rect key="frame" x="267" y="54" width="67" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="272" y="54" width="57.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIc-uH-uno">
-                                                    <rect key="frame" x="278" y="82" width="46" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="281" y="81" width="40" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -305,20 +306,12 @@
                         <outlet property="dueDateLabel" destination="lf6-2g-B0z" id="Kfj-UT-6LW"/>
                         <outlet property="enterLocationTextField" destination="xEd-Jw-tzG" id="ncw-HQ-vHv"/>
                         <outlet property="locationNameLabel" destination="bv7-95-PwQ" id="8Ee-ne-mQX"/>
-                        <outlet property="searchDisplayController" destination="0nV-mj-ryl" id="U9P-9O-jCd"/>
+                        <outlet property="notesTextView" destination="jQo-OK-PgA" id="E8V-am-KyQ"/>
                         <outlet property="streetNameLabel" destination="qIc-uH-uno" id="vFM-6T-w1c"/>
                         <outlet property="taskTextField" destination="VLm-rh-dG0" id="CJQ-ih-LdM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uY-Wk-1tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="0nV-mj-ryl">
-                    <connections>
-                        <outlet property="delegate" destination="uVs-Ax-MDu" id="U2T-Jg-h1l"/>
-                        <outlet property="searchContentsController" destination="uVs-Ax-MDu" id="OnQ-9c-XqU"/>
-                        <outlet property="searchResultsDataSource" destination="uVs-Ax-MDu" id="6xX-4I-vhx"/>
-                        <outlet property="searchResultsDelegate" destination="uVs-Ax-MDu" id="7tE-yJ-xXT"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1891" y="382"/>
         </scene>

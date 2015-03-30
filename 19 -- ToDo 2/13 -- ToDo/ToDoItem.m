@@ -30,31 +30,8 @@
 }
 
 
-- (instancetype)initWithResponse:(MKLocalSearchResponse *)localSearch
-{
-    self = [super init];
-    if(self)
-    {
-        _locationSearchMapItems = localSearch;
-        NSLog(@"%@",_locationSearchMapItems);
-    
-        
-    }
-    
-    return self;
-}
 
-- (instancetype)initWithDate:(NSDate*)date
-{
-    self = [super init];
-    if (self)
-    {
-        _dueDate = date;
-        
-    }
-    
-    return self;
-}
+
 
 
 

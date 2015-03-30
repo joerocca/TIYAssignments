@@ -39,7 +39,7 @@
 {
     [super viewWillDisappear:animated];
     
-//    [self.delegate dueDateWasChosen:self.datePicker.date];
+
     
     
 }
@@ -67,11 +67,10 @@
 - (IBAction)doneButton:(UIBarButtonItem *)sender
 {
     
-    self.toDoItem = [[ToDoItem alloc] initWithDate:self.datePicker.date];
     
-//    [self.delegate dueDateWasChosen:self.datePicker.date];
+    [self.delegate dueDateWasChosen:self.datePicker.date];
     
-//    self.dueDateProp = self.datePicker.date;
+
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }

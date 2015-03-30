@@ -12,17 +12,18 @@
 
 @interface ToDoItem : NSObject
 
-- (instancetype)initWithResponse:(MKLocalSearchResponse *)localSearchInit;
-- (instancetype)initWithDate:(NSDate*)date;
+
 - (instancetype)init;
 
 @property (strong, nonatomic) NSString *taskName;
-@property (nonatomic) NSDate *dueDate;
-@property (assign) BOOL done;
+@property (nonatomic) NSString *dueDate;
 @property (strong,nonatomic) NSString *addressName;
 @property (strong, nonatomic) NSString *streetName;
+@property (strong, nonatomic) NSString *notes;
+@property (assign) BOOL done;
 
-@property (strong,nonatomic) MKLocalSearchResponse *locationSearchMapItems;
+
+
 
 
 
