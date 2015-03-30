@@ -12,20 +12,27 @@
 @import MapKit;
 
 @interface LocationTableViewController ()
+
 - (IBAction)cancelButton:(UIBarButtonItem *)sender;
 
 @end
 
+
+
 @implementation LocationTableViewController
 {
     NSMutableArray *locationData;
+    DetailToDoTableViewController *detailVC;
 }
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-
+    NSLog(@"%@",self.locationsArray);
     
     
 
@@ -53,7 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 10;
+    return [self.locationsArray count];
 }
 
 
@@ -61,14 +68,32 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
     
 
+    MKMapItem *item = self.locationsArray[indexPath.row];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = item.placemark.addressDictionary[@"Street"];
     
-   
-    
-    
+//    cell.textLabel.text = item.name;
     // Configure the cell...
     
     return cell;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   MKMapItem *aAddress = self.locationsArray[indexPath.row];
+    NSString *name = aAddress.name;
+    NSString *street = aAddress.placemark.addressDictionary[@"Street"];
+    
+    self.aTask.addressName = name;
+    self.aTask.streetName = street;
+    
+    NSLog(@"%@",self.aTask.addressName);
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
 
 
 /*
@@ -119,4 +144,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
 @end

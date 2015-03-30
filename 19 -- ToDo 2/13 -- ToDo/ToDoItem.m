@@ -12,13 +12,32 @@
 
 
 
+
+
+
+
 - (instancetype)init
 {
     self = [super init];
     if (self)
     {
         _done = NO;
-       
+        
+        
+    }
+    
+    return self;
+}
+
+
+- (instancetype)initWithResponse:(MKLocalSearchResponse *)localSearch
+{
+    self = [super init];
+    if(self)
+    {
+        _locationSearchMapItems = localSearch;
+        NSLog(@"%@",_locationSearchMapItems);
+    
         
     }
     

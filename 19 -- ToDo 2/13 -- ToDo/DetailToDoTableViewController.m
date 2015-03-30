@@ -8,6 +8,7 @@
 
 #import "DetailToDoTableViewController.h"
 #import "DatePickerViewController.h"
+#import "LocationTableViewController.h"
 #import "ToDoItem.h"
 
 @interface DetailToDoTableViewController ()<UITextFieldDelegate,CLLocationManagerDelegate>
@@ -18,15 +19,16 @@
     CLGeocoder *geocoder;
 //    MKLocalSearchResponse *results;
     
-    LocationTableViewController *locationVC;
+ 
     
 
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *taskTextField;
-//@property (weak, nonatomic) IBOutlet UITextField *enterLocationTextField;
 @property (weak, nonatomic) IBOutlet UILabel *dueDateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkMarkButton;
+@property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *streetNameLabel;
 
 
 
@@ -36,23 +38,6 @@
 
 @implementation DetailToDoTableViewController
 
-//
-//- (id)initWithDate:(NSDate*)date
-//{
-//    
-//    if (self) {
-//        self = [super init];
-//      
-//        
-//        _dueDateProp = date;
-//        
-//        
-//        [self viewDidLoad];
-//    
-//        
-//    }
-//    return self;
-//}
 
 
 
@@ -63,6 +48,8 @@
     
     self.taskTextField.text = self.aTask.taskName;
     self.checkMarkButton.selected = self.aTask.done;
+    
+    
     
     dateFormatter =[[NSDateFormatter alloc] init];
     
@@ -87,15 +74,15 @@
 
 
 
-
-
-
-
-
-
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
+    
+    self.locationNameLabel.text = self.aTask.addressName;
+    self.streetNameLabel.text = self.aTask.streetName;
+    
+    NSLog(@"%@",self.aTask.addressName);
     
 //     self.dueDateLabel.text = [dateFormatter stringFromDate:self.toDoItem.dueDate];
   
@@ -119,12 +106,7 @@
 
 
 
--(void)dueDateWasChosen:(NSDate *)dueDate
-{
-   
-//    self.dueDateLabel.text = [dateFormatter stringFromDate:dueDate];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-}
+
 
 
 
@@ -174,12 +156,11 @@
     
     if ([segue.identifier isEqualToString:@"ShowDatePickerSegue"])
     {
-        DatePickerViewController *datePickerVC = (DatePickerViewController *)[segue destinationViewController];
+
         
         
     }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+   
 }
 
 
@@ -207,14 +188,14 @@
         {
             [self configureLocationManager];
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LocationNavController"];
-           // UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
-            
-            [vc setModalPresentationStyle:UIModalPresentationFullScreen];
-            
-            
-            [self presentViewController:vc animated:YES completion:nil];
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LocationNavController"];
+//           // UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:vc];
+//            
+//            [vc setModalPresentationStyle:UIModalPresentationFullScreen];
+//            
+//            
+//            [self presentViewController:vc animated:YES completion:nil];
             
             
         }
@@ -338,39 +319,48 @@
           [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
           
           if (error != nil) {
-              [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Map Error",nil)
+              [[[UIAlertView alloc] initWithTitle:@"Map Error"
                                           message:[error localizedDescription]
                                          delegate:nil
-                                cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+                                cancelButtonTitle:@"OK"otherButtonTitles:nil] show];
               return;
           }
           
           if ([response.mapItems count] == 0) {
-              [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Results",nil)
+              [[[UIAlertView alloc] initWithTitle:@"No Results"
                                           message:nil
                                          delegate:nil
-                                cancelButtonTitle:NSLocalizedString(@"OK",nil) otherButtonTitles:nil] show];
+                
+                                cancelButtonTitle:@"OK"otherButtonTitles:nil] show];
               return;
           }
           
           
-        
 
-          
-          
-          
-          
-          
           
           self.results = response;
           
+
+          
+          UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+          UINavigationController *navC = [storyboard instantiateViewControllerWithIdentifier:@"LocationNavController"];
+          
+          LocationTableViewController *locationVC = [navC viewControllers][0];
+          
+          
+          [locationVC setModalPresentationStyle:UIModalPresentationFullScreen];
+          
+          locationVC.locationsArray = response.mapItems;
+          locationVC.aTask = self.aTask;
         
+                    
+          [self presentViewController:navC animated:YES completion:nil];
           
           
           
-          [locationVC.tableView reloadData];
+//          [locationVC.tableView reloadData];
           
-          NSLog(@"%@",self.results);
+//          NSLog(@"%@",self.results);
       }];
 
       

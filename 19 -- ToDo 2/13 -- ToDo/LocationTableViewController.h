@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailToDoTableViewController.h"
+#import "ToDoCell.h"
 
 @interface LocationTableViewController : UITableViewController
 
+@property (nonatomic, strong) ToDoItem *aTask;
 
-//@property (nonatomic, strong) DetailToDoTableViewController *DetailVC;
+@property (nonatomic, strong) NSArray *locationsArray;
 
 @end
