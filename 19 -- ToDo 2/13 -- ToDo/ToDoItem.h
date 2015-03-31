@@ -19,6 +19,9 @@
 @property (nonatomic) NSString *dueDate;
 @property (strong,nonatomic) NSString *addressName;
 @property (strong, nonatomic) NSString *streetName;
+@property (strong, nonatomic) NSString *cityName;
+@property (strong, nonatomic) NSString *stateName;
+@property (strong, nonatomic) NSString *zipCode;
 @property (strong, nonatomic) NSString *notes;
 @property (assign) BOOL done;
 

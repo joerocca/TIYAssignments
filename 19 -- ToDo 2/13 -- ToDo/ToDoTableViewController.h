@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ToDoTableViewController : UITableViewController
+@protocol ToDoTableViewControllerDelegate
+
+-(void) delete;
+
+@end
+
+
+
+
+@interface ToDoTableViewController : UITableViewController <ToDoTableViewControllerDelegate>
 
 @end

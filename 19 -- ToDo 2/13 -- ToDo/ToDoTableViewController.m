@@ -16,6 +16,7 @@
     ToDoCell *toDoCell;
     NSMutableArray *taskList;
     UIRefreshControl *refreshControl;
+    ToDoItem *deleteItem;
 }
 
 - (IBAction)addCellButton:(UIBarButtonItem *)sender;
@@ -49,6 +50,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addCellButton:)];
     
     
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -197,6 +206,15 @@
         anItem.done = senderCell.checkBoxButton.selected;
         DetailVC.aTask = anItem;
         
+        
+        DetailVC.delegate = self;
+        
+       
+        deleteItem = anItem;
+        
+      
+        
+        
 
     }
 
@@ -266,6 +284,10 @@
     [sender endRefreshing];
 }
 
+//
+
+
+
 - (IBAction)checkmarkButton:(UIButton *)sender
 {
     UIView *contentView = [sender superview];
@@ -275,6 +297,17 @@
     anItem.done = !anItem.done;
     [sender setSelected:anItem.done];
 //    [sender setSelected:cell.backgroundColor = [UIColor colorWithRed:0.33 green:0.99 blue:0.99 alpha:0.20]];
+}
+
+
+
+-(void)delete
+{
+
+ 
+    [taskList removeObject:deleteItem];
+
+   
 }
 
 @end

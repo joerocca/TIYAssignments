@@ -70,7 +70,7 @@
 
     MKMapItem *item = self.locationsArray[indexPath.row];
     cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = item.placemark.addressDictionary[@"Street"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ | %@ | %@", item.placemark.addressDictionary[@"Street"],[NSString stringWithFormat:@"%@, %@",item.placemark.locality,item.placemark.administrativeArea],item.placemark.postalCode];
     
 //    cell.textLabel.text = item.name;
     // Configure the cell...
@@ -83,11 +83,19 @@
    MKMapItem *aAddress = self.locationsArray[indexPath.row];
     NSString *name = aAddress.name;
     NSString *street = aAddress.placemark.addressDictionary[@"Street"];
+    NSString *city = aAddress.placemark.locality;
+    NSString *state = aAddress.placemark.administrativeArea;
+    NSString *zipCode = aAddress.placemark.postalCode;
     
     self.aTask.addressName = name;
     self.aTask.streetName = street;
+    self.aTask.cityName = city;
+    self.aTask.stateName = state;
+    self.aTask.zipCode = zipCode;
     
-    NSLog(@"%@",self.aTask.addressName);
+    NSLog(@"%@",city);
+    
+    
 
     [self dismissViewControllerAnimated:YES completion:nil];
     

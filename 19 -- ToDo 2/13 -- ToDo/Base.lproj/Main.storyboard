@@ -145,6 +145,7 @@
                                                     <state key="selected" image="Checked"/>
                                                     <connections>
                                                         <action selector="checkmarkButton:" destination="YWN-0Q-yDy" eventType="touchUpInside" id="tQJ-lu-wKK"/>
+                                                        <action selector="detailCheckMarkButton:" destination="uVs-Ax-MDu" eventType="touchUpInside" id="wEu-Sq-RJk"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -173,8 +174,8 @@
                                                         <segue destination="m3b-7R-pEu" kind="presentation" identifier="ShowDatePickerSegue" id="1i9-lz-Gwp"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf6-2g-B0z">
-                                                    <rect key="frame" x="189.5" y="27" width="68.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00/00/00, 0:00 AM/PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lf6-2g-B0z">
+                                                    <rect key="frame" x="120.5" y="27" width="167.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -182,7 +183,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="qQO-9e-6im" secondAttribute="bottom" constant="20" id="6sa-Hq-Vci"/>
-                                                <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="lf6-2g-B0z" secondAttribute="trailing" constant="90" id="7Rv-KT-NcB"/>
+                                                <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="lf6-2g-B0z" secondAttribute="trailing" constant="60" id="7Rv-KT-NcB"/>
                                                 <constraint firstItem="qQO-9e-6im" firstAttribute="leading" secondItem="IcN-0m-L6h" secondAttribute="leading" constant="425" id="9OK-zi-sRX"/>
                                                 <constraint firstAttribute="trailing" secondItem="qQO-9e-6im" secondAttribute="trailing" constant="34" id="9c1-uC-puM"/>
                                                 <constraint firstItem="lf6-2g-B0z" firstAttribute="centerY" secondItem="qQO-9e-6im" secondAttribute="centerY" constant="2" id="DWF-Ci-uL8"/>
@@ -214,28 +215,52 @@
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv7-95-PwQ">
-                                                    <rect key="frame" x="272" y="54" width="57.5" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                                    <rect key="frame" x="270" y="54" width="60" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIc-uH-uno">
-                                                    <rect key="frame" x="281" y="81" width="40" height="19.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <rect key="frame" x="153.5" y="81" width="33" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5S-Ip-XeB">
+                                                    <rect key="frame" x="289.5" y="82" width="20.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WT-mf-zHe">
+                                                    <rect key="frame" x="403.5" y="81" width="52" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="qIc-uH-uno" firstAttribute="top" secondItem="xEd-Jw-tzG" secondAttribute="bottom" constant="42" id="6ZZ-87-CTm"/>
+                                                <constraint firstItem="bv7-95-PwQ" firstAttribute="centerX" secondItem="E5S-Ip-XeB" secondAttribute="centerX" constant="0.25" id="6uS-FF-Mis"/>
                                                 <constraint firstItem="xEd-Jw-tzG" firstAttribute="top" secondItem="c9Z-BE-mlV" secondAttribute="top" constant="10" id="7a5-Fr-EWC"/>
-                                                <constraint firstItem="bv7-95-PwQ" firstAttribute="centerX" secondItem="xEd-Jw-tzG" secondAttribute="centerX" constant="0.5" id="KZw-e9-UJv"/>
+                                                <constraint firstItem="5WT-mf-zHe" firstAttribute="top" secondItem="xEd-Jw-tzG" secondAttribute="bottom" constant="42" id="Dkk-oY-emg"/>
+                                                <constraint firstItem="bv7-95-PwQ" firstAttribute="centerX" secondItem="xEd-Jw-tzG" secondAttribute="centerX" id="KZw-e9-UJv"/>
                                                 <constraint firstItem="qIc-uH-uno" firstAttribute="top" secondItem="bv7-95-PwQ" secondAttribute="bottom" constant="7.5" id="Sb8-ll-CF8"/>
+                                                <constraint firstItem="5WT-mf-zHe" firstAttribute="centerX" secondItem="xEd-Jw-tzG" secondAttribute="centerX" constant="130" id="SsZ-we-ytn"/>
                                                 <constraint firstItem="xEd-Jw-tzG" firstAttribute="leading" secondItem="c9Z-BE-mlV" secondAttribute="leading" constant="40" id="TWu-qP-Wu5"/>
                                                 <constraint firstItem="bv7-95-PwQ" firstAttribute="centerX" secondItem="qIc-uH-uno" secondAttribute="centerX" id="aDy-dh-WGK"/>
                                                 <constraint firstItem="bv7-95-PwQ" firstAttribute="top" secondItem="xEd-Jw-tzG" secondAttribute="bottom" constant="15" id="ehK-0F-65g"/>
                                                 <constraint firstAttribute="trailing" secondItem="xEd-Jw-tzG" secondAttribute="trailing" constant="40" id="lIn-tJ-jKG"/>
+                                                <constraint firstItem="E5S-Ip-XeB" firstAttribute="top" secondItem="bv7-95-PwQ" secondAttribute="bottom" constant="7.5" id="pW8-8q-WbM"/>
+                                                <constraint firstItem="xEd-Jw-tzG" firstAttribute="centerX" secondItem="qIc-uH-uno" secondAttribute="centerX" constant="130" id="vG2-QA-P83"/>
                                                 <constraint firstAttribute="bottom" secondItem="xEd-Jw-tzG" secondAttribute="bottom" constant="75" id="vtB-cN-Vao"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Sb8-ll-CF8"/>
+                                                    <exclude reference="aDy-dh-WGK"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="152" id="eP4-gb-xXo">
@@ -243,6 +268,12 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eP4-gb-xXo" id="ee0-eL-Yzn">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8i-LL-Lfb">
+                                                    <rect key="frame" x="41" y="66" width="41" height="20"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="jQo-OK-PgA">
                                                     <rect key="frame" x="115" y="13" width="470" height="126"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,12 +282,6 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                                                 </textView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8i-LL-Lfb">
-                                                    <rect key="frame" x="41" y="66" width="41" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="jQo-OK-PgA" secondAttribute="trailing" constant="15" id="2K6-u4-alB"/>
@@ -284,6 +309,9 @@
                                                         <color key="titleColor" red="0.76809210526315785" green="0.055564177690000001" blue="0.0" alpha="0.38" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="deleteButton:" destination="uVs-Ax-MDu" eventType="touchUpInside" id="Qyz-Bk-Lrr"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -303,12 +331,14 @@
                     </tableView>
                     <connections>
                         <outlet property="checkMarkButton" destination="2zo-MX-sa5" id="N3F-Wu-wC8"/>
+                        <outlet property="cityNameLabel" destination="E5S-Ip-XeB" id="geF-ot-mUn"/>
                         <outlet property="dueDateLabel" destination="lf6-2g-B0z" id="Kfj-UT-6LW"/>
                         <outlet property="enterLocationTextField" destination="xEd-Jw-tzG" id="ncw-HQ-vHv"/>
                         <outlet property="locationNameLabel" destination="bv7-95-PwQ" id="8Ee-ne-mQX"/>
                         <outlet property="notesTextView" destination="jQo-OK-PgA" id="E8V-am-KyQ"/>
                         <outlet property="streetNameLabel" destination="qIc-uH-uno" id="vFM-6T-w1c"/>
                         <outlet property="taskTextField" destination="VLm-rh-dG0" id="CJQ-ih-LdM"/>
+                        <outlet property="zipCodeLabel" destination="5WT-mf-zHe" id="lT0-L2-98r"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4uY-Wk-1tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,7 +444,7 @@
         <!--Navigation Controller-->
         <scene sceneID="GB1-yP-Wla">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zgL-h3-FnD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootViewNavC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zgL-h3-FnD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="V8V-fe-FCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

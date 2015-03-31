@@ -10,6 +10,7 @@
 #import "DatePickerViewController.h"
 #import "LocationTableViewController.h"
 #import "ToDoItem.h"
+#import "ToDoTableViewController.h"
 
 @interface DetailToDoTableViewController ()<UITextFieldDelegate, CLLocationManagerDelegate>
 {
@@ -29,10 +30,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *checkMarkButton;
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streetNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zipCodeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *notesTextView;
 
 
 
+- (IBAction)detailCheckMarkButton:(UIButton *)sender;
+- (IBAction)deleteButton:(UIButton *)sender;
 
 
 @end
@@ -45,7 +50,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    date2 = [[NSString alloc] init];
     
     self.taskTextField.text = self.aTask.taskName;
     self.checkMarkButton.selected = self.aTask.done;
@@ -55,17 +59,10 @@
     
     dateFormatter =[[NSDateFormatter alloc] init];
     
-    NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MMddyyyy" options:0 locale:[NSLocale currentLocale]];
+    NSString *dateFormat = [NSDateFormatter dateFormatFromTemplate:@"MMddyyyyhm" options:0 locale:[NSLocale currentLocale]];
     
     [dateFormatter setDateFormat: dateFormat];
     
-//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.toDoItem.dueDate];
-//    NSLog(@"%@",self.toDoItem.dueDate);
-    
-    
-//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.dueDateProp];
-//    NSLog(@"%@", [dateFormatter stringFromDate:self.dueDateProp]);
-   
     
     // Uncomment the following line to preserve selection between presentations.
 //     self.clearsSelectionOnViewWillAppear = NO;
@@ -79,19 +76,22 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    
+    self.enterLocationTextField.text = @"";
     
     self.locationNameLabel.text = self.aTask.addressName;
     self.streetNameLabel.text = self.aTask.streetName;
     
-    NSLog(@"%@",self.aTask.addressName);
+    if (self.aTask.cityName != nil && self.aTask.stateName != nil)
+    {
+    self.cityNameLabel.text = [NSString stringWithFormat:@"%@, %@" , self.aTask.cityName, self.aTask.stateName ];
+    }
+    else
+    {
+        self.cityNameLabel.text = @"";
+    }
+    self.zipCodeLabel.text = self.aTask.zipCode;
     
-//     self.dueDateLabel.text = [dateFormatter stringFromDate:self.toDoItem.dueDate];
-  
- 
-//    self.dueDateLabel.text = [dateFormatter stringFromDate:self.dueDateProp];
-//    NSLog(@"%@",[dateFormatter stringFromDate:self.dueDateProp]);
-//    [self viewDidLoad];
+   
     
 //    self.dueDateLabel.text = [dateFormatter stringFromDate:dueDateInstanceVar];
     // making up an IBOutlet called someLabel
@@ -104,6 +104,7 @@
     [super viewWillDisappear:animated];
     
     self.aTask.notes = self.notesTextView.text;
+    self.aTask.taskName = self.taskTextField.text;
     
 }
 
@@ -181,16 +182,7 @@
 }
 
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    if (textField == self.enterLocationTextField)
-    {
-//         [self configureLocationManager];
-    }
-   
-    
-   
-}
+
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -358,9 +350,6 @@
           
           
           
-//          [locationVC.tableView reloadData];
-          
-//          NSLog(@"%@",self.results);
       }];
 
       
@@ -372,4 +361,44 @@
 
 
 
+- (IBAction)detailCheckMarkButton:(UIButton *)sender
+{
+    
+    
+    
+}
+
+- (IBAction)deleteButton:(UIButton *)sender
+{
+
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to delete this task?"
+                                                                   message:@"You will not be able to retrieve this task once it has been deleted."
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive
+                                                          handler:^(UIAlertAction *action) {
+                                                          
+                                                             
+                                                        
+                                                           [self.delegate delete];
+                                                                  
+                                                              
+                                                              
+                                                          }];
+    
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+
+                                                              
+                                                          }];
+    
+    [alert addAction:noAction];
+    [alert addAction:yesAction];
+    alert.view.tintColor = [UIColor redColor];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+
+ 
+}
 @end

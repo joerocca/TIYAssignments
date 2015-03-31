@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ToDoItem.h"
 #import "LocationTableViewController.h"
+#import "ToDoTableViewController.h"
 
 @import MapKit;
 
@@ -33,6 +34,7 @@
 @property (weak,nonatomic) MKLocalSearchResponse *results;
 
 
+@property (strong, nonatomic) id <ToDoTableViewControllerDelegate> delegate;
 
 -(void)performSearch:(MKCoordinateRegion)aRegion;
 
