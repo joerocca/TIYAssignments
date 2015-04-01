@@ -382,8 +382,7 @@
                                                              
                                                         
                                                            [self.delegate delete];
-                                                                  
-                                                              
+                                                             
                                                               
                                                           }];
     
