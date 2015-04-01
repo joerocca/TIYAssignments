@@ -50,7 +50,7 @@ class ViewController: UIViewController,UITextFieldDelegate
         agentNameTextField.resignFirstResponder()
         agentPasswordTextField.becomeFirstResponder()
         }
-        if textField == agentPasswordTextField
+        else if textField == agentPasswordTextField
         {
             agentPasswordTextField.resignFirstResponder()
             
