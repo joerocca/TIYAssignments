@@ -50,10 +50,15 @@ class ViewController: UIViewController,UITextFieldDelegate
         agentNameTextField.resignFirstResponder()
         agentPasswordTextField.becomeFirstResponder()
         }
-        if textField == agentPasswordTextField && !agentPasswordTextField.text.isEmpty
+        if textField == agentPasswordTextField
         {
             agentPasswordTextField.resignFirstResponder()
+            
+            
+            if !agentPasswordTextField.text.isEmpty
+            {
             authenticate()
+            }
         }
         
         return true
@@ -65,13 +70,6 @@ class ViewController: UIViewController,UITextFieldDelegate
     
     func authenticate()
     {
-        if agentNameTextField.isFirstResponder()
-        {
-            
-            agentNameTextField.resignFirstResponder()
-            
-        }
-        
         
         
         if !agentNameTextField.text.isEmpty && !agentPasswordTextField.text.isEmpty
