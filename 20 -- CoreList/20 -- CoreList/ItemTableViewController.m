@@ -101,11 +101,10 @@ static NSString * const StudentCellIdentifier = @"ItemCell";
     {
         
         [cdStack.managedObjectContext deleteObject: items[indexPath.row]];
-        // Delete the row from the data source
+       
+        [self saveCoreDataUpdates];
         
          [items removeObjectAtIndex:indexPath.row];
-        
-        [self saveCoreDataUpdates];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
