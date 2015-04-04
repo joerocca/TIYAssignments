@@ -80,7 +80,7 @@ class ViewController: UIViewController,UITextFieldDelegate
             {
                 agentName = nameParts[1]
             }
-            greetingLabel.text = String(format: "Good evening, Agent %@", agentName)
+            greetingLabel.text = "Good evening, Agent \(agentName)"
             
             self.missionBriefingTextView.text = "This mission will be an arduous one, fraught with peril. You will cover much strange and unfamiliar territory. Should you choose to accept this mission, Agent \(agentName), you will certainly be disavowed, but you will be doing your country a great service. This message will self destruct in 5 seconds."
             
