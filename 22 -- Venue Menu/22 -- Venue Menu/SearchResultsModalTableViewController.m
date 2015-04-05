@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultsModalTableViewController.h"
+#import "DetailSearchResultViewController.h"
 
 @import MapKit;
 @import CoreLocation;
@@ -18,6 +19,7 @@ MKLocalSearch *localSearch;
 NSMutableData *receivedData;
 double latitude;
 double longitude;
+NSMutableArray *globalVenueArray;
     
 }
 
@@ -97,12 +99,45 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
    
     NSString *address = [self.venues[indexPath.row][@"location"][@"formattedAddress"] objectAtIndex:0];
     NSString *cityStateZip = [self.venues[indexPath.row][@"location"][@"formattedAddress"] objectAtIndex:1];
- 
+    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  |  %@", address, cityStateZip];
+    
+    NSString *iconPrefix = [self.venues[indexPath.row] [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
+    NSString *iconSuffix = [self.venues[indexPath.row] [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
+    NSString *icon = [NSString stringWithFormat:@"%@%@%d%@",iconPrefix,@"bg_",44,iconSuffix];
+    NSURL *iconURL = [NSURL URLWithString:icon];
+    NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
+    UIImage *image = [UIImage imageWithData:imageData];
+    cell.imageView.image = image;
+//    NSLog(@"%@",icon);
+ 
+    
     
     
     
     return cell;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *aVenue = [self.venues objectAtIndex:indexPath.row];
+//    DetailSearchResultViewController *detailVC = [[DetailSearchResultViewController alloc]init];
+    
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *navC = [storyboard instantiateViewControllerWithIdentifier:@"DetailNavController"];
+    
+    DetailSearchResultViewController *detailVC = [navC viewControllers][0];
+    
+
+    detailVC.venueInfo = aVenue;
+    
+     [self.navigationController pushViewController:detailVC animated:YES];
+    
+    NSLog(@"%@",aVenue);
+
 }
 
 
@@ -146,6 +181,20 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+      if ([segue.identifier isEqualToString:@"SearchResultDetailSegue"])
+      {
+          
+//          DetailSearchResultViewController *DetailVC = (DetailSearchResultViewController *)[segue destinationViewController];
+//          sender *senderCell = (sender *)sender;
+//          NSIndexPath *path = [self.tableView indexPathForCell:senderCell];
+//          ToDoItem *anItem = taskList[path.row];
+//          anItem.taskName = senderCell.descriptionTextField.text;
+//          anItem.done = senderCell.checkBoxButton.selected;
+//          DetailVC.aTask = anItem;
+//          NSLog(@"%@",sender);
+
+      }
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

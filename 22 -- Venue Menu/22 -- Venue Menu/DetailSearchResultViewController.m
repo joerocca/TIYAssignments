@@ -15,6 +15,11 @@
     BOOL favorited;
 }
 
+
+@property (weak, nonatomic) IBOutlet UILabel *venueName;
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
+
 - (IBAction)starTapped:(UIBarButtonItem *)sender;
 
 
@@ -29,6 +34,21 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"unselectedStar"] style:UIBarButtonItemStylePlain target:self action:@selector(starTapped:)];
     
     favorited = NO;
+    
+    
+    self.venueName.text = self.venueInfo [@"name"];
+//    NSString *iconPrefix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
+//    NSString *iconSuffix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
+//    NSString *icon = [NSString stringWithFormat:@"%@%d%@",iconPrefix,64,iconSuffix];
+//    NSURL *iconURL = [NSURL URLWithString:icon];
+//    NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
+//    UIImage *image = [UIImage imageWithData:imageData];
+//    self.iconView.image = image;
+//    NSLog(@"%@",icon);
+    
+    
+    
+    NSLog(@"%@",self.venueInfo);
     
     // Do any additional setup after loading the view.
 }

@@ -13,6 +13,6 @@
 @interface DetailSearchResultViewController : UIViewController
 
 
-
+@property (strong, nonatomic) NSDictionary *venueInfo;
 
 @end

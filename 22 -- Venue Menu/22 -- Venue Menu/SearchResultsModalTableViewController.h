@@ -11,7 +11,7 @@
 @interface SearchResultsModalTableViewController : UITableViewController
 
 
-@property (nonatomic) NSMutableArray *venues;
+@property (strong, nonatomic) NSMutableArray *venues;
 @property (nonatomic) NSMutableArray *address;
 
 @end
