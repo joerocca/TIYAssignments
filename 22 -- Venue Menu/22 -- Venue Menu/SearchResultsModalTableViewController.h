@@ -12,5 +12,6 @@
 
 
 @property (nonatomic) NSMutableArray *venues;
+@property (nonatomic) NSMutableArray *address;
 
 @end

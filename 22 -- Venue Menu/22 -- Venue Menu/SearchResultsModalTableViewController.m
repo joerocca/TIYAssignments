@@ -46,6 +46,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     self.navigationItem.prompt = @"Enter a venue name to receive a list of results";
 
     self.searchBar.delegate = self;
+    self.searchBar.placeholder = @"Search";
     [self.searchBar becomeFirstResponder];
     
     
@@ -82,14 +83,24 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 3;
+    return [self.venues count];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultsCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = self.venues[indexPath.row][@"name"];
+    
+   
+    NSString *address = [self.venues[indexPath.row][@"location"][@"formattedAddress"] objectAtIndex:0];
+    NSString *cityStateZip = [self.venues[indexPath.row][@"location"][@"formattedAddress"] objectAtIndex:1];
+ 
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  |  %@", address, cityStateZip];
+    
+    
     
     return cell;
 }
@@ -168,7 +179,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
                 [self enableLocationManager:YES];
             }
         }
-        
+       
     }
     else
     {
@@ -238,7 +249,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 -(void)foursquareUrlSession
 {
     NSString *searchString = self.searchBar.text;
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&ll=%f,%f&query=%@&radius=800",clientID,clientSecret,latitude,longitude,searchString];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&ll=%f,%f&query=%@&radius=1600",clientID,clientSecret,latitude,longitude,searchString];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSLog(@"%@",urlString);
@@ -289,10 +300,24 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     {
         NSLog(@"Download Successful.");
         NSDictionary *venueInfo = [NSJSONSerialization JSONObjectWithData:receivedData options:0 error:nil];
-        [self.venues addObject:venueInfo];
-       NSDictionary *currentWeather = [venueInfo objectForKey:@"response"];
+
+       NSDictionary *response = [venueInfo objectForKey:@"response"];
+       NSMutableArray *venues = [response objectForKey:@"venues"];
+
         
-        NSLog(@"%@",currentWeather);
+//        NSDictionary *firstLocation = [venues objectAtIndex:0];
+//         NSDictionary *location = [firstLocation objectForKey:@"location"];
+//        NSMutableArray *address = [location objectForKey:@"address"];
+        
+    
+
+        self.venues = venues;
+//        self.address = address;
+        [self.tableView reloadData];
+        
+        
+        NSLog(@"%@", self.venues);
+
     }
 }
 
