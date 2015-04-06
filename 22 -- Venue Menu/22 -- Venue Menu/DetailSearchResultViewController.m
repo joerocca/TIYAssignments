@@ -20,6 +20,8 @@
 @interface DetailSearchResultViewController ()
 {
     BOOL favorited;
+    CoreDataStack *cdStackForComparison;
+    NSMutableArray *comparisonForStarArray;
 }
 
 
@@ -49,8 +51,24 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"unselectedStar"] style:UIBarButtonItemStylePlain target:self action:@selector(starTapped:)];
     
+    
+    
+   
+    
     if (self.venueInfo)
     {
+    cdStackForComparison = [CoreDataStack coreDataStackWithModelName:@"VenueDataModel"];
+    cdStackForComparison.coreDataStoreType = CDSStoreTypeSQL;
+        
+    NSEntityDescription *entity =[NSEntityDescription entityForName:@"Venue" inManagedObjectContext:cdStackForComparison.managedObjectContext];
+        
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    fetch.entity = entity;
+        
+    comparisonForStarArray = nil;
+        
+    comparisonForStarArray = [[cdStackForComparison.managedObjectContext executeFetchRequest:fetch error:nil] mutableCopy];
+        
     NSString *lat = self.venueInfo [@"location"][@"lat"];
     NSString *lng = self.venueInfo [@"location"][@"lng"];
     self.latitude = [lat doubleValue];
@@ -58,15 +76,23 @@
     self.coordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude);
     self.aMap = [[MapObject alloc] initWithCoordinate:self.coordinate];
     
-    
-    
-    
-    
     self.venueName.text = self.venueInfo [@"name"];
     self.venueDescription.text = [self.venueInfo[@"categories"]objectAtIndex:0][@"name"];
     self.streetAddressLabel.text = [self.venueInfo[@"location"][@"formattedAddress"] objectAtIndex:0];
     self.CityStateZip.text = [self.venueInfo [@"location"][@"formattedAddress"] objectAtIndex:1];
     self.phoneNumberLabel.text = self.venueInfo [@"contact"][@"formattedPhone"];
+        
+    favorited = NO;
+        
+        
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%@ == name AND %@ == streetAddress",self.venueInfo[@"name"],[self.venueInfo[@"location"][@"formattedAddress"] objectAtIndex:0]];
+    NSArray *filteredPredicateComparisonArray = [comparisonForStarArray filteredArrayUsingPredicate:predicate];
+        
+        if (filteredPredicateComparisonArray.count > 0)
+        {
+            [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"selectedStar"]];
+            favorited = YES;
+        }
     }
     else
     {
@@ -80,9 +106,15 @@
         self.streetAddressLabel.text = self.venueObject.streetAddress;
         self.CityStateZip.text = self.venueObject.cityStateZip;
         self.phoneNumberLabel.text = self.venueObject.phoneNumber;
+        
+        if (self.venueObject)
+        {
+            [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"selectedStar"]];
+            favorited = YES;
+        }
     }
 
-    favorited = NO;
+    
     [self configureMapView];
     
     NSLog(@"%@",self.venueInfo);
@@ -147,18 +179,26 @@
 
 - (IBAction)starTapped:(UIBarButtonItem *)sender
 {
+
     
     if (favorited)
     {
 
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"unselectedStar"]];
         favorited = NO;
+        
+        
+//        [self.cdStack.managedObjectContext deleteObject:aVenue];
+//        [self.cdStack.managedObjectContext deleteObject:aLocation];
+//        [self saveCoreDataUpdates];
     }
     else
     {
-        Venue *aVenue = [NSEntityDescription insertNewObjectForEntityForName:@"Venue" inManagedObjectContext:self.cdStack.managedObjectContext];
-        
-        Location *aLocation = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.cdStack.managedObjectContext];
+        if (self.venueInfo)
+        {
+            Venue *aVenue = [NSEntityDescription insertNewObjectForEntityForName:@"Venue" inManagedObjectContext:self.cdStack.managedObjectContext];
+            
+            Location *aLocation = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.cdStack.managedObjectContext];
         
         aVenue.name = self.venueInfo [@"name"];
         aVenue.streetAddress = [self.venueInfo[@"location"][@"formattedAddress"] objectAtIndex:0];
@@ -176,9 +216,13 @@
         aVenue.coordinates = aLocation;
         
         [self saveCoreDataUpdates];
-        
+        }
+     
+            
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"selectedStar"]];
         favorited = YES;
+        
+      
         
     }
     

@@ -105,7 +105,28 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    Venue *aVenue = [favoriteVenues objectAtIndex:indexPath.row];
+//    
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+//    
+//    DetailSearchResultViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailResultView"];
+//    
+//    
+//    detailVC.venueObject = aVenue;
+//    
+////    detailVC.cdStack = self.cdStack;
+//    
+//    [self.navigationController pushViewController:detailVC animated:YES];
+//    
+//    NSLog(@"%@",aVenue);
+    
+//}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     Venue *aVenue = [favoriteVenues objectAtIndex:indexPath.row];
     
@@ -118,12 +139,11 @@
     
     detailVC.venueObject = aVenue;
     
-//    detailVC.cdStack = self.cdStack;
+    //    detailVC.cdStack = self.cdStack;
     
     [self.navigationController pushViewController:detailVC animated:YES];
     
     NSLog(@"%@",aVenue);
-    
 }
 
 

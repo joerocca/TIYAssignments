@@ -109,7 +109,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
     UIImage *image = [UIImage imageWithData:imageData];
     cell.imageView.image = image;
-//    NSLog(@"%@",icon);
+    NSLog(@"%@",icon);
  
     
     
@@ -291,9 +291,10 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 {
     NSString *searchString = self.searchBar.text;
     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=%@&client_secret=%@&v=20130815&ll=%f,%f&query=%@&radius=1600",clientID,clientSecret,latitude,longitude,searchString];
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSString *formattedUrlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *url = [NSURL URLWithString:formattedUrlString];
     
-    NSLog(@"%@",urlString);
+    NSLog(@"%@",formattedUrlString);
     
     //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     //
