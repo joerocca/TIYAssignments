@@ -187,14 +187,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
       if ([segue.identifier isEqualToString:@"SearchResultDetailSegue"])
       {
           
-//          DetailSearchResultViewController *DetailVC = (DetailSearchResultViewController *)[segue destinationViewController];
-//          sender *senderCell = (sender *)sender;
-//          NSIndexPath *path = [self.tableView indexPathForCell:senderCell];
-//          ToDoItem *anItem = taskList[path.row];
-//          anItem.taskName = senderCell.descriptionTextField.text;
-//          anItem.done = senderCell.checkBoxButton.selected;
-//          DetailVC.aTask = anItem;
-//          NSLog(@"%@",sender);
+
 
       }
     
@@ -356,15 +349,11 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
        NSDictionary *response = [venueInfo objectForKey:@"response"];
        NSMutableArray *venues = [response objectForKey:@"venues"];
 
-        
-//        NSDictionary *firstLocation = [venues objectAtIndex:0];
-//         NSDictionary *location = [firstLocation objectForKey:@"location"];
-//        NSMutableArray *address = [location objectForKey:@"address"];
-        
+
     
 
         self.venues = venues;
-//        self.address = address;
+
         [self.tableView reloadData];
         
         

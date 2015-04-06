@@ -184,8 +184,6 @@
     
     [searchResultsVC setModalPresentationStyle:UIModalPresentationFullScreen];
     
-    //    locationVC.locationsArray = response.mapItems;
-    //    locationVC.aTask = self.aTask;
     
     searchResultsVC.cdStack = cdStack;
     
