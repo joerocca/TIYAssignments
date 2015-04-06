@@ -10,6 +10,7 @@
 #import "MapObject.h"
 #import "CoreDataStack.h"
 #import "Venue.h"
+#import "Location.h"
 
 
 #define MAP_DISPLAY_SCALE 0.5 * 1609.344
@@ -48,6 +49,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"unselectedStar"] style:UIBarButtonItemStylePlain target:self action:@selector(starTapped:)];
     
+    if (self.venueInfo)
+    {
     NSString *lat = self.venueInfo [@"location"][@"lat"];
     NSString *lng = self.venueInfo [@"location"][@"lng"];
     self.latitude = [lat doubleValue];
@@ -55,7 +58,8 @@
     self.coordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude);
     self.aMap = [[MapObject alloc] initWithCoordinate:self.coordinate];
     
-    favorited = NO;
+    
+    
     
     
     self.venueName.text = self.venueInfo [@"name"];
@@ -63,21 +67,34 @@
     self.streetAddressLabel.text = [self.venueInfo[@"location"][@"formattedAddress"] objectAtIndex:0];
     self.CityStateZip.text = [self.venueInfo [@"location"][@"formattedAddress"] objectAtIndex:1];
     self.phoneNumberLabel.text = self.venueInfo [@"contact"][@"formattedPhone"];
-    
-//        NSString *iconPrefix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
-//    NSString *iconSuffix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
-//    NSString *icon = [NSString stringWithFormat:@"%@%d%@",iconPrefix,64,iconSuffix];
-//    NSURL *iconURL = [NSURL URLWithString:icon];
-//    NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
-//    UIImage *image = [UIImage imageWithData:imageData];
-//    self.iconView.image = image;
-//    NSLog(@"%@",icon);
-    
+    }
+    else
+    {
+        self.latitude = [self.venueObject.coordinates.latitude doubleValue];
+        self.longitude = [self.venueObject.coordinates.longitude doubleValue];
+        self.coordinate = CLLocationCoordinate2DMake(self.latitude, self.longitude);
+        self.aMap = [[MapObject alloc] initWithCoordinate:self.coordinate];
+
+        self.venueName.text = self.venueObject.name;
+        self.venueDescription.text = self.venueObject.venueDescription;
+        self.streetAddressLabel.text = self.venueObject.streetAddress;
+        self.CityStateZip.text = self.venueObject.cityStateZip;
+        self.phoneNumberLabel.text = self.venueObject.phoneNumber;
+    }
+
+    favorited = NO;
     [self configureMapView];
     
     NSLog(@"%@",self.venueInfo);
     
-    // Do any additional setup after loading the view.
+        //        NSString *iconPrefix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
+        //    NSString *iconSuffix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
+        //    NSString *icon = [NSString stringWithFormat:@"%@%d%@",iconPrefix,64,iconSuffix];
+        //    NSURL *iconURL = [NSURL URLWithString:icon];
+        //    NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
+        //    UIImage *image = [UIImage imageWithData:imageData];
+        //    self.iconView.image = image;
+        //    NSLog(@"%@",icon);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -141,13 +158,23 @@
     {
         Venue *aVenue = [NSEntityDescription insertNewObjectForEntityForName:@"Venue" inManagedObjectContext:self.cdStack.managedObjectContext];
         
+        Location *aLocation = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.cdStack.managedObjectContext];
+        
         aVenue.name = self.venueInfo [@"name"];
         aVenue.streetAddress = [self.venueInfo[@"location"][@"formattedAddress"] objectAtIndex:0];
-        aVenue.city = [self.venueInfo [@"location"][@"formattedAddress"] objectAtIndex:1];
+        aVenue.cityStateZip = [self.venueInfo [@"location"][@"formattedAddress"] objectAtIndex:1];
         NSString *iconPrefix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
         NSString *iconSuffix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
         NSString *icon = [NSString stringWithFormat:@"%@%@%d%@",iconPrefix,@"bg_",44,iconSuffix];
         aVenue.icon = icon;
+        aVenue.venueDescription = [self.venueInfo[@"categories"]objectAtIndex:0][@"name"];
+        aVenue.phoneNumber = self.venueInfo [@"contact"][@"formattedPhone"];
+        aVenue.rating = @(1);
+        aLocation.latitude = @(self.latitude); //[NSNumber numberWithDouble:self.latitude];
+        aLocation.longitude = @(self.longitude);
+        
+        aVenue.coordinates = aLocation;
+        
         [self saveCoreDataUpdates];
         
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"selectedStar"]];

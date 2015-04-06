@@ -4,13 +4,13 @@
 #import <CoreData/CoreData.h>
 
 extern const struct VenueAttributes {
-	__unsafe_unretained NSString *city;
+	__unsafe_unretained NSString *cityStateZip;
 	__unsafe_unretained NSString *icon;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *phoneNumber;
-	__unsafe_unretained NSString *postalCode;
-	__unsafe_unretained NSString *state;
+	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *streetAddress;
+	__unsafe_unretained NSString *venueDescription;
 } VenueAttributes;
 
 extern const struct VenueRelationships {
@@ -28,9 +28,9 @@ extern const struct VenueRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) VenueID* objectID;
 
-@property (nonatomic, strong) NSString* city;
+@property (nonatomic, strong) NSString* cityStateZip;
 
-//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCityStateZip:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* icon;
 
@@ -40,29 +40,25 @@ extern const struct VenueRelationships {
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSNumber* phoneNumber;
-
-@property (atomic) int32_t phoneNumberValue;
-- (int32_t)phoneNumberValue;
-- (void)setPhoneNumberValue:(int32_t)value_;
+@property (nonatomic, strong) NSString* phoneNumber;
 
 //- (BOOL)validatePhoneNumber:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSNumber* postalCode;
+@property (nonatomic, strong) NSNumber* rating;
 
-@property (atomic) int16_t postalCodeValue;
-- (int16_t)postalCodeValue;
-- (void)setPostalCodeValue:(int16_t)value_;
+@property (atomic) int16_t ratingValue;
+- (int16_t)ratingValue;
+- (void)setRatingValue:(int16_t)value_;
 
-//- (BOOL)validatePostalCode:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* state;
-
-//- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* streetAddress;
 
 //- (BOOL)validateStreetAddress:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* venueDescription;
+
+//- (BOOL)validateVenueDescription:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) Location *coordinates;
 
@@ -72,8 +68,8 @@ extern const struct VenueRelationships {
 
 @interface _Venue (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveCity;
-- (void)setPrimitiveCity:(NSString*)value;
+- (NSString*)primitiveCityStateZip;
+- (void)setPrimitiveCityStateZip:(NSString*)value;
 
 - (NSString*)primitiveIcon;
 - (void)setPrimitiveIcon:(NSString*)value;
@@ -81,23 +77,20 @@ extern const struct VenueRelationships {
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
-- (NSNumber*)primitivePhoneNumber;
-- (void)setPrimitivePhoneNumber:(NSNumber*)value;
+- (NSString*)primitivePhoneNumber;
+- (void)setPrimitivePhoneNumber:(NSString*)value;
 
-- (int32_t)primitivePhoneNumberValue;
-- (void)setPrimitivePhoneNumberValue:(int32_t)value_;
+- (NSNumber*)primitiveRating;
+- (void)setPrimitiveRating:(NSNumber*)value;
 
-- (NSNumber*)primitivePostalCode;
-- (void)setPrimitivePostalCode:(NSNumber*)value;
-
-- (int16_t)primitivePostalCodeValue;
-- (void)setPrimitivePostalCodeValue:(int16_t)value_;
-
-- (NSString*)primitiveState;
-- (void)setPrimitiveState:(NSString*)value;
+- (int16_t)primitiveRatingValue;
+- (void)setPrimitiveRatingValue:(int16_t)value_;
 
 - (NSString*)primitiveStreetAddress;
 - (void)setPrimitiveStreetAddress:(NSString*)value;
+
+- (NSString*)primitiveVenueDescription;
+- (void)setPrimitiveVenueDescription:(NSString*)value;
 
 - (Location*)primitiveCoordinates;
 - (void)setPrimitiveCoordinates:(Location*)value;

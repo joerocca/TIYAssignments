@@ -4,13 +4,13 @@
 #import "_Venue.h"
 
 const struct VenueAttributes VenueAttributes = {
-	.city = @"city",
+	.cityStateZip = @"cityStateZip",
 	.icon = @"icon",
 	.name = @"name",
 	.phoneNumber = @"phoneNumber",
-	.postalCode = @"postalCode",
-	.state = @"state",
+	.rating = @"rating",
 	.streetAddress = @"streetAddress",
+	.venueDescription = @"venueDescription",
 };
 
 const struct VenueRelationships VenueRelationships = {
@@ -43,13 +43,8 @@ const struct VenueRelationships VenueRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
-	if ([key isEqualToString:@"phoneNumberValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"phoneNumber"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"postalCodeValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"postalCode"];
+	if ([key isEqualToString:@"ratingValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"rating"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -57,7 +52,7 @@ const struct VenueRelationships VenueRelationships = {
 	return keyPaths;
 }
 
-@dynamic city;
+@dynamic cityStateZip;
 
 @dynamic icon;
 
@@ -65,47 +60,29 @@ const struct VenueRelationships VenueRelationships = {
 
 @dynamic phoneNumber;
 
-- (int32_t)phoneNumberValue {
-	NSNumber *result = [self phoneNumber];
-	return [result intValue];
-}
+@dynamic rating;
 
-- (void)setPhoneNumberValue:(int32_t)value_ {
-	[self setPhoneNumber:[NSNumber numberWithInt:value_]];
-}
-
-- (int32_t)primitivePhoneNumberValue {
-	NSNumber *result = [self primitivePhoneNumber];
-	return [result intValue];
-}
-
-- (void)setPrimitivePhoneNumberValue:(int32_t)value_ {
-	[self setPrimitivePhoneNumber:[NSNumber numberWithInt:value_]];
-}
-
-@dynamic postalCode;
-
-- (int16_t)postalCodeValue {
-	NSNumber *result = [self postalCode];
+- (int16_t)ratingValue {
+	NSNumber *result = [self rating];
 	return [result shortValue];
 }
 
-- (void)setPostalCodeValue:(int16_t)value_ {
-	[self setPostalCode:[NSNumber numberWithShort:value_]];
+- (void)setRatingValue:(int16_t)value_ {
+	[self setRating:[NSNumber numberWithShort:value_]];
 }
 
-- (int16_t)primitivePostalCodeValue {
-	NSNumber *result = [self primitivePostalCode];
+- (int16_t)primitiveRatingValue {
+	NSNumber *result = [self primitiveRating];
 	return [result shortValue];
 }
 
-- (void)setPrimitivePostalCodeValue:(int16_t)value_ {
-	[self setPrimitivePostalCode:[NSNumber numberWithShort:value_]];
+- (void)setPrimitiveRatingValue:(int16_t)value_ {
+	[self setPrimitiveRating:[NSNumber numberWithShort:value_]];
 }
-
-@dynamic state;
 
 @dynamic streetAddress;
+
+@dynamic venueDescription;
 
 @dynamic coordinates;
 

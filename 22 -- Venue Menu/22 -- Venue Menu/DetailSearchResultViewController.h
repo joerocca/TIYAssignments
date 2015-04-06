@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MapObject.h"
+#import "Venue.h"
 #import "CoreDataStack.h"
 
 
@@ -19,5 +20,7 @@
 @property (nonatomic, strong) MapObject *aMap;
 
 @property (strong, nonatomic) NSDictionary *venueInfo;
+
+@property (strong, nonatomic) Venue *venueObject;
 
 @end

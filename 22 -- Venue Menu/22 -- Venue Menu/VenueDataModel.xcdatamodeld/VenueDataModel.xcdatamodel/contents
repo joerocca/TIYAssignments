@@ -6,13 +6,13 @@
         <relationship name="venue" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Venue" inverseName="coordinates" inverseEntity="Venue" syncable="YES"/>
     </entity>
     <entity name="Venue" representedClassName="Venue" syncable="YES">
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cityStateZip" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="phoneNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="postalCode" optional="YES" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="streetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="venueDescription" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="venue" inverseEntity="Location" syncable="YES"/>
     </entity>
     <elements>

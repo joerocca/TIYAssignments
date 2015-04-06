@@ -92,7 +92,7 @@
     cell.textLabel.text = aVenue.name;
     
     NSString *streetAddress = aVenue.streetAddress;
-    NSString *cityStateZip = aVenue.city;
+    NSString *cityStateZip = aVenue.cityStateZip;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  |  %@", streetAddress, cityStateZip];
     
         NSString *icon = aVenue.icon;
@@ -107,7 +107,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *aVenue = [favoriteVenues objectAtIndex:indexPath.row];
+    Venue *aVenue = [favoriteVenues objectAtIndex:indexPath.row];
     
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -116,7 +116,7 @@
     DetailSearchResultViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailResultView"];
     
     
-    detailVC.venueInfo = aVenue;
+    detailVC.venueObject = aVenue;
     
 //    detailVC.cdStack = self.cdStack;
     
