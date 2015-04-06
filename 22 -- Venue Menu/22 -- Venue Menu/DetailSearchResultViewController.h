@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapObject.h"
+#import "CoreDataStack.h"
 
 
 
 @interface DetailSearchResultViewController : UIViewController
 
+@property (strong, nonatomic) CoreDataStack *cdStack;
+
+@property (nonatomic, strong) MapObject *aMap;
 
 @property (strong, nonatomic) NSDictionary *venueInfo;
 

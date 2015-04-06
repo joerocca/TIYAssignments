@@ -6,7 +6,6 @@
 extern const struct LocationAttributes {
 	__unsafe_unretained NSString *latitude;
 	__unsafe_unretained NSString *longitude;
-	__unsafe_unretained NSString *streetAddress;
 } LocationAttributes;
 
 extern const struct LocationRelationships {
@@ -40,10 +39,6 @@ extern const struct LocationRelationships {
 
 //- (BOOL)validateLongitude:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* streetAddress;
-
-//- (BOOL)validateStreetAddress:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) NSSet *venue;
 
 - (NSMutableSet*)venueSet;
@@ -71,9 +66,6 @@ extern const struct LocationRelationships {
 
 - (double)primitiveLongitudeValue;
 - (void)setPrimitiveLongitudeValue:(double)value_;
-
-- (NSString*)primitiveStreetAddress;
-- (void)setPrimitiveStreetAddress:(NSString*)value;
 
 - (NSMutableSet*)primitiveVenue;
 - (void)setPrimitiveVenue:(NSMutableSet*)value;

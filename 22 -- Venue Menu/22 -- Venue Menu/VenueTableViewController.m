@@ -8,6 +8,8 @@
 
 #import "VenueTableViewController.h"
 #import "SearchResultsModalTableViewController.h"
+#import "CoreDataStack.h"
+#import "Venue.h"
 
 @interface VenueTableViewController ()<UITextFieldDelegate>
 
@@ -22,13 +24,17 @@
 @implementation VenueTableViewController
 {
     NSMutableArray *favoriteVenues;
+     CoreDataStack *cdStack;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Favorite Venues";
     
+    cdStack = [CoreDataStack coreDataStackWithModelName:@"VenueDataModel"];
+    cdStack.coreDataStoreType = CDSStoreTypeSQL;
     
+    favoriteVenues = [[NSMutableArray alloc] init];
  
     
     // Uncomment the following line to preserve selection between presentations.
@@ -37,6 +43,25 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSEntityDescription *entity =[NSEntityDescription entityForName:@"Venue" inManagedObjectContext:cdStack.managedObjectContext];
+    
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    fetch.entity = entity;
+    
+    favoriteVenues = nil;
+    
+    favoriteVenues = [[cdStack.managedObjectContext executeFetchRequest:fetch error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,7 +86,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VenueCell" forIndexPath:indexPath];
     
-   
+    
+    Venue *aVenue = favoriteVenues[indexPath.row];
+    cell.textLabel.text = aVenue.name;
+    
+    NSString *streetAddress = aVenue.streetAddress;
+    NSString *cityStateZip = aVenue.city;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  |  %@", streetAddress, cityStateZip];
+    
+        NSString *icon = aVenue.icon;
+        NSURL *iconURL = [NSURL URLWithString:icon];
+        NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        cell.imageView.image = image;
     
     return cell;
 }
@@ -149,6 +186,8 @@
     
     //    locationVC.locationsArray = response.mapItems;
     //    locationVC.aTask = self.aTask;
+    
+    searchResultsVC.cdStack = cdStack;
     
     
     [self presentViewController:navC animated:YES completion:nil];

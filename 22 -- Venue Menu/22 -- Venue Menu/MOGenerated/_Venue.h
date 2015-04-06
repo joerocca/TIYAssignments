@@ -5,9 +5,12 @@
 
 extern const struct VenueAttributes {
 	__unsafe_unretained NSString *city;
+	__unsafe_unretained NSString *icon;
 	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *phoneNumber;
 	__unsafe_unretained NSString *postalCode;
 	__unsafe_unretained NSString *state;
+	__unsafe_unretained NSString *streetAddress;
 } VenueAttributes;
 
 extern const struct VenueRelationships {
@@ -29,9 +32,21 @@ extern const struct VenueRelationships {
 
 //- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* icon;
+
+//- (BOOL)validateIcon:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* phoneNumber;
+
+@property (atomic) int32_t phoneNumberValue;
+- (int32_t)phoneNumberValue;
+- (void)setPhoneNumberValue:(int32_t)value_;
+
+//- (BOOL)validatePhoneNumber:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* postalCode;
 
@@ -45,6 +60,10 @@ extern const struct VenueRelationships {
 
 //- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* streetAddress;
+
+//- (BOOL)validateStreetAddress:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) Location *coordinates;
 
 //- (BOOL)validateCoordinates:(id*)value_ error:(NSError**)error_;
@@ -56,8 +75,17 @@ extern const struct VenueRelationships {
 - (NSString*)primitiveCity;
 - (void)setPrimitiveCity:(NSString*)value;
 
+- (NSString*)primitiveIcon;
+- (void)setPrimitiveIcon:(NSString*)value;
+
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+- (NSNumber*)primitivePhoneNumber;
+- (void)setPrimitivePhoneNumber:(NSNumber*)value;
+
+- (int32_t)primitivePhoneNumberValue;
+- (void)setPrimitivePhoneNumberValue:(int32_t)value_;
 
 - (NSNumber*)primitivePostalCode;
 - (void)setPrimitivePostalCode:(NSNumber*)value;
@@ -67,6 +95,9 @@ extern const struct VenueRelationships {
 
 - (NSString*)primitiveState;
 - (void)setPrimitiveState:(NSString*)value;
+
+- (NSString*)primitiveStreetAddress;
+- (void)setPrimitiveStreetAddress:(NSString*)value;
 
 - (Location*)primitiveCoordinates;
 - (void)setPrimitiveCoordinates:(Location*)value;

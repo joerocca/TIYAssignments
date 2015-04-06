@@ -133,6 +133,8 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     
 
     detailVC.venueInfo = aVenue;
+
+    detailVC.cdStack = self.cdStack;
     
      [self.navigationController pushViewController:detailVC animated:YES];
     
@@ -281,6 +283,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     
     latitude = location.coordinate.latitude;
     longitude = location.coordinate.longitude;
+    
     
     
     [self foursquareUrlSession];

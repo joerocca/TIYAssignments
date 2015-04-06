@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapObject.h"
+#import "CoreDataStack.h"
 
 @interface SearchResultsModalTableViewController : UITableViewController
 
 
+@property (strong, nonatomic) CoreDataStack *cdStack;
+
 @property (strong, nonatomic) NSMutableArray *venues;
-@property (nonatomic) NSMutableArray *address;
 
 @end

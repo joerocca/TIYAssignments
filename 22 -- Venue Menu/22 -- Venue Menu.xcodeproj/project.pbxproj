@@ -29,14 +29,15 @@
 		D86261AE1AD06B2300824CF5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D86261AD1AD06B2300824CF5 /* LaunchScreen.xib */; };
 		D86261B01AD06B2C00824CF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86261AF1AD06B2C00824CF5 /* Main.storyboard */; };
 		D86261B31AD06B9100824CF5 /* VenueDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D86261B11AD06B9100824CF5 /* VenueDataModel.xcdatamodeld */; };
-		D86261B81AD06D0E00824CF5 /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D86261B51AD06D0E00824CF5 /* _Location.m */; };
-		D86261B91AD06D0E00824CF5 /* _Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = D86261B71AD06D0E00824CF5 /* _Venue.m */; };
-		D86261BF1AD06D3A00824CF5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D86261BC1AD06D3A00824CF5 /* Location.m */; };
-		D86261C01AD06D3A00824CF5 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = D86261BE1AD06D3A00824CF5 /* Venue.m */; };
+		D86261C31AD1EE3D00824CF5 /* MapObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D86261C21AD1EE3D00824CF5 /* MapObject.m */; };
 		D886CABD1ACDAF500080469A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D886CABC1ACDAF500080469A /* main.m */; };
 		D886CAC01ACDAF500080469A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D886CABF1ACDAF500080469A /* AppDelegate.m */; };
 		D886CAC81ACDAF500080469A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D886CAC71ACDAF500080469A /* Images.xcassets */; };
 		D886CAD71ACDAF500080469A /* _2____Venue_MenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D886CAD61ACDAF500080469A /* _2____Venue_MenuTests.m */; };
+		D8A394B01AD2400B0075121F /* _Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A394AD1AD2400B0075121F /* _Location.m */; };
+		D8A394B11AD2400B0075121F /* _Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A394AF1AD2400B0075121F /* _Venue.m */; };
+		D8A394B61AD240220075121F /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A394B31AD240220075121F /* Location.m */; };
+		D8A394B71AD240220075121F /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A394B51AD240220075121F /* Venue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,14 +64,8 @@
 		D86261AD1AD06B2300824CF5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.Iproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D86261AF1AD06B2C00824CF5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.Iproj/Main.storyboard; sourceTree = "<group>"; };
 		D86261B21AD06B9100824CF5 /* VenueDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VenueDataModel.xcdatamodel; sourceTree = "<group>"; };
-		D86261B41AD06D0E00824CF5 /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Location.h; path = MOGenerated/_Location.h; sourceTree = "<group>"; };
-		D86261B51AD06D0E00824CF5 /* _Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Location.m; path = MOGenerated/_Location.m; sourceTree = "<group>"; };
-		D86261B61AD06D0E00824CF5 /* _Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Venue.h; path = MOGenerated/_Venue.h; sourceTree = "<group>"; };
-		D86261B71AD06D0E00824CF5 /* _Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Venue.m; path = MOGenerated/_Venue.m; sourceTree = "<group>"; };
-		D86261BB1AD06D3A00824CF5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Classes/Location.h; sourceTree = "<group>"; };
-		D86261BC1AD06D3A00824CF5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Classes/Location.m; sourceTree = "<group>"; };
-		D86261BD1AD06D3A00824CF5 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Venue.h; path = Classes/Venue.h; sourceTree = "<group>"; };
-		D86261BE1AD06D3A00824CF5 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Venue.m; path = Classes/Venue.m; sourceTree = "<group>"; };
+		D86261C11AD1EE3D00824CF5 /* MapObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapObject.h; sourceTree = "<group>"; };
+		D86261C21AD1EE3D00824CF5 /* MapObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapObject.m; sourceTree = "<group>"; };
 		D886CAB71ACDAF500080469A /* 22 -- Venue Menu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "22 -- Venue Menu.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D886CABB1ACDAF500080469A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D886CABC1ACDAF500080469A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -80,6 +75,14 @@
 		D886CAD01ACDAF500080469A /* 22 -- Venue MenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "22 -- Venue MenuTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D886CAD51ACDAF500080469A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D886CAD61ACDAF500080469A /* _2____Venue_MenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_2____Venue_MenuTests.m"; sourceTree = "<group>"; };
+		D8A394AC1AD2400B0075121F /* _Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Location.h; path = MOGenerated/_Location.h; sourceTree = "<group>"; };
+		D8A394AD1AD2400B0075121F /* _Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Location.m; path = MOGenerated/_Location.m; sourceTree = "<group>"; };
+		D8A394AE1AD2400B0075121F /* _Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Venue.h; path = MOGenerated/_Venue.h; sourceTree = "<group>"; };
+		D8A394AF1AD2400B0075121F /* _Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Venue.m; path = MOGenerated/_Venue.m; sourceTree = "<group>"; };
+		D8A394B21AD240220075121F /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Classes/Location.h; sourceTree = "<group>"; };
+		D8A394B31AD240220075121F /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Classes/Location.m; sourceTree = "<group>"; };
+		D8A394B41AD240220075121F /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Venue.h; path = Classes/Venue.h; sourceTree = "<group>"; };
+		D8A394B51AD240220075121F /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Venue.m; path = Classes/Venue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +106,14 @@
 		D80C82141ACF3F520062FE60 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D86261BB1AD06D3A00824CF5 /* Location.h */,
-				D86261BC1AD06D3A00824CF5 /* Location.m */,
-				D86261BD1AD06D3A00824CF5 /* Venue.h */,
-				D86261BE1AD06D3A00824CF5 /* Venue.m */,
+				D8A394B21AD240220075121F /* Location.h */,
+				D8A394B31AD240220075121F /* Location.m */,
+				D8A394B41AD240220075121F /* Venue.h */,
+				D8A394B51AD240220075121F /* Venue.m */,
+				D86261C11AD1EE3D00824CF5 /* MapObject.h */,
+				D86261C21AD1EE3D00824CF5 /* MapObject.m */,
+				D80C821B1AD052A00062FE60 /* CoreDataStack.h */,
+				D80C821C1AD052A00062FE60 /* CoreDataStack.m */,
 				D80C82111ACF3F460062FE60 /* NetworkManager.h */,
 				D80C82121ACF3F460062FE60 /* NetworkManager.m */,
 			);
@@ -129,10 +136,10 @@
 		D86261BA1AD06D1600824CF5 /* Generated - DO NOT EDIT  */ = {
 			isa = PBXGroup;
 			children = (
-				D86261B41AD06D0E00824CF5 /* _Location.h */,
-				D86261B51AD06D0E00824CF5 /* _Location.m */,
-				D86261B61AD06D0E00824CF5 /* _Venue.h */,
-				D86261B71AD06D0E00824CF5 /* _Venue.m */,
+				D8A394AC1AD2400B0075121F /* _Location.h */,
+				D8A394AD1AD2400B0075121F /* _Location.m */,
+				D8A394AE1AD2400B0075121F /* _Venue.h */,
+				D8A394AF1AD2400B0075121F /* _Venue.m */,
 			);
 			name = "Generated - DO NOT EDIT ";
 			sourceTree = "<group>";
@@ -165,8 +172,6 @@
 				D86261AF1AD06B2C00824CF5 /* Main.storyboard */,
 				D80C82151ACF3F610062FE60 /* View Controllers */,
 				D80C82141ACF3F520062FE60 /* Model Classes */,
-				D80C821B1AD052A00062FE60 /* CoreDataStack.h */,
-				D80C821C1AD052A00062FE60 /* CoreDataStack.m */,
 				D886CAC71ACDAF500080469A /* Images.xcassets */,
 				D86261AD1AD06B2300824CF5 /* LaunchScreen.xib */,
 				D886CABA1ACDAF500080469A /* Supporting Files */,
@@ -320,18 +325,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8A394B71AD240220075121F /* Venue.m in Sources */,
 				D80C82101ACF14420062FE60 /* DetailSearchResultViewController.m in Sources */,
-				D86261B81AD06D0E00824CF5 /* _Location.m in Sources */,
 				D86261B31AD06B9100824CF5 /* VenueDataModel.xcdatamodeld in Sources */,
 				D80C82131ACF3F460062FE60 /* NetworkManager.m in Sources */,
-				D86261BF1AD06D3A00824CF5 /* Location.m in Sources */,
 				D886CAC01ACDAF500080469A /* AppDelegate.m in Sources */,
-				D86261B91AD06D0E00824CF5 /* _Venue.m in Sources */,
+				D86261C31AD1EE3D00824CF5 /* MapObject.m in Sources */,
 				D80C821D1AD052A00062FE60 /* CoreDataStack.m in Sources */,
 				D886CABD1ACDAF500080469A /* main.m in Sources */,
-				D86261C01AD06D3A00824CF5 /* Venue.m in Sources */,
 				D80C81D51ACDD64B0062FE60 /* SearchResultsModalTableViewController.m in Sources */,
+				D8A394B01AD2400B0075121F /* _Location.m in Sources */,
 				D80C81CC1ACDC1660062FE60 /* VenueTableViewController.m in Sources */,
+				D8A394B61AD240220075121F /* Location.m in Sources */,
+				D8A394B11AD2400B0075121F /* _Venue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,9 +5,12 @@
 
 const struct VenueAttributes VenueAttributes = {
 	.city = @"city",
+	.icon = @"icon",
 	.name = @"name",
+	.phoneNumber = @"phoneNumber",
 	.postalCode = @"postalCode",
 	.state = @"state",
+	.streetAddress = @"streetAddress",
 };
 
 const struct VenueRelationships VenueRelationships = {
@@ -40,6 +43,11 @@ const struct VenueRelationships VenueRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"phoneNumberValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"phoneNumber"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"postalCodeValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"postalCode"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -51,7 +59,29 @@ const struct VenueRelationships VenueRelationships = {
 
 @dynamic city;
 
+@dynamic icon;
+
 @dynamic name;
+
+@dynamic phoneNumber;
+
+- (int32_t)phoneNumberValue {
+	NSNumber *result = [self phoneNumber];
+	return [result intValue];
+}
+
+- (void)setPhoneNumberValue:(int32_t)value_ {
+	[self setPhoneNumber:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitivePhoneNumberValue {
+	NSNumber *result = [self primitivePhoneNumber];
+	return [result intValue];
+}
+
+- (void)setPrimitivePhoneNumberValue:(int32_t)value_ {
+	[self setPrimitivePhoneNumber:[NSNumber numberWithInt:value_]];
+}
 
 @dynamic postalCode;
 
@@ -74,6 +104,8 @@ const struct VenueRelationships VenueRelationships = {
 }
 
 @dynamic state;
+
+@dynamic streetAddress;
 
 @dynamic coordinates;
 
