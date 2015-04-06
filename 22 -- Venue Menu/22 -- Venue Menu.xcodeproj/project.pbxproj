@@ -112,8 +112,6 @@
 				D8A394B51AD240220075121F /* Venue.m */,
 				D86261C11AD1EE3D00824CF5 /* MapObject.h */,
 				D86261C21AD1EE3D00824CF5 /* MapObject.m */,
-				D80C821B1AD052A00062FE60 /* CoreDataStack.h */,
-				D80C821C1AD052A00062FE60 /* CoreDataStack.m */,
 				D80C82111ACF3F460062FE60 /* NetworkManager.h */,
 				D80C82121ACF3F460062FE60 /* NetworkManager.m */,
 			);
@@ -144,6 +142,15 @@
 			name = "Generated - DO NOT EDIT ";
 			sourceTree = "<group>";
 		};
+		D863B55A1AD2C49800257CC1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D80C821B1AD052A00062FE60 /* CoreDataStack.h */,
+				D80C821C1AD052A00062FE60 /* CoreDataStack.m */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		D886CAAE1ACDAF500080469A = {
 			isa = PBXGroup;
 			children = (
@@ -166,11 +173,12 @@
 		D886CAB91ACDAF500080469A /* 22 -- Venue Menu */ = {
 			isa = PBXGroup;
 			children = (
-				D86261BA1AD06D1600824CF5 /* Generated - DO NOT EDIT  */,
 				D886CABE1ACDAF500080469A /* AppDelegate.h */,
 				D886CABF1ACDAF500080469A /* AppDelegate.m */,
+				D86261BA1AD06D1600824CF5 /* Generated - DO NOT EDIT  */,
 				D86261AF1AD06B2C00824CF5 /* Main.storyboard */,
 				D80C82151ACF3F610062FE60 /* View Controllers */,
+				D863B55A1AD2C49800257CC1 /* Libraries */,
 				D80C82141ACF3F520062FE60 /* Model Classes */,
 				D886CAC71ACDAF500080469A /* Images.xcassets */,
 				D86261AD1AD06B2300824CF5 /* LaunchScreen.xib */,

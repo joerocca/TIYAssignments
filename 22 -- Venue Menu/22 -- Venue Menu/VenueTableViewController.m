@@ -8,6 +8,7 @@
 
 #import "VenueTableViewController.h"
 #import "SearchResultsModalTableViewController.h"
+#import "DetailSearchResultViewController.h"
 #import "CoreDataStack.h"
 #import "Venue.h"
 
@@ -102,6 +103,29 @@
     
     return cell;
 }
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *aVenue = [favoriteVenues objectAtIndex:indexPath.row];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    DetailSearchResultViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailResultView"];
+    
+    
+    detailVC.venueInfo = aVenue;
+    
+//    detailVC.cdStack = self.cdStack;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    NSLog(@"%@",aVenue);
+    
+}
+
 
 
 /*
