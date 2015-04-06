@@ -122,14 +122,12 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *aVenue = [self.venues objectAtIndex:indexPath.row];
-//    DetailSearchResultViewController *detailVC = [[DetailSearchResultViewController alloc]init];
-    
-    
+
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *navC = [storyboard instantiateViewControllerWithIdentifier:@"DetailNavController"];
+
     
-    DetailSearchResultViewController *detailVC = [navC viewControllers][0];
+    DetailSearchResultViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailResultView"];
     
 
     detailVC.venueInfo = aVenue;
@@ -285,8 +283,6 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     NSLog(@"%f",longitude);
     
     
-
-    
 }
 
 
@@ -349,10 +345,23 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
        NSDictionary *response = [venueInfo objectForKey:@"response"];
        NSMutableArray *venues = [response objectForKey:@"venues"];
 
-
-    
-
         self.venues = venues;
+        
+        if ([self.venues isEqualToArray:@[]])
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No search results"
+                                                                           message:@"Try another search request"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction *action) {
+                                                                 
+                                                                 
+                                                             }];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
 
         [self.tableView reloadData];
         
@@ -373,4 +382,8 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     [self.searchBar resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+
 @end
