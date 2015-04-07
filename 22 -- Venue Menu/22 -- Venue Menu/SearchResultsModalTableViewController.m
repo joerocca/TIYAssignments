@@ -201,6 +201,12 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
 {
     
     [self.searchBar resignFirstResponder];
+    [self.venues removeAllObjects];
+    [self.tableView reloadData];
+    if (locationManager)
+    {
+         [self foursquareUrlSession];
+    }
     [self configureLocationManager];
 }
 
@@ -228,8 +234,9 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     }
     else
     {
-        
+      [self enableLocationManager:YES];
     }
+    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -335,6 +342,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     
     else
     {
+        [receivedData setLength:0];
         [receivedData appendData:data];
     }
 }
@@ -349,7 +357,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
        NSDictionary *response = [venueInfo objectForKey:@"response"];
        NSMutableArray *venues = [response objectForKey:@"venues"];
 
-        self.venues = venues;
+        self.venues = [venues mutableCopy];
         
         if ([self.venues isEqualToArray:@[]])
         {
