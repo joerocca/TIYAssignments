@@ -20,6 +20,7 @@
 @interface DetailSearchResultViewController ()
 {
     BOOL favorited;
+    int rating;
     CoreDataStack *cdStackForComparison;
     NSMutableArray *comparisonForStarArray;
 }
@@ -32,13 +33,24 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UIButton *rateStar1;
+@property (weak, nonatomic) IBOutlet UIButton *rateStar2;
+@property (weak, nonatomic) IBOutlet UIButton *rateStar3;
+@property (weak, nonatomic) IBOutlet UIButton *rateStar4;
+@property (weak, nonatomic) IBOutlet UIButton *rateStar5;
+
 
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
 - (IBAction)starTapped:(UIBarButtonItem *)sender;
+
+- (IBAction)rateStar1:(UIButton *)sender;
+- (IBAction)rateStar2:(UIButton *)sender;
+- (IBAction)rateStar3:(UIButton *)sender;
+- (IBAction)rateStar4:(UIButton *)sender;
+- (IBAction)rateStar5:(UIButton *)sender;
 
 
 
@@ -106,6 +118,36 @@
         self.streetAddressLabel.text = self.venueObject.streetAddress;
         self.CityStateZip.text = self.venueObject.cityStateZip;
         self.phoneNumberLabel.text = self.venueObject.phoneNumber;
+        if ([self.venueObject.rating  isEqual: @(1)])
+        {
+            self.rateStar1.selected = YES;
+        }
+        if ([self.venueObject.rating  isEqual: @(2)])
+        {
+            self.rateStar1.selected = YES;
+            self.rateStar2.selected = YES;
+        }
+        if ([self.venueObject.rating  isEqual: @(3)])
+        {
+            self.rateStar1.selected = YES;
+            self.rateStar2.selected = YES;
+            self.rateStar3.selected = YES;
+        }
+        if ([self.venueObject.rating  isEqual: @(4)])
+        {
+            self.rateStar1.selected = YES;
+            self.rateStar2.selected = YES;
+            self.rateStar3.selected = YES;
+            self.rateStar4.selected = YES;
+        }
+        if ([self.venueObject.rating  isEqual: @(5)])
+        {
+            self.rateStar1.selected = YES;
+            self.rateStar2.selected = YES;
+            self.rateStar3.selected = YES;
+            self.rateStar4.selected = YES;
+            self.rateStar5.selected = YES;
+        }
         
         if (self.venueObject)
         {
@@ -187,10 +229,14 @@
         [self.navigationItem.rightBarButtonItem setImage:[UIImage imageNamed:@"unselectedStar"]];
         favorited = NO;
         
+        if (self.venueObject)
+        {
         
-//        [self.cdStack.managedObjectContext deleteObject:aVenue];
-//        [self.cdStack.managedObjectContext deleteObject:aLocation];
-//        [self saveCoreDataUpdates];
+        [self.delegate unfavorite];
+        
+        [self saveCoreDataUpdates];
+            
+        }
     }
     else
     {
@@ -205,11 +251,11 @@
         aVenue.cityStateZip = [self.venueInfo [@"location"][@"formattedAddress"] objectAtIndex:1];
         NSString *iconPrefix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
         NSString *iconSuffix = [self.venueInfo [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
-        NSString *icon = [NSString stringWithFormat:@"%@%@%d%@",iconPrefix,@"bg_",44,iconSuffix];
+        NSString *icon = [NSString stringWithFormat:@"%@%d%@",iconPrefix,44,iconSuffix];
         aVenue.icon = icon;
         aVenue.venueDescription = [self.venueInfo[@"categories"]objectAtIndex:0][@"name"];
         aVenue.phoneNumber = self.venueInfo [@"contact"][@"formattedPhone"];
-        aVenue.rating = @(1);
+        aVenue.rating = @(rating);
         aLocation.latitude = @(self.latitude); //[NSNumber numberWithDouble:self.latitude];
         aLocation.longitude = @(self.longitude);
         
@@ -230,6 +276,73 @@
     
 
     
+}
+
+
+- (IBAction)rateStar1:(UIButton *)sender
+{
+    if (self.venueInfo)
+    {
+    self.rateStar1.selected = YES;
+    self.rateStar2.selected = NO;
+    self.rateStar3.selected = NO;
+    self.rateStar4.selected = NO;
+    self.rateStar5.selected = NO;
+    rating = 1;
+    }
+}
+
+- (IBAction)rateStar2:(UIButton *)sender
+{
+    if (self.venueInfo)
+    {
+    self.rateStar1.selected = YES;
+    self.rateStar2.selected = YES;
+    self.rateStar3.selected = NO;
+    self.rateStar4.selected = NO;
+    self.rateStar5.selected = NO;
+    rating = 2;
+    }
+}
+
+- (IBAction)rateStar3:(UIButton *)sender
+{
+    if (self.venueInfo)
+    {
+    self.rateStar1.selected = YES;
+    self.rateStar2.selected = YES;
+    self.rateStar3.selected = YES;
+    self.rateStar4.selected = NO;
+    self.rateStar5.selected = NO;
+    rating = 3;
+    }
+
+}
+
+- (IBAction)rateStar4:(UIButton *)sender
+{
+    if (self.venueInfo)
+    {
+    self.rateStar1.selected = YES;
+    self.rateStar2.selected = YES;
+    self.rateStar3.selected = YES;
+    self.rateStar4.selected = YES;
+    self.rateStar5.selected = NO;
+    rating = 4;
+    }
+}
+
+- (IBAction)rateStar5:(UIButton *)sender
+{
+    if (self.venueInfo)
+    {
+    self.rateStar1.selected = YES;
+    self.rateStar2.selected = YES;
+    self.rateStar3.selected = YES;
+    self.rateStar4.selected = YES;
+    self.rateStar5.selected = YES;
+    rating = 5;
+    }
 }
 
 

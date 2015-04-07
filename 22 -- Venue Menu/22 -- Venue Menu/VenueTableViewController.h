@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VenueTableViewController.h"
 
-@interface VenueTableViewController : UITableViewController
+
+
+@protocol VenueTableViewControllerDelegate
+
+-(void)unfavorite;
+
+@end
+
+
+@interface VenueTableViewController : UITableViewController <VenueTableViewControllerDelegate>
+
+
+
+
 
 @end

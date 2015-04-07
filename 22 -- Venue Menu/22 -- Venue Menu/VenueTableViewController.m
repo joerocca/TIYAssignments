@@ -13,7 +13,9 @@
 #import "Venue.h"
 
 @interface VenueTableViewController ()<UITextFieldDelegate>
-
+{
+    NSInteger indexpathForDelete;
+}
 
 
 - (IBAction)addVenueButton:(UIBarButtonItem *)sender;
@@ -87,6 +89,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VenueCell" forIndexPath:indexPath];
     
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor grayColor];
     
     Venue *aVenue = favoriteVenues[indexPath.row];
     cell.textLabel.text = aVenue.name;
@@ -139,34 +143,48 @@
     
     detailVC.venueObject = aVenue;
     
+    detailVC.delegate = self;
+    
+    indexpathForDelete = indexPath.row;
+        
+    
     //    detailVC.cdStack = self.cdStack;
     
     [self.navigationController pushViewController:detailVC animated:YES];
     
     NSLog(@"%@",aVenue);
+    NSLog(@"%ld",(long)indexPath.row);
 }
 
 
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
+
+
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ 
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        
+        [cdStack.managedObjectContext deleteObject: favoriteVenues[indexPath.row]];
+        
+        [self saveCoreDataUpdates];
+        
+        [favoriteVenues removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -234,4 +252,30 @@
     
     [self presentViewController:navC animated:YES completion:nil];
 }
+
+
+
+
+
+
+- (void)saveCoreDataUpdates
+{
+    [cdStack saveOrFail:^(NSError *errorOrNil)
+     {
+         if (errorOrNil)
+         {
+             NSLog(@"Error from CDStack: %@",[errorOrNil localizedDescription]);
+         }
+     }];
+}
+
+-(void)unfavorite
+{
+    [cdStack.managedObjectContext deleteObject: favoriteVenues[indexpathForDelete]];
+     [self saveCoreDataUpdates];
+}
+
+
+
+
 @end

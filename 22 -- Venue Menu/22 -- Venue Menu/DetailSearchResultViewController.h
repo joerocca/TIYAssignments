@@ -10,6 +10,7 @@
 #import "MapObject.h"
 #import "Venue.h"
 #import "CoreDataStack.h"
+#import "VenueTableViewController.h"
 
 
 
@@ -22,5 +23,7 @@
 @property (strong, nonatomic) NSDictionary *venueInfo;
 
 @property (strong, nonatomic) Venue *venueObject;
+
+@property (strong, nonatomic) id <VenueTableViewControllerDelegate> delegate;
 
 @end

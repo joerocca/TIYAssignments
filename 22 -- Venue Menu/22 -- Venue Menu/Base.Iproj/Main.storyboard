@@ -8,10 +8,11 @@
         <scene sceneID="X2J-dm-JNQ">
             <objects>
                 <tableViewController id="z0T-hJ-Nak" customClass="VenueTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ivo-RW-7Di">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ivo-RW-7Di">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.90588235289999997" green="1" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="VenueCell" textLabel="LHN-Yq-WI1" detailTextLabel="UV0-LW-y5m" style="IBUITableViewCellStyleSubtitle" id="DwX-0Z-Yig">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -32,7 +33,8 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="tintColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -69,14 +71,18 @@
         <scene sceneID="j7B-5q-DCl">
             <objects>
                 <tableViewController id="iTX-Lt-IaJ" customClass="SearchResultsModalTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQF-J2-U78">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="EQF-J2-U78">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="G1m-FJ-x0L">
+                        <color key="separatorColor" red="0.90588235294117647" green="1" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="G1m-FJ-x0L">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="backgroundColor" red="0.90588235289999997" green="1" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                         </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchResultsCell" textLabel="Ttp-Ky-dN2" detailTextLabel="QKS-fV-S74" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="AET-Jg-yp9">
@@ -98,6 +104,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -119,7 +126,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brh-wQ-x7P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2544" y="-336"/>
+            <point key="canvasLocation" x="2534" y="-266"/>
         </scene>
         <!--Detail Search Result View Controller-->
         <scene sceneID="RIg-n4-zk6">
@@ -133,64 +140,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjA-Sv-mli">
-                                <rect key="frame" x="244" y="128" width="112" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjA-Sv-mli">
+                                <rect key="frame" x="0.0" y="147" width="600" height="24.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2q-UJ-TVi">
-                                <rect key="frame" x="243" y="191" width="114" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqj-7T-hLL">
+                                <rect key="frame" x="0.0" y="99" width="600" height="28.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqj-7T-hLL">
-                                <rect key="frame" x="254" y="87" width="92" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityStateZip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx1-s3-UrF">
-                                <rect key="frame" x="255" y="160" width="90" height="22"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-XF-Wyh">
-                                <rect key="frame" x="0.0" y="301" width="600" height="299"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SRJ-XF-Wyh">
+                                <rect key="frame" x="0.0" y="329" width="600" height="270.5"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zy-f6-7dE">
-                                <rect key="frame" x="10" y="50" width="580" height="30"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <rect key="frame" x="10" y="50" width="580" height="41.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsH-4e-H5t">
+                                <rect key="frame" x="212" y="270" width="23" height="22"/>
+                                <state key="normal" image="UnselectedRatingStar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="SelectedRatingStar"/>
+                                <connections>
+                                    <action selector="rateStar1:" destination="HZ0-cg-YHt" eventType="touchUpInside" id="4RZ-lM-M9n"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY0-e9-xAD">
+                                <rect key="frame" x="250" y="270" width="23" height="22"/>
+                                <state key="normal" image="UnselectedRatingStar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="SelectedRatingStar"/>
+                                <connections>
+                                    <action selector="rateStar2:" destination="HZ0-cg-YHt" eventType="touchUpInside" id="Cq1-Hv-4a6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ar-WO-i5e">
+                                <rect key="frame" x="288" y="270" width="23" height="22"/>
+                                <state key="normal" image="UnselectedRatingStar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="SelectedRatingStar"/>
+                                <connections>
+                                    <action selector="rateStar3:" destination="HZ0-cg-YHt" eventType="touchUpInside" id="FGA-uP-9cH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbj-S1-RM9">
+                                <rect key="frame" x="364" y="270" width="23" height="22"/>
+                                <state key="normal" image="UnselectedRatingStar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="SelectedRatingStar"/>
+                                <connections>
+                                    <action selector="rateStar5:" destination="HZ0-cg-YHt" eventType="touchUpInside" id="dMX-gy-9Sh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7F-Lu-o1b">
+                                <rect key="frame" x="326" y="270" width="23" height="22"/>
+                                <state key="normal" image="UnselectedRatingStar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="SelectedRatingStar"/>
+                                <connections>
+                                    <action selector="rateStar4:" destination="HZ0-cg-YHt" eventType="touchUpInside" id="Djv-2a-M7h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CityStateZip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nx1-s3-UrF">
+                                <rect key="frame" x="0.0" y="181.5" width="600" height="24.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="21"/>
+                                <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2q-UJ-TVi">
+                                <rect key="frame" x="0.0" y="216" width="600" height="24.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" red="0.99746127890000003" green="1" blue="0.99347066070000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.72630602904040398" green="0.72630602904040398" blue="0.72630602904040398" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="0Gd-re-V6c"/>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="top" secondItem="wLy-D7-uLr" secondAttribute="bottom" constant="97" id="2YI-RV-Cib"/>
                             <constraint firstItem="X2q-UJ-TVi" firstAttribute="top" secondItem="WjA-Sv-mli" secondAttribute="bottom" constant="60" id="2t2-DT-gLN"/>
+                            <constraint firstItem="fY0-e9-xAD" firstAttribute="centerY" secondItem="7ar-WO-i5e" secondAttribute="centerY" id="7Xe-cT-h66"/>
                             <constraint firstItem="SRJ-XF-Wyh" firstAttribute="top" secondItem="X2q-UJ-TVi" secondAttribute="bottom" constant="88.5" id="8jv-aE-4Ob"/>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="top" secondItem="Yqj-7T-hLL" secondAttribute="bottom" constant="20" id="9WH-LD-JFr"/>
                             <constraint firstItem="9Zy-f6-7dE" firstAttribute="top" secondItem="wLy-D7-uLr" secondAttribute="bottom" constant="30" id="Bnj-pl-n0C"/>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="centerX" secondItem="Nx1-s3-UrF" secondAttribute="centerX" id="CrE-Fe-K7T"/>
                             <constraint firstItem="X2q-UJ-TVi" firstAttribute="top" secondItem="Nx1-s3-UrF" secondAttribute="bottom" constant="10" id="Dv4-AX-EDf"/>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="centerX" secondItem="Yqj-7T-hLL" secondAttribute="centerX" id="Edp-5Z-6BK"/>
+                            <constraint firstAttribute="trailing" secondItem="Yqj-7T-hLL" secondAttribute="trailing" id="FMY-gf-IGY"/>
+                            <constraint firstAttribute="trailing" secondItem="Nx1-s3-UrF" secondAttribute="trailing" id="HFF-Vp-QPZ"/>
                             <constraint firstAttribute="centerX" secondItem="9Zy-f6-7dE" secondAttribute="centerX" id="JqP-dJ-h1P"/>
+                            <constraint firstItem="fY0-e9-xAD" firstAttribute="leading" secondItem="KsH-4e-H5t" secondAttribute="trailing" constant="15" id="Knd-F3-P06"/>
+                            <constraint firstItem="7ar-WO-i5e" firstAttribute="top" secondItem="X2q-UJ-TVi" secondAttribute="bottom" constant="29.5" id="NR9-m2-S25"/>
+                            <constraint firstItem="Yqj-7T-hLL" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="PJ6-HK-DrJ"/>
+                            <constraint firstItem="m7F-Lu-o1b" firstAttribute="leading" secondItem="7ar-WO-i5e" secondAttribute="trailing" constant="15" id="Pes-XS-anZ"/>
+                            <constraint firstAttribute="trailing" secondItem="X2q-UJ-TVi" secondAttribute="trailing" id="R2F-mj-iwp"/>
+                            <constraint firstItem="WjA-Sv-mli" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="SKe-tb-15V"/>
+                            <constraint firstItem="wbj-S1-RM9" firstAttribute="leading" secondItem="m7F-Lu-o1b" secondAttribute="trailing" constant="15" id="SRv-v0-TGv"/>
                             <constraint firstItem="Yqj-7T-hLL" firstAttribute="top" secondItem="9Zy-f6-7dE" secondAttribute="bottom" constant="8" id="WJf-jc-NRn"/>
                             <constraint firstItem="WjA-Sv-mli" firstAttribute="centerX" secondItem="Nx1-s3-UrF" secondAttribute="centerX" id="WO2-bE-0iF"/>
                             <constraint firstItem="Yqj-7T-hLL" firstAttribute="centerX" secondItem="9Zy-f6-7dE" secondAttribute="centerX" id="YzM-ej-IaQ"/>
                             <constraint firstItem="X2q-UJ-TVi" firstAttribute="centerX" secondItem="Nx1-s3-UrF" secondAttribute="centerX" id="ZZb-x6-lQR"/>
+                            <constraint firstItem="7ar-WO-i5e" firstAttribute="centerY" secondItem="m7F-Lu-o1b" secondAttribute="centerY" id="aD6-1C-Nx8"/>
                             <constraint firstItem="Nx1-s3-UrF" firstAttribute="top" secondItem="WjA-Sv-mli" secondAttribute="bottom" constant="16.5" id="ebY-cv-RDB"/>
+                            <constraint firstAttribute="trailing" secondItem="WjA-Sv-mli" secondAttribute="trailing" id="gl2-Yg-Gqi"/>
                             <constraint firstItem="SRJ-XF-Wyh" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="gvo-c6-GUg"/>
                             <constraint firstAttribute="trailing" secondItem="9Zy-f6-7dE" secondAttribute="trailing" constant="10" id="hyZ-N3-SRv"/>
+                            <constraint firstItem="Nx1-s3-UrF" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="i9C-8Q-WOV"/>
+                            <constraint firstItem="7ar-WO-i5e" firstAttribute="centerX" secondItem="X2q-UJ-TVi" secondAttribute="centerX" id="j9B-rP-l7c"/>
                             <constraint firstItem="9Zy-f6-7dE" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" constant="10" id="lyY-HJ-aQh"/>
                             <constraint firstItem="X2q-UJ-TVi" firstAttribute="centerX" secondItem="WjA-Sv-mli" secondAttribute="centerX" id="qr3-Ql-sfc"/>
                             <constraint firstAttribute="trailing" secondItem="SRJ-XF-Wyh" secondAttribute="trailing" id="sfs-5v-qTm"/>
+                            <constraint firstItem="fY0-e9-xAD" firstAttribute="centerY" secondItem="KsH-4e-H5t" secondAttribute="centerY" id="tib-FA-1uh"/>
+                            <constraint firstItem="m7F-Lu-o1b" firstAttribute="centerY" secondItem="wbj-S1-RM9" secondAttribute="centerY" id="uzJ-MS-0fO"/>
                             <constraint firstItem="bZm-Bi-F06" firstAttribute="top" secondItem="SRJ-XF-Wyh" secondAttribute="bottom" id="vLR-n9-SjC"/>
                             <constraint firstItem="Nx1-s3-UrF" firstAttribute="top" secondItem="WjA-Sv-mli" secondAttribute="bottom" constant="10" id="w8Q-eq-dfu"/>
+                            <constraint firstItem="7ar-WO-i5e" firstAttribute="leading" secondItem="fY0-e9-xAD" secondAttribute="trailing" constant="15" id="x6l-Sw-hRg"/>
+                            <constraint firstItem="X2q-UJ-TVi" firstAttribute="leading" secondItem="6JE-kH-oqG" secondAttribute="leading" id="zWc-cc-POm"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -210,6 +285,11 @@
                         <outlet property="CityStateZip" destination="Nx1-s3-UrF" id="LDl-2Y-guq"/>
                         <outlet property="mapView" destination="SRJ-XF-Wyh" id="cth-Rx-Lrh"/>
                         <outlet property="phoneNumberLabel" destination="X2q-UJ-TVi" id="ikA-Jq-Vbo"/>
+                        <outlet property="rateStar1" destination="KsH-4e-H5t" id="oeh-PL-NY3"/>
+                        <outlet property="rateStar2" destination="fY0-e9-xAD" id="kvk-Bn-UUV"/>
+                        <outlet property="rateStar3" destination="7ar-WO-i5e" id="bQI-bw-Trj"/>
+                        <outlet property="rateStar4" destination="m7F-Lu-o1b" id="eX1-Is-gkG"/>
+                        <outlet property="rateStar5" destination="wbj-S1-RM9" id="ypw-Am-sxc"/>
                         <outlet property="streetAddressLabel" destination="WjA-Sv-mli" id="AAC-dj-reW"/>
                         <outlet property="venueDescription" destination="Yqj-7T-hLL" id="H3q-wd-gen"/>
                         <outlet property="venueName" destination="9Zy-f6-7dE" id="v89-Oc-p4s"/>
@@ -266,4 +346,8 @@
             <point key="canvasLocation" x="1690" y="-425"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SelectedRatingStar" width="23" height="21"/>
+        <image name="UnselectedRatingStar" width="23" height="22"/>
+    </resources>
 </document>

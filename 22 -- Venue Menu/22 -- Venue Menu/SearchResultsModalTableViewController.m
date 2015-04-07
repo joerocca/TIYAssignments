@@ -94,6 +94,9 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchResultsCell" forIndexPath:indexPath];
     
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.textColor = [UIColor grayColor];
+    
     cell.textLabel.text = self.venues[indexPath.row][@"name"];
     
    
@@ -104,7 +107,7 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
     
     NSString *iconPrefix = [self.venues[indexPath.row] [@"categories"]objectAtIndex:0][@"icon"][@"prefix"];
     NSString *iconSuffix = [self.venues[indexPath.row] [@"categories"]objectAtIndex:0][@"icon"][@"suffix"];
-    NSString *icon = [NSString stringWithFormat:@"%@%@%d%@",iconPrefix,@"bg_",44,iconSuffix];
+    NSString *icon = [NSString stringWithFormat:@"%@%d%@",iconPrefix,44,iconSuffix];
     NSURL *iconURL = [NSURL URLWithString:icon];
     NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
     UIImage *image = [UIImage imageWithData:imageData];
