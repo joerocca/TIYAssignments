@@ -22,6 +22,7 @@
 
 
 
+
 @end
 
 @implementation VenueTableViewController
@@ -99,11 +100,11 @@
     NSString *cityStateZip = aVenue.cityStateZip;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@  |  %@", streetAddress, cityStateZip];
     
-        NSString *icon = aVenue.icon;
-        NSURL *iconURL = [NSURL URLWithString:icon];
-        NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
-        UIImage *image = [UIImage imageWithData:imageData];
-        cell.imageView.image = image;
+    NSString *icon = aVenue.icon;
+    NSURL *iconURL = [NSURL URLWithString:icon];
+    NSData *imageData = [NSData dataWithContentsOfURL:iconURL];
+    UIImage *image = [UIImage imageWithData:imageData];
+    cell.imageView.image = image;
     
     return cell;
 }
@@ -216,25 +217,6 @@
 
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-
-
-        
-        [textField resignFirstResponder];
-    
-    
-
-    
-    
-    return YES;
-}
-
-
-
-
-
-
 
 - (IBAction)addVenueButton:(UIBarButtonItem *)sender
 {
@@ -252,7 +234,6 @@
     
     [self presentViewController:navC animated:YES completion:nil];
 }
-
 
 
 

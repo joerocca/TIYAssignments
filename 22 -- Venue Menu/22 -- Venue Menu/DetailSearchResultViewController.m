@@ -118,6 +118,7 @@
         self.streetAddressLabel.text = self.venueObject.streetAddress;
         self.CityStateZip.text = self.venueObject.cityStateZip;
         self.phoneNumberLabel.text = self.venueObject.phoneNumber;
+        
         if ([self.venueObject.rating  isEqual: @(1)])
         {
             self.rateStar1.selected = YES;

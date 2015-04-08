@@ -361,8 +361,8 @@ static NSString *clientSecret = @"AOXFKQTCEMKYNK3LA4LEOIVG5SIAEBAYOMEN4JDZNCBPZZ
         
         if ([self.venues isEqualToArray:@[]])
         {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No search results"
-                                                                           message:@"Try another search request"
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Search Results"
+                                                                           message:@"Try another search request."
                                                                     preferredStyle:UIAlertControllerStyleAlert];
             
             
