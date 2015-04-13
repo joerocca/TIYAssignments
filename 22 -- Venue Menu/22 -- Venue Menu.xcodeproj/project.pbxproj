@@ -154,10 +154,10 @@
 		D886CAAE1ACDAF500080469A = {
 			isa = PBXGroup;
 			children = (
-				D86261B11AD06B9100824CF5 /* VenueDataModel.xcdatamodeld */,
 				D886CAB91ACDAF500080469A /* 22 -- Venue Menu */,
 				D886CAD31ACDAF500080469A /* 22 -- Venue MenuTests */,
 				D886CAB81ACDAF500080469A /* Products */,
+				D86261B11AD06B9100824CF5 /* VenueDataModel.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
