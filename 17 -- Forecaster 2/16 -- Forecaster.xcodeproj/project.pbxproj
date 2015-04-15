@@ -168,6 +168,7 @@
 			children = (
 				D87B21021ABB5C1C0076E317 /* WeatherCell.h */,
 				D87B21031ABB5C1C0076E317 /* WeatherCell.m */,
+				D8EB79A11ABB45540058A474 /* Images.xcassets */,
 			);
 			name = "Cell Classes";
 			sourceTree = "<group>";
@@ -199,7 +200,6 @@
 				D85AB2F81AC109B200B7DF02 /* View Controllers */,
 				D85AB2F91AC109E900B7DF02 /* Model Classes */,
 				D85AB2FA1AC10A4800B7DF02 /* Cell Classes */,
-				D8EB79A11ABB45540058A474 /* Images.xcassets */,
 				D8EB79A31ABB45540058A474 /* LaunchScreen.xib */,
 				D8EB79941ABB45540058A474 /* Supporting Files */,
 			);
