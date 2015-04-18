@@ -7,6 +7,7 @@
 //
 
 #import "Bagel.h"
+#import "Toaster.h"
 
 @interface Bagel ()
 
@@ -17,6 +18,9 @@
 
 
 @implementation Bagel
+{
+     Toaster *toaster;
+}
 
 +(id)bagelGenerator:(SKNode *)world
 {
@@ -41,31 +45,37 @@
     
 }
 
-- (void)populate
-{
-    for (int i = 0; i < 3; i++)
-    {
-        [self generate];
-    }
-}
+//- (void)populate
+//{
+//    for (int i = 0; i < 3; i++)
+//    {
+//        [self generate];
+//    }
+//}
 
-- (void)generate
+- (void)generate:(SKNode *)world
 {
+    toaster = [Toaster toaster];
+    
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
     bagel.name = @"bagel";
-    bagel.position = CGPointMake(-20, -self.scene.frame.size.height/3);
+    [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
+      
+            bagel.position = CGPointMake(node.position.x-500, node.position.y);
+    }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
-    bagel.physicsBody.dynamic = YES;
-    
+
     [self.world addChild:bagel];
+    [bagel chase];
 }
 
 
 - (void)chase
 {
-    SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0009];
+    SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0001];
     SKAction *moveRight = [SKAction repeatActionForever:incrementRight];
     [self runAction:moveRight];
+    
     SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
     SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
     [self runAction:clockwiseRotationForever];

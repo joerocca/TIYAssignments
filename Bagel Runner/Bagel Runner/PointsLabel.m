@@ -14,6 +14,7 @@
 {
     PointsLabel *pointsLabel = [PointsLabel labelNodeWithFontNamed:fontName];
     pointsLabel.text = @"0";
+    pointsLabel.fontSize = 65;
     return pointsLabel;
 }
 

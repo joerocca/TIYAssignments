@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "Toaster.h"
 #import "Bagel.h"
+#import "PointsLabel.h"
 #import "WorldGenerator.h"
 
 @interface GameScene()
@@ -47,9 +48,14 @@
 //    [world addChild:bagel];
     
     bagel = [Bagel bagelGenerator:world];
-    bagel.position = CGPointMake(-300, -self.scene.frame.size.height/3);
-    [world addChild:bagel];
-    [bagel populate];
+    
+    PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:@"Helvetica-Light"];
+    pointsLabel.position = CGPointMake(400, 200);
+    [self addChild:pointsLabel];
+//    bagel.position = CGPointMake(-300, -self.scene.frame.size.height/3);
+//    [world addChild:bagel];
+    
+//    [bagel populate];
     
     /* Setup your scene here */
 //    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
@@ -147,11 +153,11 @@
     }
     else
     {
+    [bagel generate:world];
     [bagel chase];
     [toaster toasterJump];
     }
 //    [toaster runRight];
-    
     
     
 }

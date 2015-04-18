@@ -10,4 +10,7 @@
 
 @interface PointsLabel : SKLabelNode
 
++(id)pointsLabelWithFontNamed:(NSString *)fontName;
+
+
 @end
