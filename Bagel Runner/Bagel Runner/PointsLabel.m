@@ -13,9 +13,18 @@
 +(id)pointsLabelWithFontNamed:(NSString *)fontName
 {
     PointsLabel *pointsLabel = [PointsLabel labelNodeWithFontNamed:fontName];
+    pointsLabel.name = @"pointsLabel";
     pointsLabel.text = @"0";
+    pointsLabel.score = 0;
     pointsLabel.fontSize = 65;
     return pointsLabel;
+}
+
+
+- (void)increment
+{
+    self.score ++;
+    self.text = [NSString stringWithFormat:@"%i",self.score];
 }
 
 

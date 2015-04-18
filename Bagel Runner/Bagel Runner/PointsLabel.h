@@ -10,7 +10,9 @@
 
 @interface PointsLabel : SKLabelNode
 
-+(id)pointsLabelWithFontNamed:(NSString *)fontName;
+@property int score;
 
++(id)pointsLabelWithFontNamed:(NSString *)fontName;
+- (void)increment;
 
 @end

@@ -89,6 +89,7 @@
     [self centerOnNode:toaster];
     [self handleGeneration];
     [self handleCleanup];
+    [self handlePoints];
 }
 
 - (void) handleGeneration
@@ -117,6 +118,22 @@
         }
     }];
 }
+
+- (void)handlePoints
+{
+    
+    [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 100)
+        {
+            PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
+            [pointsLabel increment];
+        }
+    }];
+
+}
+
+
+
 - (void)centerOnNode:(SKNode *)node
 {
     CGPoint positionInScene = [self convertPoint:node.position fromNode:node.parent];
