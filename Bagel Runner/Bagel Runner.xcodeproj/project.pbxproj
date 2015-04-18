@@ -1,0 +1,467 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D83BF06B1AE0897C005BB7C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF06A1AE0897C005BB7C6 /* main.m */; };
+		D83BF06E1AE0897C005BB7C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF06D1AE0897C005BB7C6 /* AppDelegate.m */; };
+		D83BF0711AE0897C005BB7C6 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0701AE0897C005BB7C6 /* GameScene.m */; };
+		D83BF0731AE0897C005BB7C6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D83BF0721AE0897C005BB7C6 /* GameScene.sks */; };
+		D83BF0761AE0897C005BB7C6 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0751AE0897C005BB7C6 /* GameViewController.m */; };
+		D83BF0791AE0897C005BB7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D83BF0771AE0897C005BB7C6 /* Main.storyboard */; };
+		D83BF07B1AE0897C005BB7C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D83BF07A1AE0897C005BB7C6 /* Images.xcassets */; };
+		D83BF07E1AE0897C005BB7C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */; };
+		D83BF08A1AE0897C005BB7C6 /* Bagel_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */; };
+		D83BF0951AE09309005BB7C6 /* Toaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0941AE09309005BB7C6 /* Toaster.m */; };
+		D8B4D1721AE17E0F001576B4 /* Bagel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1711AE17E0F001576B4 /* Bagel.m */; };
+		D8B4D1751AE185A8001576B4 /* WorldGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1741AE185A8001576B4 /* WorldGenerator.m */; };
+		D8B4D1781AE1DC33001576B4 /* PointsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1771AE1DC33001576B4 /* PointsLabel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D83BF0841AE0897C005BB7C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D83BF05D1AE0897C005BB7C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D83BF0641AE0897C005BB7C6;
+			remoteInfo = "Bagel Runner";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D83BF0651AE0897C005BB7C6 /* Bagel Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bagel Runner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83BF0691AE0897C005BB7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83BF06A1AE0897C005BB7C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D83BF06C1AE0897C005BB7C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D83BF06D1AE0897C005BB7C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D83BF06F1AE0897C005BB7C6 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		D83BF0701AE0897C005BB7C6 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		D83BF0721AE0897C005BB7C6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D83BF0741AE0897C005BB7C6 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		D83BF0751AE0897C005BB7C6 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		D83BF0781AE0897C005BB7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D83BF07A1AE0897C005BB7C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D83BF07D1AE0897C005BB7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D83BF0831AE0897C005BB7C6 /* Bagel RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bagel RunnerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83BF0881AE0897C005BB7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bagel_RunnerTests.m; sourceTree = "<group>"; };
+		D83BF0931AE09309005BB7C6 /* Toaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toaster.h; sourceTree = "<group>"; };
+		D83BF0941AE09309005BB7C6 /* Toaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toaster.m; sourceTree = "<group>"; };
+		D8B4D1701AE17E0F001576B4 /* Bagel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bagel.h; sourceTree = "<group>"; };
+		D8B4D1711AE17E0F001576B4 /* Bagel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bagel.m; sourceTree = "<group>"; };
+		D8B4D1731AE185A8001576B4 /* WorldGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGenerator.h; sourceTree = "<group>"; };
+		D8B4D1741AE185A8001576B4 /* WorldGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGenerator.m; sourceTree = "<group>"; };
+		D8B4D1761AE1DC33001576B4 /* PointsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsLabel.h; sourceTree = "<group>"; };
+		D8B4D1771AE1DC33001576B4 /* PointsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsLabel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D83BF0621AE0897C005BB7C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D83BF0801AE0897C005BB7C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D83BF05C1AE0897C005BB7C6 = {
+			isa = PBXGroup;
+			children = (
+				D83BF0671AE0897C005BB7C6 /* Bagel Runner */,
+				D83BF0861AE0897C005BB7C6 /* Bagel RunnerTests */,
+				D83BF0661AE0897C005BB7C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D83BF0661AE0897C005BB7C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D83BF0651AE0897C005BB7C6 /* Bagel Runner.app */,
+				D83BF0831AE0897C005BB7C6 /* Bagel RunnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D83BF0671AE0897C005BB7C6 /* Bagel Runner */ = {
+			isa = PBXGroup;
+			children = (
+				D83BF06C1AE0897C005BB7C6 /* AppDelegate.h */,
+				D83BF06D1AE0897C005BB7C6 /* AppDelegate.m */,
+				D83BF06F1AE0897C005BB7C6 /* GameScene.h */,
+				D83BF0701AE0897C005BB7C6 /* GameScene.m */,
+				D8B4D1731AE185A8001576B4 /* WorldGenerator.h */,
+				D8B4D1741AE185A8001576B4 /* WorldGenerator.m */,
+				D8B4D1761AE1DC33001576B4 /* PointsLabel.h */,
+				D8B4D1771AE1DC33001576B4 /* PointsLabel.m */,
+				D83BF0931AE09309005BB7C6 /* Toaster.h */,
+				D83BF0941AE09309005BB7C6 /* Toaster.m */,
+				D8B4D1701AE17E0F001576B4 /* Bagel.h */,
+				D8B4D1711AE17E0F001576B4 /* Bagel.m */,
+				D83BF0721AE0897C005BB7C6 /* GameScene.sks */,
+				D83BF0741AE0897C005BB7C6 /* GameViewController.h */,
+				D83BF0751AE0897C005BB7C6 /* GameViewController.m */,
+				D83BF0771AE0897C005BB7C6 /* Main.storyboard */,
+				D83BF07A1AE0897C005BB7C6 /* Images.xcassets */,
+				D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */,
+				D83BF0681AE0897C005BB7C6 /* Supporting Files */,
+			);
+			path = "Bagel Runner";
+			sourceTree = "<group>";
+		};
+		D83BF0681AE0897C005BB7C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D83BF0691AE0897C005BB7C6 /* Info.plist */,
+				D83BF06A1AE0897C005BB7C6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D83BF0861AE0897C005BB7C6 /* Bagel RunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */,
+				D83BF0871AE0897C005BB7C6 /* Supporting Files */,
+			);
+			path = "Bagel RunnerTests";
+			sourceTree = "<group>";
+		};
+		D83BF0871AE0897C005BB7C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D83BF0881AE0897C005BB7C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D83BF0641AE0897C005BB7C6 /* Bagel Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D83BF08D1AE0897C005BB7C6 /* Build configuration list for PBXNativeTarget "Bagel Runner" */;
+			buildPhases = (
+				D83BF0611AE0897C005BB7C6 /* Sources */,
+				D83BF0621AE0897C005BB7C6 /* Frameworks */,
+				D83BF0631AE0897C005BB7C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bagel Runner";
+			productName = "Bagel Runner";
+			productReference = D83BF0651AE0897C005BB7C6 /* Bagel Runner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D83BF0821AE0897C005BB7C6 /* Bagel RunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D83BF0901AE0897C005BB7C6 /* Build configuration list for PBXNativeTarget "Bagel RunnerTests" */;
+			buildPhases = (
+				D83BF07F1AE0897C005BB7C6 /* Sources */,
+				D83BF0801AE0897C005BB7C6 /* Frameworks */,
+				D83BF0811AE0897C005BB7C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D83BF0851AE0897C005BB7C6 /* PBXTargetDependency */,
+			);
+			name = "Bagel RunnerTests";
+			productName = "Bagel RunnerTests";
+			productReference = D83BF0831AE0897C005BB7C6 /* Bagel RunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D83BF05D1AE0897C005BB7C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Joe Rocca";
+				TargetAttributes = {
+					D83BF0641AE0897C005BB7C6 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					D83BF0821AE0897C005BB7C6 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = D83BF0641AE0897C005BB7C6;
+					};
+				};
+			};
+			buildConfigurationList = D83BF0601AE0897C005BB7C6 /* Build configuration list for PBXProject "Bagel Runner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D83BF05C1AE0897C005BB7C6;
+			productRefGroup = D83BF0661AE0897C005BB7C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D83BF0641AE0897C005BB7C6 /* Bagel Runner */,
+				D83BF0821AE0897C005BB7C6 /* Bagel RunnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D83BF0631AE0897C005BB7C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83BF07E1AE0897C005BB7C6 /* LaunchScreen.xib in Resources */,
+				D83BF07B1AE0897C005BB7C6 /* Images.xcassets in Resources */,
+				D83BF0731AE0897C005BB7C6 /* GameScene.sks in Resources */,
+				D83BF0791AE0897C005BB7C6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D83BF0811AE0897C005BB7C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D83BF0611AE0897C005BB7C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8B4D1751AE185A8001576B4 /* WorldGenerator.m in Sources */,
+				D83BF0761AE0897C005BB7C6 /* GameViewController.m in Sources */,
+				D83BF06E1AE0897C005BB7C6 /* AppDelegate.m in Sources */,
+				D83BF0711AE0897C005BB7C6 /* GameScene.m in Sources */,
+				D8B4D1721AE17E0F001576B4 /* Bagel.m in Sources */,
+				D8B4D1781AE1DC33001576B4 /* PointsLabel.m in Sources */,
+				D83BF06B1AE0897C005BB7C6 /* main.m in Sources */,
+				D83BF0951AE09309005BB7C6 /* Toaster.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D83BF07F1AE0897C005BB7C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83BF08A1AE0897C005BB7C6 /* Bagel_RunnerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D83BF0851AE0897C005BB7C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D83BF0641AE0897C005BB7C6 /* Bagel Runner */;
+			targetProxy = D83BF0841AE0897C005BB7C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D83BF0771AE0897C005BB7C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D83BF0781AE0897C005BB7C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D83BF07D1AE0897C005BB7C6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D83BF08B1AE0897C005BB7C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D83BF08C1AE0897C005BB7C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D83BF08E1AE0897C005BB7C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bagel Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D83BF08F1AE0897C005BB7C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Bagel Runner/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D83BF0911AE0897C005BB7C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Bagel RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bagel Runner.app/Bagel Runner";
+			};
+			name = Debug;
+		};
+		D83BF0921AE0897C005BB7C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Bagel RunnerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bagel Runner.app/Bagel Runner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D83BF0601AE0897C005BB7C6 /* Build configuration list for PBXProject "Bagel Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D83BF08B1AE0897C005BB7C6 /* Debug */,
+				D83BF08C1AE0897C005BB7C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D83BF08D1AE0897C005BB7C6 /* Build configuration list for PBXNativeTarget "Bagel Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D83BF08E1AE0897C005BB7C6 /* Debug */,
+				D83BF08F1AE0897C005BB7C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D83BF0901AE0897C005BB7C6 /* Build configuration list for PBXNativeTarget "Bagel RunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D83BF0911AE0897C005BB7C6 /* Debug */,
+				D83BF0921AE0897C005BB7C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D83BF05D1AE0897C005BB7C6 /* Project object */;
+}
