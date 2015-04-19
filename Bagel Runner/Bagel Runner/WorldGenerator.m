@@ -8,6 +8,8 @@
 
 #import "WorldGenerator.h"
 
+static const uint32_t groundCategory = 0x1 << 2;
+
 @interface WorldGenerator ()
 
 @property double currentGroundX;
@@ -41,6 +43,7 @@
     ground.name = @"ground";
     ground.position = CGPointMake(self.currentGroundX, -self.scene.frame.size.height/2.94);
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];
+    ground.physicsBody.categoryBitMask = groundCategory;
     ground.physicsBody.dynamic = NO;
 //    NSLog(@"%f",-self.frame.size.height/3);
     [self.world addChild:ground];

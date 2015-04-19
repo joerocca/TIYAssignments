@@ -11,6 +11,7 @@
 #import "Bagel.h"
 #import "PointsLabel.h"
 #import "WorldGenerator.h"
+#import "GameViewController.h"
 
 @import AVFoundation;
 
@@ -31,10 +32,13 @@
     Bagel *bagel;
     SKNode *world;
     WorldGenerator *generator;
+    GameViewController *view;
     BOOL shouldJump;
     BOOL shouldJump2;
     
 }
+
+static NSString *GAME_FONT = @"Chalkduster";
 
 -(void)didMoveToView:(SKView *)view
 {
@@ -50,6 +54,7 @@
     
     self.anchorPoint = CGPointMake(0.5, 0.5);
     self.backgroundColor = [SKColor colorWithRed:0 green:3.0 blue:10 alpha:1.0];
+    self.physicsWorld.contactDelegate = self;
     
     world = [SKNode node];
     [self addChild:world];
@@ -68,7 +73,7 @@
     
     bagel = [Bagel bagelGenerator:world];
     
-    PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:@"Chalkduster"];
+    PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:GAME_FONT];
     pointsLabel.position = CGPointMake(400, 200);
     [self addChild:pointsLabel];
 //    bagel.position = CGPointMake(-300, -self.scene.frame.size.height/3);
@@ -95,12 +100,24 @@
 
 - (void)clear
 {
+    [self removeAllChildren];
+    GameScene *newGameScene = [[GameScene alloc] initWithSize:self.frame.size];
+    newGameScene.scaleMode = SKSceneScaleModeAspectFill;
+    [self.view presentScene:newGameScene];
+    
+  
     NSLog(@"Clear method called.");
 }
 
 - (void)gameOver
 {
     NSLog(@"Game over method called.");
+    self.isGameOver = YES;
+    [toaster stop];
+    [bagel stop];
+    SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithFontNamed:GAME_FONT];
+    gameOverLabel.text = @"Game Over";
+    [self addChild:gameOverLabel];
 }
 
 - (void)didSimulatePhysics
@@ -143,7 +160,7 @@
 {
     
     [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 16)
+        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 21)
         {
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
             [pointsLabel increment];
@@ -205,13 +222,13 @@
         else if (shouldJump2)
         {
         [toaster toasterJump];
-            if (toaster.position.y > -150)
+            if (toaster.position.y > -170)
             {
         SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
         [toaster runAction:rotateClockwise];
             }
         shouldJump2 = NO;
-        [NSTimer scheduledTimerWithTimeInterval:0.9 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
         
         }
     
@@ -262,5 +279,14 @@
     [self updateWithTimeSinceLastUpdate:timeSinceLast];
     
 }
+
+
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+    [self gameOver];
+    NSLog(@"Did begin contact");
+}
+
+
 
 @end

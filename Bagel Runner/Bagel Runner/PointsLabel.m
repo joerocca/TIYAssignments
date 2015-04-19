@@ -27,7 +27,17 @@
     self.text = [NSString stringWithFormat:@"%i",self.score];
 }
 
+- (void)setPoints:(int)points
+{
+    self.score = points;
+    self.text = [NSString stringWithFormat:@"%i",self.score];
+}
 
+- (void)reset
+{
+    self.score = 0;
+    self.text = @"0";
+}
 
 @end
 

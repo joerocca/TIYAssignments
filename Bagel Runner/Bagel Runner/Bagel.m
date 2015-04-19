@@ -9,6 +9,8 @@
 #import "Bagel.h"
 #import "Toaster.h"
 
+static const uint32_t bagelCategory = 0x1 << 1;
+
 @interface Bagel ()
 
 @property SKNode *world;
@@ -21,13 +23,15 @@
 {
      Toaster *toaster;
     NSTimer *bagelGenerateTimer;
+    BOOL stopGenerate;
 }
 
 +(id)bagelGenerator:(SKNode *)world
 {
- 
+    
+    
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
-    bagel.name = @"bagel";
+//    bagel.name = @"bagel";
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
     bagel.world = world;
     
@@ -56,18 +60,21 @@
 
 - (void)generateTimer
 {
-    
+    if (stopGenerate == NO)
+    {
     
     bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:arc4random_uniform(10)+1
                                                   target:self
                                                 selector:@selector(generate)
                                                 userInfo:nil
                                                  repeats:NO];
-    
+    }
 }
 
 - (void)generate
 {
+    
+        
     toaster = [Toaster toaster];
     
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
@@ -77,9 +84,10 @@
             bagel.position = CGPointMake(node.position.x - 500, -self.world.scene.frame.size.height/3);
     }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
-
+    bagel.physicsBody.categoryBitMask = bagelCategory;
     [self.world addChild:bagel];
     [bagel chase];
+    
 }
 
 
@@ -103,6 +111,16 @@
     SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
     SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
     [self runAction:clockwiseRotationForever];
+}
+
+
+-(void)stop
+{
+    [self removeAllActions];
+    [self enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
+    stopGenerate = YES;
 }
 
 @end

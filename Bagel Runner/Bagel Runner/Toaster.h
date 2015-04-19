@@ -16,5 +16,6 @@
 - (void)breathe;
 //- (void)runRight;
 - (void)start;
+-(void)stop;
 
 @end

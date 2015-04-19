@@ -10,6 +10,10 @@
 
 @implementation Toaster
 
+static const uint32_t toasterCategory = 0x1 << 0;
+static const uint32_t bagelCategory = 0x1 << 1;
+static const uint32_t groundCategory = 0x1 << 2;
+
 
 +(id)toaster
 {
@@ -33,6 +37,8 @@
     CGPathCloseSubpath(path);
     
     toaster.physicsBody =[SKPhysicsBody bodyWithPolygonFromPath:path];
+    toaster.physicsBody.categoryBitMask = toasterCategory;
+    toaster.physicsBody.contactTestBitMask = bagelCategory | ~groundCategory;
     
 //    toaster.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toaster.size];
     
@@ -82,6 +88,14 @@
     [self runAction:moveRight];
    
 }
+
+-(void)stop
+{
+    [self removeAllActions];
+}
+
+
+
 
 - (void)runningAnimation
 {

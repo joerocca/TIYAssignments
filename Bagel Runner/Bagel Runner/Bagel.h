@@ -20,4 +20,6 @@
 
 - (void)generate;
 
+-(void)stop;
+
 @end
