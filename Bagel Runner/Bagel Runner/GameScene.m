@@ -266,14 +266,14 @@ static NSString *GAME_FONT = @"Chalkduster";
     if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
         NSLog(@"%i",difficultyInt);
-        if (difficultyInt < 15)
-        {
+//        if (difficultyInt < 15)
+//        {
             [bagel generateTimer];
-        }
-        else
-        {
-            [bagel generateTimer2];
-        }
+//        }
+//        else
+//        {
+//            [bagel generateTimer2];
+//        }
     }
 }
 

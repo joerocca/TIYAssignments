@@ -26,7 +26,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     PointsLabel *pointsLabel;
     NSTimer *bagelGenerateTimer;
     BOOL stopGenerate;
-    int difficultyInt;
+
 }
 
 +(id)bagelGenerator:(SKNode *)world
@@ -208,7 +208,6 @@ static const uint32_t bagelCategory = 0x1 << 1;
 
 -(void)stop
 {
-    difficultyInt = 0;
     [self removeAllActions];
     [self enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
         [node removeFromParent];
