@@ -177,7 +177,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)centerOnNode:(SKNode *)node
 {
     CGPoint positionInScene = [self convertPoint:node.position fromNode:node.parent];
-    world.position = CGPointMake(world.position.x - positionInScene.x, world.position.y);
+    world.position = CGPointMake(world.position.x - positionInScene.x + 35, world.position.y);
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
