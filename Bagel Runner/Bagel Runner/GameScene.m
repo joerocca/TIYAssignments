@@ -162,7 +162,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 {
     
     [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 21)
+        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 15)
         {
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
             [pointsLabel increment];
