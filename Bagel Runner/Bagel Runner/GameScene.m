@@ -35,7 +35,7 @@
     GameViewController *view;
     BOOL shouldJump;
     BOOL shouldJump2;
-    
+    int difficultyInt;
 }
 
 static NSString *GAME_FONT = @"Chalkduster";
@@ -44,6 +44,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 {
     shouldJump = YES;
     shouldJump2 = YES;
+    difficultyInt = 0;
     
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Bagel Runner Beta Song MP3" withExtension:@"mp3"];
@@ -117,6 +118,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     [bagel stop];
     SKLabelNode *gameOverLabel = [SKLabelNode labelNodeWithFontNamed:GAME_FONT];
     gameOverLabel.text = @"Game Over";
+    gameOverLabel.fontSize = 70;
     [self addChild:gameOverLabel];
 }
 
@@ -164,7 +166,7 @@ static NSString *GAME_FONT = @"Chalkduster";
         {
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
             [pointsLabel increment];
-            
+            difficultyInt ++;
         }
     }];
 
@@ -196,7 +198,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 //        
 //        [self addChild:sprite];
 //    }
-    
+   
     
     
     if (!self.isStarted)
@@ -222,7 +224,7 @@ static NSString *GAME_FONT = @"Chalkduster";
         else if (shouldJump2)
         {
         [toaster toasterJump];
-            if (toaster.position.y > -170)
+            if (toaster.position.y > - 170)
             {
         SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
         [toaster runAction:rotateClockwise];
@@ -263,7 +265,15 @@ static NSString *GAME_FONT = @"Chalkduster";
     self.lastSpawnTimeInterval += timeSinceLast;
     if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
-        [bagel generateTimer];
+        NSLog(@"%i",difficultyInt);
+        if (difficultyInt < 15)
+        {
+            [bagel generateTimer];
+        }
+        else
+        {
+            [bagel generateTimer2];
+        }
     }
 }
 

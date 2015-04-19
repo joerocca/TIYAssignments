@@ -20,6 +20,15 @@
 
 - (void)generate;
 
+- (void)generateTimer2;
+
+- (void)generate2;
+
+- (void)chase2;
+
+
 -(void)stop;
+
+- (void)incrementDifficultyInt;
 
 @end
