@@ -12,6 +12,8 @@
 #import "PointsLabel.h"
 #import "WorldGenerator.h"
 
+@import AVFoundation;
+
 @interface GameScene()
 
 @property BOOL isStarted;
@@ -19,6 +21,7 @@
 
 @property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
 @property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+@property (nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 
 @end
 
@@ -28,10 +31,23 @@
     Bagel *bagel;
     SKNode *world;
     WorldGenerator *generator;
+    BOOL shouldJump;
+    BOOL shouldJump2;
+    
 }
 
 -(void)didMoveToView:(SKView *)view
 {
+    shouldJump = YES;
+    shouldJump2 = YES;
+    
+    NSError *error;
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Bagel Runner Beta Song MP3" withExtension:@"mp3"];
+    self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
+    self.backgroundMusicPlayer.numberOfLoops = -1;
+    [self.backgroundMusicPlayer prepareToPlay];
+    [self.backgroundMusicPlayer play];
+    
     self.anchorPoint = CGPointMake(0.5, 0.5);
     self.backgroundColor = [SKColor colorWithRed:0 green:3.0 blue:10 alpha:1.0];
     
@@ -52,7 +68,7 @@
     
     bagel = [Bagel bagelGenerator:world];
     
-    PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:@"Helvetica-Light"];
+    PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:@"Chalkduster"];
     pointsLabel.position = CGPointMake(400, 200);
     [self addChild:pointsLabel];
 //    bagel.position = CGPointMake(-300, -self.scene.frame.size.height/3);
@@ -165,10 +181,12 @@
 //    }
     
     
+    
     if (!self.isStarted)
     {
         [self start];
         [bagel generateTimer];
+      
     }
     else if (self.isGameOver)
     {
@@ -176,20 +194,49 @@
     }
     else
     {
-//    [bagel generate];
+        
+
+        if (shouldJump)
+        {
+        [toaster toasterJump];
+        shouldJump = NO;
+//        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
+        }
+        else if (shouldJump2)
+        {
+        [toaster toasterJump];
+            if (toaster.position.y > -150)
+            {
+        SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
+        [toaster runAction:rotateClockwise];
+            }
+        shouldJump2 = NO;
+        [NSTimer scheduledTimerWithTimeInterval:0.9 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
+        
+        }
     
-    [bagel chase];
-    [toaster toasterJump];
     }
+    //    [bagel generate];
+    //    [bagel chase];
 //    [toaster runRight];
     
     
 }
 
+
+
+- (void)setNO
+{
+    shouldJump2 = true;
+    shouldJump = true;
+}
+
+
+
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
     
     self.lastSpawnTimeInterval += timeSinceLast;
-    if (self.lastSpawnTimeInterval > 1) {
+    if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
         [bagel generateTimer];
     }
@@ -199,7 +246,7 @@
     /* Called before each frame is rendered */
     CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
     self.lastUpdateTimeInterval = currentTime;
-    if (timeSinceLast > 1) { // more than a second since last update
+    if (timeSinceLast > 2) { // more than a second since last update
         timeSinceLast = 1.0 / 60.0;
         self.lastUpdateTimeInterval = currentTime;
     }

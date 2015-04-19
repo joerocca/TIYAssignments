@@ -20,6 +20,7 @@
 		D8B4D1721AE17E0F001576B4 /* Bagel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1711AE17E0F001576B4 /* Bagel.m */; };
 		D8B4D1751AE185A8001576B4 /* WorldGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1741AE185A8001576B4 /* WorldGenerator.m */; };
 		D8B4D1781AE1DC33001576B4 /* PointsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1771AE1DC33001576B4 /* PointsLabel.m */; };
+		D8B4D17A1AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		D8B4D1741AE185A8001576B4 /* WorldGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldGenerator.m; sourceTree = "<group>"; };
 		D8B4D1761AE1DC33001576B4 /* PointsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsLabel.h; sourceTree = "<group>"; };
 		D8B4D1771AE1DC33001576B4 /* PointsLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsLabel.m; sourceTree = "<group>"; };
+		D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Bagel Runner Beta Song MP3.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				D83BF0771AE0897C005BB7C6 /* Main.storyboard */,
 				D83BF07A1AE0897C005BB7C6 /* Images.xcassets */,
 				D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */,
+				D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */,
 				D83BF0681AE0897C005BB7C6 /* Supporting Files */,
 			);
 			path = "Bagel Runner";
@@ -230,6 +233,7 @@
 				D83BF07E1AE0897C005BB7C6 /* LaunchScreen.xib in Resources */,
 				D83BF07B1AE0897C005BB7C6 /* Images.xcassets in Resources */,
 				D83BF0731AE0897C005BB7C6 /* GameScene.sks in Resources */,
+				D8B4D17A1AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 in Resources */,
 				D83BF0791AE0897C005BB7C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

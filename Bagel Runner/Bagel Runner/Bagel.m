@@ -56,7 +56,7 @@
 
 - (void)generateTimer
 {
-    NSLog(@"%d",arc4random_uniform(10));
+    
     
     bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:arc4random_uniform(10)+1
                                                   target:self
@@ -74,7 +74,7 @@
     bagel.name = @"bagel";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
       
-            bagel.position = CGPointMake(node.position.x - 500, node.position.y);
+            bagel.position = CGPointMake(node.position.x - 500, -self.world.scene.frame.size.height/3);
     }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
 
@@ -85,6 +85,17 @@
 
 - (void)chase
 {
+//    NSLog(@"%f",arc4random_uniform(4) * 0.0001 + 0.0005);
+    
+//    float speed = arc4random_uniform(3) * 0.0001 + 0.0004;
+//    float increment = 0.0001;
+//    
+//    if (speed == 0.0004)
+//        speed = + 0.0001;
+    
+//    
+//      NSLog(@"%f",speed);
+    
     SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0006];
     SKAction *moveRight = [SKAction repeatActionForever:incrementRight];
     [self runAction:moveRight];

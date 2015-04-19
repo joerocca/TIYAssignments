@@ -62,9 +62,8 @@
 - (void)toasterJump
 {
     [self.physicsBody applyImpulse:CGVectorMake(0, 200)];
-    SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
-    //    SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
-    [self runAction:rotateClockwise];
+//    SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
+//    [self runAction:rotateClockwise];
 }
 
 //- (void)breathe
