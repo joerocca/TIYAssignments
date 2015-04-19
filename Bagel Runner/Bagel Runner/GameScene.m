@@ -231,6 +231,14 @@
     shouldJump = true;
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self runAction:[SKAction playSoundFileNamed:@"toaster-up-1.mp3" waitForCompletion:NO]];
+}
+
+
+
+
 
 
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
