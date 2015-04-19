@@ -16,6 +16,8 @@
 
 - (void)populate;
 
-- (void)generate:(SKNode *)world;
+- (void)generateTimer;
+
+- (void)generate;
 
 @end

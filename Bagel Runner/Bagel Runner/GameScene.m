@@ -17,6 +17,9 @@
 @property BOOL isStarted;
 @property BOOL isGameOver;
 
+@property (nonatomic) NSTimeInterval lastSpawnTimeInterval;
+@property (nonatomic) NSTimeInterval lastUpdateTimeInterval;
+
 @end
 
 @implementation GameScene
@@ -115,6 +118,7 @@
         if (node.position.x > toaster.position.x + self.frame.size.width/2)
         {
             [node removeFromParent];
+//            [bagel generateTimer];
         }
     }];
 }
@@ -123,10 +127,11 @@
 {
     
     [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 100)
+        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 16)
         {
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
             [pointsLabel increment];
+            
         }
     }];
 
@@ -137,7 +142,7 @@
 - (void)centerOnNode:(SKNode *)node
 {
     CGPoint positionInScene = [self convertPoint:node.position fromNode:node.parent];
-    world.position = CGPointMake(world.position.x - positionInScene.x, world.position.y - positionInScene.y);
+    world.position = CGPointMake(world.position.x - positionInScene.x, world.position.y);
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -163,6 +168,7 @@
     if (!self.isStarted)
     {
         [self start];
+        [bagel generateTimer];
     }
     else if (self.isGameOver)
     {
@@ -170,7 +176,8 @@
     }
     else
     {
-    [bagel generate:world];
+//    [bagel generate];
+    
     [bagel chase];
     [toaster toasterJump];
     }
@@ -179,8 +186,26 @@
     
 }
 
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)timeSinceLast {
+    
+    self.lastSpawnTimeInterval += timeSinceLast;
+    if (self.lastSpawnTimeInterval > 1) {
+        self.lastSpawnTimeInterval = 0;
+        [bagel generateTimer];
+    }
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = 1.0 / 60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+    
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+    
 }
 
 @end

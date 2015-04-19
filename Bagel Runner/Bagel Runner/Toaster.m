@@ -16,7 +16,25 @@
     
     Toaster *toaster = [Toaster spriteNodeWithImageNamed:@"Toaster"];
     toaster.name = @"toaster";
-    toaster.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toaster.size];
+    toaster.position = CGPointMake(200, 0);
+    
+    CGFloat offsetX = toaster.frame.size.width * toaster.anchorPoint.x;
+    CGFloat offsetY = toaster.frame.size.height * toaster.anchorPoint.y;
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    
+    CGPathMoveToPoint(path, NULL, 28 - offsetX, 25 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 44 - offsetX, 0 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 0 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 55 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 123 - offsetX, 74 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 28 - offsetX, 74 - offsetY);
+    
+    CGPathCloseSubpath(path);
+    
+    toaster.physicsBody =[SKPhysicsBody bodyWithPolygonFromPath:path];
+    
+//    toaster.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:toaster.size];
     
     
 //    SKSpriteNode *leftFoot = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(10, 30)];
@@ -43,7 +61,7 @@
 
 - (void)toasterJump
 {
-    [self.physicsBody applyImpulse:CGVectorMake(0, 350)];
+    [self.physicsBody applyImpulse:CGVectorMake(0, 200)];
     SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
     //    SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
     [self runAction:rotateClockwise];

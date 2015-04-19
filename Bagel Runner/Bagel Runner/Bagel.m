@@ -20,6 +20,7 @@
 @implementation Bagel
 {
      Toaster *toaster;
+    NSTimer *bagelGenerateTimer;
 }
 
 +(id)bagelGenerator:(SKNode *)world
@@ -53,7 +54,19 @@
 //    }
 //}
 
-- (void)generate:(SKNode *)world
+- (void)generateTimer
+{
+    NSLog(@"%d",arc4random_uniform(10));
+    
+    bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:arc4random_uniform(10)+1
+                                                  target:self
+                                                selector:@selector(generate)
+                                                userInfo:nil
+                                                 repeats:NO];
+    
+}
+
+- (void)generate
 {
     toaster = [Toaster toaster];
     
@@ -61,7 +74,7 @@
     bagel.name = @"bagel";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
       
-            bagel.position = CGPointMake(node.position.x-500, node.position.y);
+            bagel.position = CGPointMake(node.position.x - 500, node.position.y);
     }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
 
@@ -72,7 +85,7 @@
 
 - (void)chase
 {
-    SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0001];
+    SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0006];
     SKAction *moveRight = [SKAction repeatActionForever:incrementRight];
     [self runAction:moveRight];
     
