@@ -67,7 +67,7 @@ static const uint32_t groundCategory = 0x1 << 2;
 
 - (void)toasterJump
 {
-    [self.physicsBody applyImpulse:CGVectorMake(0, 200)];
+    [self.physicsBody applyImpulse:CGVectorMake(0, 180)];
 //    SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
 //    [self runAction:rotateClockwise];
 }

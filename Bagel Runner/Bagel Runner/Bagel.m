@@ -135,19 +135,18 @@ static const uint32_t bagelCategory = 0x1 << 1;
 
 - (void)generateTimer2
 {
-    if (stopGenerate == NO)
-    {
+    
         
         
         
-        bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:arc4random_uniform(10)+1
+        bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
                                                               target:self
                                                             selector:@selector(generate2)
                                                             userInfo:nil
-                                                             repeats:NO];
+                                                             repeats:YES];
         
         
-    }
+    
 }
 
 - (void)generate2
@@ -157,15 +156,15 @@ static const uint32_t bagelCategory = 0x1 << 1;
     toaster = [Toaster toaster];
     
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
-    bagel.name = @"bagel";
+    bagel.name = @"bagel2";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
         
-        bagel.position = CGPointMake(node.position.x - 500, -self.world.scene.frame.size.height/3);
+        bagel.position = CGPointMake(node.position.x, self.world.scene.frame.size.height/3);
     }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
     bagel.physicsBody.categoryBitMask = bagelCategory;
     [self.world addChild:bagel];
-    [bagel chase2];
+//    [bagel chase2];
     
 }
 

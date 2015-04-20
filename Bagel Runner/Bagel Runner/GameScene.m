@@ -127,7 +127,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     [self centerOnNode:toaster];
     [self handleGeneration];
     [self handleCleanup];
-    [self handlePoints];
+//    [self handlePoints];
 }
 
 - (void) handleGeneration
@@ -154,6 +154,7 @@ static NSString *GAME_FONT = @"Chalkduster";
         {
             [node removeFromParent];
 //            [bagel generateTimer];
+            [self handlePoints];
         }
     }];
 }
@@ -161,14 +162,20 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)handlePoints
 {
     
-    [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 15)
-        {
+//    [world enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
+//        if (node.position.x > toaster.position.x && node.position.x < toaster.position.x + 16)
+//        {
+    //            difficultyInt ++;
+    //        }
+    //    }];
+    
+    if (self.isGameOver == NO)
+    {
+        
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
             [pointsLabel increment];
-            difficultyInt ++;
-        }
-    }];
+    }
+
 
 }
 
@@ -210,6 +217,14 @@ static NSString *GAME_FONT = @"Chalkduster";
     else if (self.isGameOver)
     {
         [self clear];
+        [world enumerateChildNodesWithName:@"bagel2" usingBlock:^(SKNode *node, BOOL *stop) {
+         
+                [node removeFromParent];
+                //            [bagel generateTimer];
+               
+            
+        }];
+        
     }
     else
     {
@@ -266,7 +281,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
         NSLog(@"%i",difficultyInt);
-//        if (difficultyInt < 15)
+//        if (self.isGameOver)
 //        {
             [bagel generateTimer];
 //        }
@@ -294,6 +309,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
     [self gameOver];
+    [bagel generateTimer2];
     NSLog(@"Did begin contact");
 }
 
