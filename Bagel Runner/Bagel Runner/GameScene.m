@@ -40,6 +40,7 @@
 
 static NSString *GAME_FONT = @"Chalkduster";
 
+
 -(void)didMoveToView:(SKView *)view
 {
     shouldJump = YES;
@@ -91,6 +92,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 //                                   CGRectGetMidY(self.frame));
 //    
 //    [self addChild:myLabel];
+
 }
 
 - (void)start
@@ -184,7 +186,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)centerOnNode:(SKNode *)node
 {
     CGPoint positionInScene = [self convertPoint:node.position fromNode:node.parent];
-    world.position = CGPointMake(world.position.x - positionInScene.x + 35, world.position.y);
+    world.position = CGPointMake(world.position.x - positionInScene.x + 100, world.position.y);
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -239,7 +241,7 @@ static NSString *GAME_FONT = @"Chalkduster";
         else if (shouldJump2)
         {
         [toaster toasterJump];
-            if (toaster.position.y > - 170)
+            if (toaster.position.y > - 180)
             {
         SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
         [toaster runAction:rotateClockwise];
@@ -309,7 +311,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
     [self gameOver];
-    [bagel generateTimer2];
+//    [bagel generateTimer2];
     NSLog(@"Did begin contact");
 }
 

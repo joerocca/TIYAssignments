@@ -9,6 +9,7 @@
 #import "Bagel.h"
 #import "Toaster.h"
 #import "PointsLabel.h"
+#import "GameScene.h"
 
 static const uint32_t bagelCategory = 0x1 << 1;
 
@@ -26,6 +27,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     PointsLabel *pointsLabel;
     NSTimer *bagelGenerateTimer;
     BOOL stopGenerate;
+    GameScene *gameScene;
 
 }
 
@@ -135,17 +137,21 @@ static const uint32_t bagelCategory = 0x1 << 1;
 
 - (void)generateTimer2
 {
-    
-        
-        
-        
-        bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+//    [self.world enumerateChildNodesWithName:@"bage" usingBlock:^(SKNode *node, BOOL *stop) {
+//        
+//        bagel.position = CGPointMake(node.position.x + arc4random_uniform(300) - 150, self.world.scene.frame.size.height/3);
+//    }];
+
+   
+        bagelGenerateTimer = [NSTimer scheduledTimerWithTimeInterval:0.3
                                                               target:self
                                                             selector:@selector(generate2)
                                                             userInfo:nil
                                                              repeats:YES];
+    
         
-        
+    
+    
     
 }
 
@@ -153,19 +159,26 @@ static const uint32_t bagelCategory = 0x1 << 1;
 {
     
     
-    toaster = [Toaster toaster];
+//    toaster = [Toaster toaster];
     
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
     bagel.name = @"bagel2";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
         
-        bagel.position = CGPointMake(node.position.x, self.world.scene.frame.size.height/3);
+        bagel.position = CGPointMake(node.position.x + arc4random_uniform(500) - 250, self.world.scene.frame.size.height/3);
     }];
     bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
-    bagel.physicsBody.categoryBitMask = bagelCategory;
+//    bagel.physicsBody.categoryBitMask = bagelCategory;
     [self.world addChild:bagel];
 //    [bagel chase2];
     
+    
+    
+//    if ([self.world.children count] == 10)
+//    {
+//        [bagelGenerateTimer invalidate];
+//    }
+//    
 }
 
 
@@ -211,7 +224,12 @@ static const uint32_t bagelCategory = 0x1 << 1;
     [self enumerateChildNodesWithName:@"bagel" usingBlock:^(SKNode *node, BOOL *stop) {
         [node removeFromParent];
     }];
+    if (stopGenerate == NO)
+    {
+        [self generateTimer2];
+    }
     stopGenerate = YES;
+    
 }
 
 @end
