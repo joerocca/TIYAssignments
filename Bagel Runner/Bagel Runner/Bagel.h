@@ -14,7 +14,7 @@
 
 - (void)chase;
 
-- (void)populate;
+//- (void)populate;
 
 - (void)generateTimer;
 
@@ -24,11 +24,7 @@
 
 - (void)generate2;
 
-- (void)chase2;
-
-
 -(void)stop;
 
-- (void)incrementDifficultyInt;
 
 @end

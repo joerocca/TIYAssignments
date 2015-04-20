@@ -37,7 +37,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
 //    bagel.name = @"bagel";
-    bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
+//    bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
     bagel.world = world;
     
 //        SKSpriteNode *leftFoot = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:CGSizeMake(10, 30)];
@@ -182,39 +182,6 @@ static const uint32_t bagelCategory = 0x1 << 1;
 }
 
 
-- (void)chase2
-{
-    //    NSLog(@"%f",arc4random_uniform(4) * 0.0001 + 0.0005);
-    
-    //    float speed = arc4random_uniform(3) * 0.0001 + 0.0004;
-    //    float increment = 0.0001;
-    //
-    //    if (speed == 0.0004)
-    //        speed = + 0.0001;
-    
-    //
-    //      NSLog(@"%f",speed);
-    
-    
-    
-    
-    
-    
-
-        
-   
-        SKAction *incrementRight = [SKAction moveByX:1.0 y:0 duration:0.0005];
-        SKAction *moveRight = [SKAction repeatActionForever:incrementRight];
-        [self runAction:moveRight];
-        
-        SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
-        SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
-        [self runAction:clockwiseRotationForever];
-    
-    
-    
-    
-}
 
 
 

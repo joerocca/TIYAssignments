@@ -32,10 +32,8 @@
     Bagel *bagel;
     SKNode *world;
     WorldGenerator *generator;
-    GameViewController *view;
     BOOL shouldJump;
     BOOL shouldJump2;
-    int difficultyInt;
 }
 
 static NSString *GAME_FONT = @"Chalkduster";
@@ -45,7 +43,6 @@ static NSString *GAME_FONT = @"Chalkduster";
 {
     shouldJump = YES;
     shouldJump2 = YES;
-    difficultyInt = 0;
     
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"Bagel Runner Beta Song MP3" withExtension:@"mp3"];
@@ -54,8 +51,10 @@ static NSString *GAME_FONT = @"Chalkduster";
     [self.backgroundMusicPlayer prepareToPlay];
     [self.backgroundMusicPlayer play];
     
+ 
+    
     self.anchorPoint = CGPointMake(0.5, 0.5);
-    self.backgroundColor = [SKColor colorWithRed:0 green:3.0 blue:10 alpha:1.0];
+    self.backgroundColor = [SKColor colorWithRed:0.54 green:0.7853 blue:1.0 alpha:1.0];
     self.physicsWorld.contactDelegate = self;
     
     world = [SKNode node];
@@ -78,6 +77,13 @@ static NSString *GAME_FONT = @"Chalkduster";
     PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:GAME_FONT];
     pointsLabel.position = CGPointMake(400, 200);
     [self addChild:pointsLabel];
+    
+    SKLabelNode *tapToBeginLabel = [SKLabelNode labelNodeWithFontNamed:GAME_FONT];
+    tapToBeginLabel.name = @"tapToBeginLabel";
+    tapToBeginLabel.text = @"Tap to Begin";
+    tapToBeginLabel.fontSize = 60;
+    [self addChild:tapToBeginLabel];
+    [tapToBeginLabel runAction:[self blinkAnimation]];
 //    bagel.position = CGPointMake(-300, -self.scene.frame.size.height/3);
 //    [world addChild:bagel];
     
@@ -98,6 +104,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void)start
 {
     self.isStarted = YES;
+    [[self childNodeWithName:@"tapToBeginLabel"] removeFromParent];
     [toaster start];
 }
 
@@ -145,7 +152,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 - (void) handleCleanup
 {
     [world enumerateChildNodesWithName:@"ground" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.x < toaster.position.x - self.frame.size.width/2  - node.frame.size.width/2)
+        if (node.position.x < toaster.position.x - self.frame.size.width/2  - node.frame.size.width/1.2)
         {
             [node removeFromParent];
         }
@@ -237,6 +244,7 @@ static NSString *GAME_FONT = @"Chalkduster";
         [toaster toasterJump];
         shouldJump = NO;
 //        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
+         
         }
         else if (shouldJump2)
         {
@@ -245,11 +253,18 @@ static NSString *GAME_FONT = @"Chalkduster";
             {
         SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
         [toaster runAction:rotateClockwise];
+                
             }
+            
         shouldJump2 = NO;
-        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
         
         }
+//        else
+//        {
+//            [toaster toasterJump];  //temporary else
+//        }
+    
     
     }
     //    [bagel generate];
@@ -261,18 +276,28 @@ static NSString *GAME_FONT = @"Chalkduster";
 
 
 
-- (void)setNO
+- (void)setYes
 {
-    shouldJump2 = true;
-    shouldJump = true;
+
+    shouldJump2 = YES;
+    shouldJump = YES;
 }
+
+
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self runAction:[SKAction playSoundFileNamed:@"toaster-up-1.mp3" waitForCompletion:NO]];
 }
 
-
+-(SKAction *)blinkAnimation
+{
+    double duration = 0.5;
+    SKAction *fadeOut = [SKAction fadeAlphaTo:0.0 duration:duration];
+    SKAction *fadeIn = [SKAction fadeAlphaTo:1.0 duration:duration];
+    SKAction *blinkText = [SKAction sequence:@[fadeOut,fadeIn]];
+    return [SKAction repeatActionForever:blinkText];
+}
 
 
 
@@ -282,7 +307,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     self.lastSpawnTimeInterval += timeSinceLast;
     if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
-        NSLog(@"%i",difficultyInt);
+//        NSLog(@"%i",difficultyInt);
 //        if (self.isGameOver)
 //        {
             [bagel generateTimer];

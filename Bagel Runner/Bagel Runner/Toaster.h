@@ -13,7 +13,6 @@
 +(id)toaster;
 
 - (void)toasterJump;
-- (void)breathe;
 //- (void)runRight;
 - (void)start;
 -(void)stop;
