@@ -8,6 +8,7 @@
 
 #import "GitHubCollectionView.h"
 #import "EnterUserViewController.h"
+#import "UserDetailViewController.h"
 
 @interface GitHubCollectionView ()
 {
@@ -115,6 +116,19 @@ static NSString * const reuseIdentifier = @"Cell";
         
         
     }
+    if ([segue.identifier isEqualToString:@"DetailViewSegue"])
+    {
+        UserDetailViewController *userDetailVC = (UserDetailViewController *)[segue destinationViewController];
+        UICollectionViewCell *senderCell = (UICollectionViewCell *)sender;
+        NSIndexPath *path = [self.collectionView indexPathForCell:senderCell];
+//        ToDoItem *anItem = taskList[path.row];
+//        anItem.taskName = senderCell.descriptionTextField.text;
+//        anItem.done = senderCell.checkBoxButton.selected;
+        NSDictionary *aUser = [users objectAtIndex:path.row];
+        userDetailVC.userInfo = aUser;
+
+        NSLog(@"%@",sender);
+    }
 }
 
 #pragma mark <UICollectionViewDelegate>
@@ -126,12 +140,19 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 */
 
-/*
+
 // Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//    NSDictionary *aUser = [users objectAtIndex:indexPath.row];
+//    UserDetailViewController *userDetailVC = [[UserDetailViewController alloc] init];
+//    userDetailVC.userInfo = aUser;
+//    [self.navigationController pushViewController:userDetailVC animated:YES];
+    
+    
     return YES;
 }
-*/
+
 
 /*
 // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

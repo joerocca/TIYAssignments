@@ -15,6 +15,7 @@
 		D8104C4D1AE5800700D699BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8104C4B1AE5800700D699BE /* LaunchScreen.xib */; };
 		D8104C591AE5800700D699BE /* _5____Git_Hub_CollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8104C581AE5800700D699BE /* _5____Git_Hub_CollectionTests.m */; };
 		D8104C641AE5805C00D699BE /* GitHubCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8104C631AE5805C00D699BE /* GitHubCollectionView.m */; };
+		D8104C671AE5BD6300D699BE /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8104C661AE5BD6300D699BE /* UserDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		D8104C581AE5800700D699BE /* _5____Git_Hub_CollectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_5____Git_Hub_CollectionTests.m"; sourceTree = "<group>"; };
 		D8104C621AE5805C00D699BE /* GitHubCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubCollectionView.h; sourceTree = "<group>"; };
 		D8104C631AE5805C00D699BE /* GitHubCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubCollectionView.m; sourceTree = "<group>"; };
+		D8104C651AE5BD6300D699BE /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		D8104C661AE5BD6300D699BE /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				D8104C441AE5800700D699BE /* EnterUserViewController.m */,
 				D8104C621AE5805C00D699BE /* GitHubCollectionView.h */,
 				D8104C631AE5805C00D699BE /* GitHubCollectionView.m */,
+				D8104C651AE5BD6300D699BE /* UserDetailViewController.h */,
+				D8104C661AE5BD6300D699BE /* UserDetailViewController.m */,
 				D8104C461AE5800700D699BE /* Main.storyboard */,
 				D8104C491AE5800700D699BE /* Images.xcassets */,
 				D8104C4B1AE5800700D699BE /* LaunchScreen.xib */,
@@ -227,6 +232,7 @@
 				D8104C451AE5800700D699BE /* EnterUserViewController.m in Sources */,
 				D8104C421AE5800600D699BE /* AppDelegate.m in Sources */,
 				D8104C3F1AE5800600D699BE /* main.m in Sources */,
+				D8104C671AE5BD6300D699BE /* UserDetailViewController.m in Sources */,
 				D8104C641AE5805C00D699BE /* GitHubCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +428,7 @@
 				D8104C5E1AE5800700D699BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8104C5F1AE5800700D699BE /* Build configuration list for PBXNativeTarget "25 -- Git Hub CollectionTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				D8104C611AE5800700D699BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
