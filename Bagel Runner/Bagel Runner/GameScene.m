@@ -178,7 +178,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     //        }
     //    }];
     
-    if (self.isGameOver == NO)
+    if (self.isGameOver == NO && self.isStarted)
     {
         
             PointsLabel *pointsLabel = (PointsLabel *)[self childNodeWithName:@"pointsLabel"];
@@ -308,10 +308,10 @@ static NSString *GAME_FONT = @"Chalkduster";
     if (self.lastSpawnTimeInterval > 2) {
         self.lastSpawnTimeInterval = 0;
 //        NSLog(@"%i",difficultyInt);
-//        if (self.isGameOver)
-//        {
+        if (self.isGameOver == NO && self.isStarted)
+        {
             [bagel generateTimer];
-//        }
+        }
 //        else
 //        {
 //            [bagel generateTimer2];
