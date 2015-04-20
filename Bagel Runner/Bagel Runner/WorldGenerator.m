@@ -55,30 +55,7 @@ static const uint32_t groundCategory = 0x1 << 2;
 
 -(UIColor *)randomColor
 {
-//    int rand = arc4random() %6;
-//    UIColor *color;
-//    
-//    switch (rand) {
-//        case 0:
-//            color = [UIColor redColor];
-//            break;
-//        case 1:
-//            color = [UIColor grayColor];
-//            break;
-//        case 2:
-//            color = [UIColor greenColor];
-//            break;
-//        case 3:
-//            color = [UIColor purpleColor];
-//            break;
-//        case 4:
-//            color = [UIColor yellowColor];
-//            break;
-//        case 5:
-//            color = [UIColor blueColor];
-//            break;
-//        default:
-//            break;
+
     
     CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
     CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
