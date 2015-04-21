@@ -78,22 +78,22 @@ static NSString * const reuseIdentifier = @"Cell";
     UILabel *nameLabel = (UILabel *)[cell viewWithTag:1];
     nameLabel.text = [userInfo objectForKey:@"name"];
     
-    UILabel *repoLabel = (UILabel *)[cell viewWithTag:3];
-    repoLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"public_repos"]];
-    
-    UILabel *hireableLabel = (UILabel *)[cell viewWithTag:4];
-    NSString *hireableString = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"hireable"]];
-    NSLog(@"%@",hireableString);
-    hireableLabel.text = [hireableString  isEqual: @"1"] ? @"Yes" : @"No";
-    
-    UILabel *followersLabel = (UILabel *)[cell viewWithTag:5];
-    followersLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"followers"]];
-    
-    UILabel *followingLabel = (UILabel *)[cell viewWithTag:6];
-    followingLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"following"]];
-    
-    UILabel *usernameLabel = (UILabel *)[cell viewWithTag:7];
-    usernameLabel.text = [userInfo objectForKey:@"login"];
+//    UILabel *repoLabel = (UILabel *)[cell viewWithTag:3];
+//    repoLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"public_repos"]];
+//    
+//    UILabel *hireableLabel = (UILabel *)[cell viewWithTag:4];
+//    NSString *hireableString = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"hireable"]];
+//    NSLog(@"%@",hireableString);
+//    hireableLabel.text = [hireableString  isEqual: @"1"] ? @"Yes" : @"No";
+//    
+//    UILabel *followersLabel = (UILabel *)[cell viewWithTag:5];
+//    followersLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"followers"]];
+//    
+//    UILabel *followingLabel = (UILabel *)[cell viewWithTag:6];
+//    followingLabel.text = [NSString stringWithFormat:@"%@",[userInfo objectForKey:@"following"]];
+//    
+//    UILabel *usernameLabel = (UILabel *)[cell viewWithTag:7];
+//    usernameLabel.text = [userInfo objectForKey:@"login"];
     
     NSURL *avatarURL = [NSURL URLWithString:[userInfo objectForKey:@"avatar_url"]];
     NSData *imageData = [NSData dataWithContentsOfURL:avatarURL];
