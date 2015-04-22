@@ -275,7 +275,7 @@ static NSString *GAME_FONT = @"Chalkduster";
             NSLog(@"%f",toaster.position.y);
             [toaster toasterJump];
             
-            if (toaster.position.y > -150.f)
+            if (toaster.position.y > -130.f)
             {
                 SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
                 [toaster runAction:rotateClockwise];
