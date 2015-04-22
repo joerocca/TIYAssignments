@@ -9,6 +9,9 @@
 #import "Toaster.h"
 
 @implementation Toaster
+{
+     NSArray *_bearWalkingFrames;
+}
 
 static const uint32_t toasterCategory = 0x1 << 0;
 static const uint32_t bagelCategory = 0x1 << 1;
@@ -17,6 +20,8 @@ static const uint32_t groundCategory = 0x1 << 2;
 
 +(id)toaster
 {
+ 
+   
     
     Toaster *toaster = [Toaster spriteNodeWithImageNamed:@"Toaster"];
     toaster.name = @"toaster";
@@ -97,9 +102,14 @@ static const uint32_t groundCategory = 0x1 << 2;
 
 
 
-- (void)runningAnimation
+- (void)rollingAnimation:(NSArray *)toasterImageArray
 {
-    
+    [self runAction:[SKAction repeatActionForever:
+                      [SKAction animateWithTextures:toasterImageArray
+                                       timePerFrame:1.2
+                                             resize:NO
+                                            restore:YES]] withKey:@"runningToaster"];
+    return;
 }
 
 

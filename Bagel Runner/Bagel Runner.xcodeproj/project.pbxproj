@@ -17,6 +17,7 @@
 		D83BF07E1AE0897C005BB7C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */; };
 		D83BF08A1AE0897C005BB7C6 /* Bagel_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */; };
 		D83BF0951AE09309005BB7C6 /* Toaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0941AE09309005BB7C6 /* Toaster.m */; };
+		D8805D701AE7585600E9657F /* toasterImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D8805D6F1AE7585600E9657F /* toasterImages.atlas */; };
 		D8B4D1721AE17E0F001576B4 /* Bagel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1711AE17E0F001576B4 /* Bagel.m */; };
 		D8B4D1751AE185A8001576B4 /* WorldGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1741AE185A8001576B4 /* WorldGenerator.m */; };
 		D8B4D1781AE1DC33001576B4 /* PointsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1771AE1DC33001576B4 /* PointsLabel.m */; };
@@ -53,6 +54,7 @@
 		D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bagel_RunnerTests.m; sourceTree = "<group>"; };
 		D83BF0931AE09309005BB7C6 /* Toaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toaster.h; sourceTree = "<group>"; };
 		D83BF0941AE09309005BB7C6 /* Toaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toaster.m; sourceTree = "<group>"; };
+		D8805D6F1AE7585600E9657F /* toasterImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = toasterImages.atlas; sourceTree = "<group>"; };
 		D8B4D1701AE17E0F001576B4 /* Bagel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bagel.h; sourceTree = "<group>"; };
 		D8B4D1711AE17E0F001576B4 /* Bagel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bagel.m; sourceTree = "<group>"; };
 		D8B4D1731AE185A8001576B4 /* WorldGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGenerator.h; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				D83BF0751AE0897C005BB7C6 /* GameViewController.m */,
 				D83BF0771AE0897C005BB7C6 /* Main.storyboard */,
 				D83BF07A1AE0897C005BB7C6 /* Images.xcassets */,
+				D8805D6F1AE7585600E9657F /* toasterImages.atlas */,
 				D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */,
 				D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */,
 				D8B4D17B1AE37E44001576B4 /* toaster-up-1.mp3 */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B4D17C1AE37E44001576B4 /* toaster-up-1.mp3 in Resources */,
+				D8805D701AE7585600E9657F /* toasterImages.atlas in Resources */,
 				D83BF07E1AE0897C005BB7C6 /* LaunchScreen.xib in Resources */,
 				D83BF07B1AE0897C005BB7C6 /* Images.xcassets in Resources */,
 				D83BF0731AE0897C005BB7C6 /* GameScene.sks in Resources */,

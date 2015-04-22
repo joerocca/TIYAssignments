@@ -28,6 +28,7 @@
 
 @implementation GameScene
 {
+    NSArray *_toasterWalkingFrames;
     Toaster *toaster;
     Bagel *bagel;
     SKNode *world;
@@ -66,6 +67,18 @@ static NSString *GAME_FONT = @"Chalkduster";
     [generator populate];
     
     toaster = [Toaster toaster];
+    NSMutableArray *rollFrames = [NSMutableArray array];
+    
+    SKTextureAtlas *toasterAnimatedAtlas = [SKTextureAtlas atlasNamed:@"toasterImages"];
+    
+    int numImages = (int)toasterAnimatedAtlas.textureNames.count;
+    for (int i=1; i <= numImages/3; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"3DToaster%d", i];
+        SKTexture *temp = [toasterAnimatedAtlas textureNamed:textureName];
+        [rollFrames addObject:temp];
+    } _toasterWalkingFrames = rollFrames;
+    
+    [toaster rollingAnimation:_toasterWalkingFrames];
     [world addChild:toaster];
 //    [toaster breathe];
     
@@ -101,6 +114,8 @@ static NSString *GAME_FONT = @"Chalkduster";
 
 }
 
+#pragma mark -- StartGameClearGameOver
+
 - (void)start
 {
     self.isStarted = YES;
@@ -131,10 +146,12 @@ static NSString *GAME_FONT = @"Chalkduster";
     [self addChild:gameOverLabel];
 }
 
+#pragma mark -- Extras
+
 - (void)didSimulatePhysics
 {
     [self centerOnNode:toaster];
-    [self handleGeneration];
+//    [self handleGeneration]; //fixed fps bug by commenting this out 
     [self handleCleanup];
 //    [self handlePoints];
 }
@@ -196,6 +213,9 @@ static NSString *GAME_FONT = @"Chalkduster";
     world.position = CGPointMake(world.position.x - positionInScene.x + 100, world.position.y);
 }
 
+
+#pragma mark -- Built in Methods
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
@@ -237,29 +257,47 @@ static NSString *GAME_FONT = @"Chalkduster";
     }
     else
     {
-        
-
-        if (shouldJump)
-        {
-        [toaster toasterJump];
-        shouldJump = NO;
-//        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setNO) userInfo:nil repeats:NO];
-         
-        }
-        else if (shouldJump2)
-        {
-        [toaster toasterJump];
-            if (toaster.position.y > - 180)
-            {
-        SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
-        [toaster runAction:rotateClockwise];
-                
-            }
+       
             
-        shouldJump2 = NO;
-        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+                
+            
+//
+//        if (shouldJump)
+//        {
+//        [toaster toasterJump];
+//        shouldJump = NO;
+//        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+//        }
+//        else
         
+            if (toaster.position.y < -30.f)
+        {
+            NSLog(@"%f",toaster.position.y);
+            [toaster toasterJump];
+            
+            if (toaster.position.y > -150.f)
+            {
+                SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
+                [toaster runAction:rotateClockwise];
+            }
+//            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+//            shouldJump2 = NO;
         }
+        
+//        else if (shouldJump2)
+//        {
+//        [toaster toasterJump];
+//            if (toaster.position.y > - 180)
+//            {
+//        SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
+//        [toaster runAction:rotateClockwise];
+//                
+//            }
+//            
+//        shouldJump2 = NO;
+//        [NSTimer scheduledTimerWithTimeInterval:0.8 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+//        
+//        }
 //        else
 //        {
 //            [toaster toasterJump];  //temporary else

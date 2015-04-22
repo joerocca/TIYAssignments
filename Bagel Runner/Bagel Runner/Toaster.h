@@ -17,4 +17,5 @@
 - (void)start;
 -(void)stop;
 
+- (void)rollingAnimation:(NSArray *)toasterImageArray;
 @end

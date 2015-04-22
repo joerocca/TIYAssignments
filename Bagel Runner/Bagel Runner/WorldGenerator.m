@@ -39,7 +39,7 @@ static const uint32_t groundCategory = 0x1 << 2;
 
 - (void)generate
 {
-    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithColor:[self randomColor] size:CGSizeMake(self.scene.frame.size.width - 850, 50)];
+    SKSpriteNode *ground = [SKSpriteNode spriteNodeWithColor:[self randomColor] size:CGSizeMake(self.scene.frame.size.width + 50000000, 50)]; //fixed fps bug by changing -850 to + 50000000
     ground.name = @"ground";
     ground.position = CGPointMake(self.currentGroundX, -self.scene.frame.size.height/2.94);
     ground.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ground.size];

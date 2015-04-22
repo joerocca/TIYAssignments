@@ -123,7 +123,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     SKAction *moveRight = [SKAction repeatActionForever:incrementRight];
     [self runAction:moveRight];
     
-    SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
+    SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:1];
     SKAction *clockwiseRotationForever = [SKAction repeatActionForever:rotateClockwise];
     [self runAction:clockwiseRotationForever];
         
