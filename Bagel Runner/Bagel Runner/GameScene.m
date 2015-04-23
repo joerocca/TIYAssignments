@@ -29,9 +29,9 @@
 @implementation GameScene
 {
     NSArray *_toasterWalkingFrames;
+    SKNode *world;
     Toaster *toaster;
     Bagel *bagel;
-    SKNode *world;
     WorldGenerator *generator;
     BOOL shouldJump;
     BOOL shouldJump2;
@@ -80,6 +80,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     
     [toaster rollingAnimation:_toasterWalkingFrames];
     [world addChild:toaster];
+    
 //    [toaster breathe];
     
 //    bagel = [Bagel bagel];
@@ -156,7 +157,7 @@ static NSString *GAME_FONT = @"Chalkduster";
 //    [self handlePoints];
 }
 
-- (void) handleGeneration
+- (void)handleGeneration
 {
     [world enumerateChildNodesWithName:@"ground" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.x < toaster.position.x) {
@@ -166,7 +167,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     }];
 }
 
-- (void) handleCleanup
+- (void)handleCleanup
 {
     [world enumerateChildNodesWithName:@"ground" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.x < toaster.position.x - self.frame.size.width/2  - node.frame.size.width/1.2)

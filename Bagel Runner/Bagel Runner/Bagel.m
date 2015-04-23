@@ -81,14 +81,12 @@ static const uint32_t bagelCategory = 0x1 << 1;
                                                 userInfo:nil
                                                  repeats:NO];
         
-        
     }
 }
 
 - (void)generate
 {
     
-        
     toaster = [Toaster toaster];
     
     Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
