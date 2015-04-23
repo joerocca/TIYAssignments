@@ -14,8 +14,9 @@
 #import "GameViewController.h"
 
 @import AVFoundation;
+@import iAd;
 
-@interface GameScene()
+@interface GameScene()<ADBannerViewDelegate>
 
 @property BOOL isStarted;
 @property BOOL isGameOver;
@@ -30,11 +31,13 @@
 {
     NSArray *_toasterWalkingFrames;
     SKNode *world;
+    ADBannerView *_adBanner;
     Toaster *toaster;
     Bagel *bagel;
     WorldGenerator *generator;
     BOOL shouldJump;
     BOOL shouldJump2;
+    BOOL _bannerIsVisible;
 }
 
 static NSString *GAME_FONT = @"Chalkduster";
@@ -113,6 +116,41 @@ static NSString *GAME_FONT = @"Chalkduster";
 //    
 //    [self addChild:myLabel];
 
+    
+    _adBanner = [[ADBannerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 50)];
+    _adBanner.delegate = self;
+    _bannerIsVisible = NO;
+}
+
+#pragma mark -- iAd Banner View Delegate
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    if (!_bannerIsVisible)
+    {
+        if (_adBanner.superview == nil)
+        {
+            [self.view addSubview:_adBanner];
+        }
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height-banner.frame.size.height);
+        }];
+        _bannerIsVisible = YES;
+    }
+}
+
+-(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"Failed to receive ad");
+    
+    if (_bannerIsVisible)
+    {
+        [UIView animateWithDuration:0.5 animations:^{
+            banner.frame = CGRectOffset(banner.frame, 0, banner.frame.size.height);
+        }];
+        _bannerIsVisible = NO;
+    }
 }
 
 #pragma mark -- StartGameClearGameOver
@@ -271,15 +309,17 @@ static NSString *GAME_FONT = @"Chalkduster";
 //        }
 //        else
         
-            if (toaster.position.y < -30.f)
+            if (toaster.position.y < -30.f && shouldJump)
         {
             NSLog(@"%f",toaster.position.y);
             [toaster toasterJump];
             
-            if (toaster.position.y > -130.f)
+            if (toaster.position.y > -130.f && shouldJump)
             {
                 SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
                 [toaster runAction:rotateClockwise];
+                shouldJump = NO;
+                [NSTimer scheduledTimerWithTimeInterval:1.1 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
             }
 //            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
 //            shouldJump2 = NO;
