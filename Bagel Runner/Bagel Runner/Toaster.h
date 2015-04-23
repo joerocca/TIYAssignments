@@ -15,6 +15,7 @@
 - (void)toasterJump;
 //- (void)runRight;
 - (void)start;
+
 -(void)stop;
 
 - (void)rollingAnimation:(NSArray *)toasterImageArray;

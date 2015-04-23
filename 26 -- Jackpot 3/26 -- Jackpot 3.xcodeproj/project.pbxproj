@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D80DDCE51AE80D6400BEB956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDCE41AE80D6400BEB956 /* main.m */; };
+		D80DDCE81AE80D6400BEB956 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDCE71AE80D6400BEB956 /* AppDelegate.m */; };
+		D80DDCEB1AE80D6400BEB956 /* LottoNumberPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDCEA1AE80D6400BEB956 /* LottoNumberPickerViewController.m */; };
+		D80DDCEE1AE80D6400BEB956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80DDCEC1AE80D6400BEB956 /* Main.storyboard */; };
+		D80DDCF01AE80D6400BEB956 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80DDCEF1AE80D6400BEB956 /* Images.xcassets */; };
+		D80DDCF31AE80D6400BEB956 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D80DDCF11AE80D6400BEB956 /* LaunchScreen.xib */; };
+		D80DDCFF1AE80D6400BEB956 /* _6____Jackpot_3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDCFE1AE80D6400BEB956 /* _6____Jackpot_3Tests.m */; };
+		D80DDD0A1AE8102500BEB956 /* RandomLottoNumberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDD091AE8102500BEB956 /* RandomLottoNumberTableViewController.m */; };
+		D80DDD0D1AE816DC00BEB956 /* Ticket.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDD0C1AE816DC00BEB956 /* Ticket.m */; };
+		D80DDD101AE8552A00BEB956 /* TicketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D80DDD0F1AE8552A00BEB956 /* TicketCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D80DDCF91AE80D6400BEB956 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D80DDCD71AE80D6400BEB956 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D80DDCDE1AE80D6400BEB956;
+			remoteInfo = "26 -- Jackpot 3";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D80DDCDF1AE80D6400BEB956 /* 26 -- Jackpot 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "26 -- Jackpot 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80DDCE31AE80D6400BEB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D80DDCE41AE80D6400BEB956 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D80DDCE61AE80D6400BEB956 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D80DDCE71AE80D6400BEB956 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D80DDCE91AE80D6400BEB956 /* LottoNumberPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LottoNumberPickerViewController.h; sourceTree = "<group>"; };
+		D80DDCEA1AE80D6400BEB956 /* LottoNumberPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LottoNumberPickerViewController.m; sourceTree = "<group>"; };
+		D80DDCED1AE80D6400BEB956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D80DDCEF1AE80D6400BEB956 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D80DDCF21AE80D6400BEB956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D80DDCF81AE80D6400BEB956 /* 26 -- Jackpot 3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "26 -- Jackpot 3Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80DDCFD1AE80D6400BEB956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D80DDCFE1AE80D6400BEB956 /* _6____Jackpot_3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_6____Jackpot_3Tests.m"; sourceTree = "<group>"; };
+		D80DDD081AE8102500BEB956 /* RandomLottoNumberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomLottoNumberTableViewController.h; sourceTree = "<group>"; };
+		D80DDD091AE8102500BEB956 /* RandomLottoNumberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomLottoNumberTableViewController.m; sourceTree = "<group>"; };
+		D80DDD0B1AE816DC00BEB956 /* Ticket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ticket.h; sourceTree = "<group>"; };
+		D80DDD0C1AE816DC00BEB956 /* Ticket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ticket.m; sourceTree = "<group>"; };
+		D80DDD0E1AE8552A00BEB956 /* TicketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TicketCell.h; sourceTree = "<group>"; };
+		D80DDD0F1AE8552A00BEB956 /* TicketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TicketCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D80DDCDC1AE80D6400BEB956 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D80DDCF51AE80D6400BEB956 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D80DDCD61AE80D6400BEB956 = {
+			isa = PBXGroup;
+			children = (
+				D80DDCE11AE80D6400BEB956 /* 26 -- Jackpot 3 */,
+				D80DDCFB1AE80D6400BEB956 /* 26 -- Jackpot 3Tests */,
+				D80DDCE01AE80D6400BEB956 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D80DDCE01AE80D6400BEB956 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D80DDCDF1AE80D6400BEB956 /* 26 -- Jackpot 3.app */,
+				D80DDCF81AE80D6400BEB956 /* 26 -- Jackpot 3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D80DDCE11AE80D6400BEB956 /* 26 -- Jackpot 3 */ = {
+			isa = PBXGroup;
+			children = (
+				D80DDCE61AE80D6400BEB956 /* AppDelegate.h */,
+				D80DDCE71AE80D6400BEB956 /* AppDelegate.m */,
+				D80DDCE91AE80D6400BEB956 /* LottoNumberPickerViewController.h */,
+				D80DDCEA1AE80D6400BEB956 /* LottoNumberPickerViewController.m */,
+				D80DDD081AE8102500BEB956 /* RandomLottoNumberTableViewController.h */,
+				D80DDD091AE8102500BEB956 /* RandomLottoNumberTableViewController.m */,
+				D80DDD0B1AE816DC00BEB956 /* Ticket.h */,
+				D80DDD0C1AE816DC00BEB956 /* Ticket.m */,
+				D80DDD0E1AE8552A00BEB956 /* TicketCell.h */,
+				D80DDD0F1AE8552A00BEB956 /* TicketCell.m */,
+				D80DDCEC1AE80D6400BEB956 /* Main.storyboard */,
+				D80DDCEF1AE80D6400BEB956 /* Images.xcassets */,
+				D80DDCF11AE80D6400BEB956 /* LaunchScreen.xib */,
+				D80DDCE21AE80D6400BEB956 /* Supporting Files */,
+			);
+			path = "26 -- Jackpot 3";
+			sourceTree = "<group>";
+		};
+		D80DDCE21AE80D6400BEB956 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D80DDCE31AE80D6400BEB956 /* Info.plist */,
+				D80DDCE41AE80D6400BEB956 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D80DDCFB1AE80D6400BEB956 /* 26 -- Jackpot 3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D80DDCFE1AE80D6400BEB956 /* _6____Jackpot_3Tests.m */,
+				D80DDCFC1AE80D6400BEB956 /* Supporting Files */,
+			);
+			path = "26 -- Jackpot 3Tests";
+			sourceTree = "<group>";
+		};
+		D80DDCFC1AE80D6400BEB956 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D80DDCFD1AE80D6400BEB956 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D80DDCDE1AE80D6400BEB956 /* 26 -- Jackpot 3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D80DDD021AE80D6400BEB956 /* Build configuration list for PBXNativeTarget "26 -- Jackpot 3" */;
+			buildPhases = (
+				D80DDCDB1AE80D6400BEB956 /* Sources */,
+				D80DDCDC1AE80D6400BEB956 /* Frameworks */,
+				D80DDCDD1AE80D6400BEB956 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "26 -- Jackpot 3";
+			productName = "26 -- Jackpot 3";
+			productReference = D80DDCDF1AE80D6400BEB956 /* 26 -- Jackpot 3.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D80DDCF71AE80D6400BEB956 /* 26 -- Jackpot 3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D80DDD051AE80D6400BEB956 /* Build configuration list for PBXNativeTarget "26 -- Jackpot 3Tests" */;
+			buildPhases = (
+				D80DDCF41AE80D6400BEB956 /* Sources */,
+				D80DDCF51AE80D6400BEB956 /* Frameworks */,
+				D80DDCF61AE80D6400BEB956 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D80DDCFA1AE80D6400BEB956 /* PBXTargetDependency */,
+			);
+			name = "26 -- Jackpot 3Tests";
+			productName = "26 -- Jackpot 3Tests";
+			productReference = D80DDCF81AE80D6400BEB956 /* 26 -- Jackpot 3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D80DDCD71AE80D6400BEB956 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Joe Rocca";
+				TargetAttributes = {
+					D80DDCDE1AE80D6400BEB956 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					D80DDCF71AE80D6400BEB956 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = D80DDCDE1AE80D6400BEB956;
+					};
+				};
+			};
+			buildConfigurationList = D80DDCDA1AE80D6400BEB956 /* Build configuration list for PBXProject "26 -- Jackpot 3" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D80DDCD61AE80D6400BEB956;
+			productRefGroup = D80DDCE01AE80D6400BEB956 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D80DDCDE1AE80D6400BEB956 /* 26 -- Jackpot 3 */,
+				D80DDCF71AE80D6400BEB956 /* 26 -- Jackpot 3Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D80DDCDD1AE80D6400BEB956 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D80DDCEE1AE80D6400BEB956 /* Main.storyboard in Resources */,
+				D80DDCF31AE80D6400BEB956 /* LaunchScreen.xib in Resources */,
+				D80DDCF01AE80D6400BEB956 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D80DDCF61AE80D6400BEB956 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D80DDCDB1AE80D6400BEB956 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D80DDD0D1AE816DC00BEB956 /* Ticket.m in Sources */,
+				D80DDD101AE8552A00BEB956 /* TicketCell.m in Sources */,
+				D80DDD0A1AE8102500BEB956 /* RandomLottoNumberTableViewController.m in Sources */,
+				D80DDCEB1AE80D6400BEB956 /* LottoNumberPickerViewController.m in Sources */,
+				D80DDCE81AE80D6400BEB956 /* AppDelegate.m in Sources */,
+				D80DDCE51AE80D6400BEB956 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D80DDCF41AE80D6400BEB956 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D80DDCFF1AE80D6400BEB956 /* _6____Jackpot_3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D80DDCFA1AE80D6400BEB956 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D80DDCDE1AE80D6400BEB956 /* 26 -- Jackpot 3 */;
+			targetProxy = D80DDCF91AE80D6400BEB956 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D80DDCEC1AE80D6400BEB956 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D80DDCED1AE80D6400BEB956 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D80DDCF11AE80D6400BEB956 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D80DDCF21AE80D6400BEB956 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D80DDD001AE80D6400BEB956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D80DDD011AE80D6400BEB956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D80DDD031AE80D6400BEB956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "26 -- Jackpot 3/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D80DDD041AE80D6400BEB956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "26 -- Jackpot 3/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D80DDD061AE80D6400BEB956 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "26 -- Jackpot 3Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/26 -- Jackpot 3.app/26 -- Jackpot 3";
+			};
+			name = Debug;
+		};
+		D80DDD071AE80D6400BEB956 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "26 -- Jackpot 3Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/26 -- Jackpot 3.app/26 -- Jackpot 3";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D80DDCDA1AE80D6400BEB956 /* Build configuration list for PBXProject "26 -- Jackpot 3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D80DDD001AE80D6400BEB956 /* Debug */,
+				D80DDD011AE80D6400BEB956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D80DDD021AE80D6400BEB956 /* Build configuration list for PBXNativeTarget "26 -- Jackpot 3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D80DDD031AE80D6400BEB956 /* Debug */,
+				D80DDD041AE80D6400BEB956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D80DDD051AE80D6400BEB956 /* Build configuration list for PBXNativeTarget "26 -- Jackpot 3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D80DDD061AE80D6400BEB956 /* Debug */,
+				D80DDD071AE80D6400BEB956 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D80DDCD71AE80D6400BEB956 /* Project object */;
+}

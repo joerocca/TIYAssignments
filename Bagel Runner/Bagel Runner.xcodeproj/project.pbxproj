@@ -18,6 +18,19 @@
 		D83BF08A1AE0897C005BB7C6 /* Bagel_RunnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0891AE0897C005BB7C6 /* Bagel_RunnerTests.m */; };
 		D83BF0951AE09309005BB7C6 /* Toaster.m in Sources */ = {isa = PBXBuildFile; fileRef = D83BF0941AE09309005BB7C6 /* Toaster.m */; };
 		D8805D701AE7585600E9657F /* toasterImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D8805D6F1AE7585600E9657F /* toasterImages.atlas */; };
+		D8B365291AE89EE9009BA899 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365271AE89EE9009BA899 /* Bolts.framework */; };
+		D8B3652A1AE89EE9009BA899 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365281AE89EE9009BA899 /* Parse.framework */; };
+		D8B3652C1AE89F28009BA899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3652B1AE89F28009BA899 /* AudioToolbox.framework */; };
+		D8B3652E1AE89F2F009BA899 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3652D1AE89F2F009BA899 /* CFNetwork.framework */; };
+		D8B365301AE89F38009BA899 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3652F1AE89F38009BA899 /* CoreGraphics.framework */; };
+		D8B365321AE89F3E009BA899 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365311AE89F3E009BA899 /* CoreLocation.framework */; };
+		D8B365341AE89F46009BA899 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365331AE89F46009BA899 /* MobileCoreServices.framework */; };
+		D8B365361AE89F4D009BA899 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365351AE89F4D009BA899 /* QuartzCore.framework */; };
+		D8B365381AE89F54009BA899 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365371AE89F54009BA899 /* Security.framework */; };
+		D8B3653A1AE89F5B009BA899 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B365391AE89F5B009BA899 /* StoreKit.framework */; };
+		D8B3653C1AE89F67009BA899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3653B1AE89F67009BA899 /* SystemConfiguration.framework */; };
+		D8B3653E1AE89F72009BA899 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3653D1AE89F72009BA899 /* libz.dylib */; };
+		D8B365401AE89F80009BA899 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B3653F1AE89F80009BA899 /* libsqlite3.dylib */; };
 		D8B4D1721AE17E0F001576B4 /* Bagel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1711AE17E0F001576B4 /* Bagel.m */; };
 		D8B4D1751AE185A8001576B4 /* WorldGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1741AE185A8001576B4 /* WorldGenerator.m */; };
 		D8B4D1781AE1DC33001576B4 /* PointsLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B4D1771AE1DC33001576B4 /* PointsLabel.m */; };
@@ -55,6 +68,19 @@
 		D83BF0931AE09309005BB7C6 /* Toaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Toaster.h; sourceTree = "<group>"; };
 		D83BF0941AE09309005BB7C6 /* Toaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Toaster.m; sourceTree = "<group>"; };
 		D8805D6F1AE7585600E9657F /* toasterImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = toasterImages.atlas; sourceTree = "<group>"; };
+		D8B365271AE89EE9009BA899 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D8B365281AE89EE9009BA899 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D8B3652B1AE89F28009BA899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D8B3652D1AE89F2F009BA899 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D8B3652F1AE89F38009BA899 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D8B365311AE89F3E009BA899 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8B365331AE89F46009BA899 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D8B365351AE89F4D009BA899 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D8B365371AE89F54009BA899 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D8B365391AE89F5B009BA899 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D8B3653B1AE89F67009BA899 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8B3653D1AE89F72009BA899 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D8B3653F1AE89F80009BA899 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D8B4D1701AE17E0F001576B4 /* Bagel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bagel.h; sourceTree = "<group>"; };
 		D8B4D1711AE17E0F001576B4 /* Bagel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bagel.m; sourceTree = "<group>"; };
 		D8B4D1731AE185A8001576B4 /* WorldGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldGenerator.h; sourceTree = "<group>"; };
@@ -70,6 +96,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B365401AE89F80009BA899 /* libsqlite3.dylib in Frameworks */,
+				D8B3653E1AE89F72009BA899 /* libz.dylib in Frameworks */,
+				D8B3653C1AE89F67009BA899 /* SystemConfiguration.framework in Frameworks */,
+				D8B3653A1AE89F5B009BA899 /* StoreKit.framework in Frameworks */,
+				D8B365381AE89F54009BA899 /* Security.framework in Frameworks */,
+				D8B365361AE89F4D009BA899 /* QuartzCore.framework in Frameworks */,
+				D8B365341AE89F46009BA899 /* MobileCoreServices.framework in Frameworks */,
+				D8B365321AE89F3E009BA899 /* CoreLocation.framework in Frameworks */,
+				D8B365301AE89F38009BA899 /* CoreGraphics.framework in Frameworks */,
+				D8B3652E1AE89F2F009BA899 /* CFNetwork.framework in Frameworks */,
+				D8B3652C1AE89F28009BA899 /* AudioToolbox.framework in Frameworks */,
+				D8B3652A1AE89EE9009BA899 /* Parse.framework in Frameworks */,
+				D8B365291AE89EE9009BA899 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +125,7 @@
 		D83BF05C1AE0897C005BB7C6 = {
 			isa = PBXGroup;
 			children = (
+				D8B365411AE8B039009BA899 /* Frameworks */,
 				D83BF0671AE0897C005BB7C6 /* Bagel Runner */,
 				D83BF0861AE0897C005BB7C6 /* Bagel RunnerTests */,
 				D83BF0661AE0897C005BB7C6 /* Products */,
@@ -106,25 +146,17 @@
 			children = (
 				D83BF06C1AE0897C005BB7C6 /* AppDelegate.h */,
 				D83BF06D1AE0897C005BB7C6 /* AppDelegate.m */,
-				D83BF06F1AE0897C005BB7C6 /* GameScene.h */,
-				D83BF0701AE0897C005BB7C6 /* GameScene.m */,
-				D8B4D1731AE185A8001576B4 /* WorldGenerator.h */,
-				D8B4D1741AE185A8001576B4 /* WorldGenerator.m */,
-				D8B4D1761AE1DC33001576B4 /* PointsLabel.h */,
-				D8B4D1771AE1DC33001576B4 /* PointsLabel.m */,
-				D83BF0931AE09309005BB7C6 /* Toaster.h */,
-				D83BF0941AE09309005BB7C6 /* Toaster.m */,
-				D8B4D1701AE17E0F001576B4 /* Bagel.h */,
-				D8B4D1711AE17E0F001576B4 /* Bagel.m */,
-				D83BF0721AE0897C005BB7C6 /* GameScene.sks */,
 				D83BF0741AE0897C005BB7C6 /* GameViewController.h */,
 				D83BF0751AE0897C005BB7C6 /* GameViewController.m */,
+				D83BF06F1AE0897C005BB7C6 /* GameScene.h */,
+				D83BF0701AE0897C005BB7C6 /* GameScene.m */,
+				D8B365421AE8B052009BA899 /* Nodes */,
+				D83BF0721AE0897C005BB7C6 /* GameScene.sks */,
 				D83BF0771AE0897C005BB7C6 /* Main.storyboard */,
 				D83BF07A1AE0897C005BB7C6 /* Images.xcassets */,
 				D8805D6F1AE7585600E9657F /* toasterImages.atlas */,
 				D83BF07C1AE0897C005BB7C6 /* LaunchScreen.xib */,
-				D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */,
-				D8B4D17B1AE37E44001576B4 /* toaster-up-1.mp3 */,
+				D8B365431AE8B06D009BA899 /* Sounds */,
 				D83BF0681AE0897C005BB7C6 /* Supporting Files */,
 			);
 			path = "Bagel Runner";
@@ -154,6 +186,50 @@
 				D83BF0881AE0897C005BB7C6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8B365411AE8B039009BA899 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8B3653F1AE89F80009BA899 /* libsqlite3.dylib */,
+				D8B3653D1AE89F72009BA899 /* libz.dylib */,
+				D8B3653B1AE89F67009BA899 /* SystemConfiguration.framework */,
+				D8B365391AE89F5B009BA899 /* StoreKit.framework */,
+				D8B365371AE89F54009BA899 /* Security.framework */,
+				D8B365351AE89F4D009BA899 /* QuartzCore.framework */,
+				D8B365331AE89F46009BA899 /* MobileCoreServices.framework */,
+				D8B365311AE89F3E009BA899 /* CoreLocation.framework */,
+				D8B3652F1AE89F38009BA899 /* CoreGraphics.framework */,
+				D8B3652D1AE89F2F009BA899 /* CFNetwork.framework */,
+				D8B3652B1AE89F28009BA899 /* AudioToolbox.framework */,
+				D8B365271AE89EE9009BA899 /* Bolts.framework */,
+				D8B365281AE89EE9009BA899 /* Parse.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8B365421AE8B052009BA899 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				D8B4D1731AE185A8001576B4 /* WorldGenerator.h */,
+				D8B4D1741AE185A8001576B4 /* WorldGenerator.m */,
+				D8B4D1761AE1DC33001576B4 /* PointsLabel.h */,
+				D8B4D1771AE1DC33001576B4 /* PointsLabel.m */,
+				D83BF0931AE09309005BB7C6 /* Toaster.h */,
+				D83BF0941AE09309005BB7C6 /* Toaster.m */,
+				D8B4D1701AE17E0F001576B4 /* Bagel.h */,
+				D8B4D1711AE17E0F001576B4 /* Bagel.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		D8B365431AE8B06D009BA899 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D8B4D1791AE37485001576B4 /* Bagel Runner Beta Song MP3.mp3 */,
+				D8B4D17B1AE37E44001576B4 /* toaster-up-1.mp3 */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,8 +469,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Bagel Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -403,8 +484,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Bagel Runner/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

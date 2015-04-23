@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uD9-dy-ibv">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--Random Lotto Number Table View Controller-->
+        <scene sceneID="E1j-aN-BSW">
+            <objects>
+                <tableViewController id="VQD-OF-BJR" customClass="RandomLottoNumberTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jX3-S6-moE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LottoNumbersCell" id="lvk-hb-4vv" customClass="TicketCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lvk-hb-4vv" id="Pn0-yS-VUW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ticket" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tx-eV-RiL">
+                                            <rect key="frame" x="34" y="6" width="211" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAX-xo-Zx9">
+                                            <rect key="frame" x="279" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="payAmountLabel" destination="tAX-xo-Zx9" id="Vyw-5p-Rrw"/>
+                                    <outlet property="ticketNumbersLabel" destination="8Tx-eV-RiL" id="njn-cP-lwY"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="VQD-OF-BJR" id="erM-aP-Hvc"/>
+                            <outlet property="delegate" destination="VQD-OF-BJR" id="d7B-dd-AUL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="RK0-45-1DE">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="search" id="ORs-RS-X7G">
+                            <connections>
+                                <segue destination="VSe-hY-cU1" kind="popoverPresentation" identifier="PickerSegue" popoverAnchorBarButtonItem="ORs-RS-X7G" id="lzj-5M-OTR">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ji4-LW-8qz">
+                            <connections>
+                                <action selector="generateLottoNumbersButton:" destination="VQD-OF-BJR" id="XYf-hv-dP2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uuv-5K-knp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="345"/>
+        </scene>
+        <!--Lotto Number Picker View Controller-->
+        <scene sceneID="aA6-Rd-qSA">
+            <objects>
+                <viewController id="VSe-hY-cU1" customClass="LottoNumberPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hoH-wp-a4J"/>
+                        <viewControllerLayoutGuide type="bottom" id="WvI-Fd-5xw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aB4-q5-N15">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahl-Ae-qUH">
+                                <rect key="frame" x="0.0" y="149" width="600" height="162"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VSe-hY-cU1" id="46b-NK-XbE"/>
+                                    <outlet property="delegate" destination="VSe-hY-cU1" id="Afy-q1-4sy"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00X-T3-Sqe">
+                                <rect key="frame" x="249" y="336" width="102" height="30"/>
+                                <state key="normal" title="Search Tickets">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SearchTicketsButton:" destination="VSe-hY-cU1" eventType="touchUpInside" id="dha-jm-DAj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="00X-T3-Sqe" firstAttribute="centerX" secondItem="Ahl-Ae-qUH" secondAttribute="centerX" id="9bs-yv-han"/>
+                            <constraint firstItem="Ahl-Ae-qUH" firstAttribute="top" secondItem="hoH-wp-a4J" secondAttribute="bottom" constant="172" id="IgV-83-Ve1"/>
+                            <constraint firstAttribute="centerX" secondItem="Ahl-Ae-qUH" secondAttribute="centerX" id="K8K-Sk-PBL"/>
+                            <constraint firstItem="00X-T3-Sqe" firstAttribute="top" secondItem="Ahl-Ae-qUH" secondAttribute="bottom" constant="25" id="fch-NV-kXn"/>
+                            <constraint firstAttribute="centerY" secondItem="Ahl-Ae-qUH" secondAttribute="centerY" constant="70" id="gjj-tq-LnN"/>
+                            <constraint firstItem="Ahl-Ae-qUH" firstAttribute="leading" secondItem="aB4-q5-N15" secondAttribute="leading" id="j9C-Wr-n4p"/>
+                            <constraint firstAttribute="trailing" secondItem="Ahl-Ae-qUH" secondAttribute="trailing" id="q8H-ia-3iM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="IgV-83-Ve1"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="lottoNumberPicker" destination="Ahl-Ae-qUH" id="eA6-iw-oEa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJX-58-VcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1974" y="345"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LPH-nZ-FDN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uD9-dy-ibv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="V3v-EO-fJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VQD-OF-BJR" kind="relationship" relationship="rootViewController" id="qRJ-ol-AD2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQN-Xu-ocX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480" y="345"/>
+        </scene>
+    </scenes>
+</document>

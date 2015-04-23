@@ -69,6 +69,7 @@ static const uint32_t groundCategory = 0x1 << 2;
 //    [self runAction:runright];
 //}
 
+#pragma mark -- Actions
 
 - (void)toasterJump
 {

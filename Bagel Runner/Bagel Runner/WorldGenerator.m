@@ -29,6 +29,8 @@ static const uint32_t groundCategory = 0x1 << 2;
     return worldGenerator;
 }
 
+#pragma mark -- Actions
+
 - (void)populate
 {
     for (int i = 0; i < 3; i++)
