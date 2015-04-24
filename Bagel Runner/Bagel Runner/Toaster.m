@@ -32,14 +32,15 @@ static const uint32_t groundCategory = 0x1 << 2;
     
     CGMutablePathRef path = CGPathCreateMutable();
     
-    CGPathMoveToPoint(path, NULL, 28 - offsetX, 25 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 44 - offsetX, 0 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 0 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 55 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 123 - offsetX, 74 - offsetY);
-    CGPathAddLineToPoint(path, NULL, 28 - offsetX, 74 - offsetY);
+    CGPathMoveToPoint(path, NULL, 28 - offsetX, 76 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 122 - offsetX, 75 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 56 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 134 - offsetX, 1 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 43 - offsetX, 1 - offsetY);
+    CGPathAddLineToPoint(path, NULL, 28 - offsetX, 25 - offsetY);
     
     CGPathCloseSubpath(path);
+
     
     toaster.physicsBody =[SKPhysicsBody bodyWithPolygonFromPath:path];
     toaster.physicsBody.categoryBitMask = toasterCategory;
