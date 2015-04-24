@@ -319,7 +319,7 @@ static NSString *GAME_FONT = @"Chalkduster";
                 SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
                 [toaster runAction:rotateClockwise];
                 shouldJump = NO;
-                [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+                [NSTimer scheduledTimerWithTimeInterval:0.92 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
             }
 //            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
 //            shouldJump2 = NO;

@@ -105,7 +105,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
 
 -(NSString *)randomlyChosenBagel
 {
-    int bagelPicInt = arc4random_uniform(5);
+    int bagelPicInt = arc4random_uniform(4);
     NSString *rc;
     
     switch (bagelPicInt)
@@ -121,9 +121,6 @@ static const uint32_t bagelCategory = 0x1 << 1;
             break;
         case 3:
             return rc = @"BlueberryBagel";
-            break;
-        case 4:
-            return rc = @"PizzaBagel";
             break;
         default:
             break;

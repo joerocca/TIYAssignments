@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>EB543547-6A51-455B-BCF6-15F5666A1AFF</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Bagel Runner</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
 		<string>https://www.github.com/joerocca/TIYAssignments.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Bagel Runner/Bagel Runner.xcodeproj</string>
+	<string>Bagel Runner/Bagel Runner.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>62C6B11DD7E3899AC9ABEFBC63874CA26AC4C94E</key>
