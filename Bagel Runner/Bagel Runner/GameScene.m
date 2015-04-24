@@ -92,7 +92,7 @@ static NSString *GAME_FONT = @"Chalkduster";
     bagel = [Bagel bagelGenerator:world];
     
     PointsLabel *pointsLabel = [PointsLabel pointsLabelWithFontNamed:GAME_FONT];
-    pointsLabel.position = CGPointMake(400, 200);
+    pointsLabel.position = CGPointMake(400, 175);
     [self addChild:pointsLabel];
     
     SKLabelNode *tapToBeginLabel = [SKLabelNode labelNodeWithFontNamed:GAME_FONT];
@@ -319,7 +319,7 @@ static NSString *GAME_FONT = @"Chalkduster";
                 SKAction *rotateClockwise = [SKAction rotateByAngle:-2*M_PI duration:0.7];
                 [toaster runAction:rotateClockwise];
                 shouldJump = NO;
-                [NSTimer scheduledTimerWithTimeInterval:1.1 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
+                [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
             }
 //            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(setYes) userInfo:nil repeats:NO];
 //            shouldJump2 = NO;

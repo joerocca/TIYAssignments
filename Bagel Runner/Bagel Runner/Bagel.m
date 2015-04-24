@@ -35,7 +35,8 @@ static const uint32_t bagelCategory = 0x1 << 1;
 {
     
     
-    Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
+    Bagel *bagel = [[Bagel alloc] init]; //replaced [Bagel spriteNodeWithImageNamed:@"Bagel]; with [[Bagel alloc] init];"
+    
 //    bagel.name = @"bagel";
 //    bagel.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:bagel.size.width * 0.5 ];
     bagel.world = world;
@@ -89,7 +90,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     
     toaster = [Toaster toaster];
     
-    Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
+    Bagel *bagel = [Bagel spriteNodeWithImageNamed:[self randomlyChosenBagel]];
     bagel.name = @"bagel";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
       
@@ -100,6 +101,36 @@ static const uint32_t bagelCategory = 0x1 << 1;
     [self.world addChild:bagel];
     [bagel chase];
     
+}
+
+-(NSString *)randomlyChosenBagel
+{
+    int bagelPicInt = arc4random_uniform(5);
+    NSString *rc;
+    
+    switch (bagelPicInt)
+    {
+        case 0:
+            return rc = @"SesameBagel";
+            break;
+        case 1:
+            return rc = @"PumpernickelBagel";
+            break;
+        case 2:
+            return rc = @"PlainBagel";
+            break;
+        case 3:
+            return rc = @"BlueberryBagel";
+            break;
+        case 4:
+            return rc = @"PizzaBagel";
+            break;
+        default:
+            break;
+        
+    }
+    
+    return rc;
 }
 
 
@@ -153,7 +184,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
                                                              repeats:YES];
     
         
-    
+        [NSTimer scheduledTimerWithTimeInterval:45.0 target:self selector:@selector(invalidateTimer) userInfo:nil repeats:NO];
     
     
 }
@@ -164,7 +195,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     
 //    toaster = [Toaster toaster];
     
-    Bagel *bagel = [Bagel spriteNodeWithImageNamed:@"Bagel"];
+    Bagel *bagel = [Bagel spriteNodeWithImageNamed:[self randomlyChosenBagel]];
     bagel.name = @"bagel2";
     [self.world enumerateChildNodesWithName:@"toaster" usingBlock:^(SKNode *node, BOOL *stop) {
         
@@ -184,6 +215,12 @@ static const uint32_t bagelCategory = 0x1 << 1;
 //    
 }
 
+-(void)invalidateTimer
+{
+    [bagelGenerateTimer invalidate];
+    bagelGenerateTimer = nil;
+}
+
 
 
 
@@ -201,5 +238,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
     stopGenerate = YES;
     
 }
+
+
 
 @end

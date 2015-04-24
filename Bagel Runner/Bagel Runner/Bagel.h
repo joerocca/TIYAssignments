@@ -26,5 +26,6 @@
 
 -(void)stop;
 
+-(NSString *)randomlyChosenBagel;
 
 @end
