@@ -67,7 +67,7 @@ static const uint32_t bagelCategory = 0x1 << 1;
 
 
 
-
+#pragma mark -- Gameplay Bagel Generation
 
 - (void)generateTimer
 {
@@ -169,6 +169,8 @@ static const uint32_t bagelCategory = 0x1 << 1;
    
 }
 
+#pragma mark -- Game Over Bagel Generation
+
 - (void)generateTimer2
 {
 //    [self.world enumerateChildNodesWithName:@"bage" usingBlock:^(SKNode *node, BOOL *stop) {
@@ -222,6 +224,8 @@ static const uint32_t bagelCategory = 0x1 << 1;
 }
 
 
+
+#pragma mark -- Stop Action
 
 
 
